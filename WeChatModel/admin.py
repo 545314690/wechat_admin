@@ -22,8 +22,8 @@ class KeywordAdmin(admin.ModelAdmin):
 
 class WeChatUserAdmin(admin.ModelAdmin):
     list_display = (
-        'round_head_img', 'nickname', 'alias', 'fakeid', 'crawl_history', 'crawled_history', 'monitored', 'enable',
-        'description')  # list
+        'nickname', 'alias', 'fakeid', 'crawl_history', 'crawled_history', 'monitored', 'enable',
+        'description','round_head_img')  # list
     search_fields = ('nickname', 'alias')
 
 

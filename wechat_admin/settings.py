@@ -88,10 +88,20 @@ DATABASES = {
         'NAME': 'wechat',
         'USER': 'anjian',
         'PASSWORD': 'topcom123',
-        'HOST': '115.28.72.158',
+        'HOST': '192.168.0.151',
         'PORT': '3306',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'wechat',
+#         'USER': 'anjian',
+#         'PASSWORD': 'topcom123',
+#         'HOST': '115.28.72.158',
+#         'PORT': '3306',
+#     }
+# }
 
 
 # Password validation

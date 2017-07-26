@@ -18,9 +18,9 @@ class LoginUser(models.Model):
 
 class WeChatUser(models.Model):
     nickname = models.CharField('昵称',max_length=100,unique=True)
-    alias = models.CharField('别名',max_length=100,unique=True)
+    alias = models.CharField('别名',max_length=100,unique=False)
     service_type = models.IntegerField('服务类型',default=1)
-    fakeid = models.CharField('',max_length=100,default=None,unique=True)
+    fakeid = models.CharField('biz',max_length=100,default=None,unique=True)
     round_head_img = models.URLField('头像',max_length=500,default=None)
     crawl_history = models.BooleanField('是否爬取历史文章',default=False)
     crawled_history = models.BooleanField('是否爬取过历史文章',default=False)
