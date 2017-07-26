@@ -14,7 +14,9 @@ class LoginUser(models.Model):
 
     def __unicode__(self):
         return self.name
-
+    class Meta:
+        verbose_name = '登录用户'
+        verbose_name_plural = '登录用户'
 
 class WeChatUser(models.Model):
     nickname = models.CharField('昵称',max_length=100,unique=True)
@@ -30,7 +32,9 @@ class WeChatUser(models.Model):
 
     def __unicode__(self):
         return self.nickname
-
+    class Meta:
+        verbose_name = '微信公众号'
+        verbose_name_plural = '微信公众号'
 
 class Keyword(models.Model):
     name = models.CharField('关键词',max_length=100,unique=True)
@@ -38,7 +42,9 @@ class Keyword(models.Model):
 
     def __unicode__(self):
         return self.name
-
+    class Meta:
+        verbose_name = '关键词'
+        verbose_name_plural = '关键词'
 
 class WeChatData(models.Model):
     title = models.CharField('标题',max_length=100)
@@ -51,3 +57,6 @@ class WeChatData(models.Model):
 
     def __unicode__(self):
         return self.url
+    class Meta:
+        verbose_name = '微信文章'
+        verbose_name_plural = '微信文章'
