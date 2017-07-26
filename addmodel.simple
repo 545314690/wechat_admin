@@ -1,0 +1,6 @@
+#add model
+django-admin.py startapp WeiboModel
+#make changes
+python manage.py makemigrations WeiboModel
+#commit changes to db
+python manage.py migrate WeChatModel

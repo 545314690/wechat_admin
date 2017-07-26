@@ -16,6 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+import testdb
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^test_save_user$', testdb.test_save_user),
+    url(r'^test_get_user$', testdb.test_get_user),
+    url(r'^test_update$', testdb.test_update),
+    url(r'^test_remove$', testdb.test_remove),
 ]
