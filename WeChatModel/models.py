@@ -4,6 +4,7 @@ from django.db import models
 
 
 # Create your models here.
+from django.utils.html import format_html
 from django.utils.timezone import now
 
 
@@ -32,6 +33,14 @@ class WeChatUser(models.Model):
 
     def __unicode__(self):
         return self.nickname
+
+    def head_image(self):
+        if self.round_head_img:
+            return format_html('<img src="%s" />' % self.round_head_img)
+        else:
+            return '暂无头像'
+
+    head_image.short_description = '头像'
     class Meta:
         verbose_name = '微信公众号'
         verbose_name_plural = '微信公众号'

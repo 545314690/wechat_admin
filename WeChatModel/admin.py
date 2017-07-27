@@ -1,8 +1,19 @@
+from django import forms
 from django.contrib import admin
 
 # Register your models here.
 
 from WeChatModel.models import LoginUser, Keyword, WeChatData, WeChatUser
+
+
+# 自定义表单
+class ImgForm(forms.ModelForm):
+    picture = forms.FileField(label='图片', required=False)
+
+
+# 覆盖 Django admin 代码
+def get_form(self, request, obj=None, **kwargs):
+    return ImgForm
 
 
 class LoginUserAdmin(admin.ModelAdmin):
@@ -19,8 +30,8 @@ class KeywordAdmin(admin.ModelAdmin):
 
 class WeChatUserAdmin(admin.ModelAdmin):
     list_display = (
-        'nickname', 'alias', 'fakeid', 'crawl_history', 'crawled_history', 'monitored', 'enable',
-        'description', 'round_head_img')  # list
+        'head_image', 'nickname', 'alias', 'fakeid', 'crawl_history', 'crawled_history', 'monitored', 'enable',
+        'description')  # list
     fields = (
         'nickname', 'alias', 'fakeid', ('crawl_history', 'crawled_history', 'monitored', 'enable'),
         'description', 'round_head_img')  # list

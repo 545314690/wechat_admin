@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 
 import testdb
+import task.test
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
     url(r'^test_get_user$', testdb.test_get_user),
     url(r'^test_update$', testdb.test_update),
     url(r'^test_remove$', testdb.test_remove),
+    url(r'^test_task', task.test.test_task),
 ]
