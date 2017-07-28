@@ -2,7 +2,7 @@
 #add model
 django-admin.py startapp WeiboModel
 #make changes
-python manage.py makemigrations WeiboModel
+python manage.py makemigrations WeChatModel
 #commit changes to db
 python manage.py migrate WeChatModel
 

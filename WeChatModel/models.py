@@ -11,7 +11,6 @@ from django.utils.timezone import now
 #     date_created = models.DateTimeField('创建时间', default=now())
 #     date_modified = models.DateTimeField('更新时间', default=now())
 
-
 class LoginUser(models.Model):
     name = models.CharField('用户名', max_length=100, unique=True)
     password = models.CharField('密码', max_length=100)
@@ -23,9 +22,6 @@ class LoginUser(models.Model):
     class Meta:
         verbose_name = '登录用户'
         verbose_name_plural = '登录用户'
-
-    def get_enable(self):
-        return models.UserInfo.objects.filter(enable=True)
 
 
 class WeChatUser(models.Model):

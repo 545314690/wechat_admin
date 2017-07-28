@@ -78,3 +78,6 @@ def get_code_username():
 
 def get_code_password():
     return cf.get('yundama_passwd')
+
+def get_url_save_path():
+    return cf.get('url_save_path')
