@@ -1,0 +1,71 @@
+[2017-07-27 14:45:24,812: WARNING/MainProcess] /usr/local/lib/python3.5/dist-packages/celery/apps/worker.py:161: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))
+[2017-07-27 14:45:24,902: INFO/MainProcess] Connected to redis://:**@192.168.0.8:6379/10
+[2017-07-27 14:45:24,913: INFO/MainProcess] mingle: searching for neighbors
+[2017-07-27 14:45:25,922: INFO/MainProcess] mingle: all alone
+[2017-07-27 14:45:25,940: WARNING/MainProcess] w1@lism-PC ready.
+[2017-07-27 14:45:29,086: INFO/MainProcess] Events of group {task} enabled by remote.
+[2017-07-27 14:46:43,510: INFO/MainProcess] sync with w2@lism-PC
+[2017-07-27 14:47:17,518: INFO/MainProcess] Received task: task.tasks.add[a0920a36-0a83-4474-b88b-7115106b6f2a]
+[2017-07-27 14:47:17,526: INFO/MainProcess] Task task.tasks.add[a0920a36-0a83-4474-b88b-7115106b6f2a] succeeded in 0.003922183008398861s: 4
+[2017-07-27 14:47:20,624: INFO/MainProcess] Received task: task.tasks.add[b14d534e-f2e3-4619-844b-c6619bec4428]
+[2017-07-27 14:47:20,630: INFO/MainProcess] Task task.tasks.add[b14d534e-f2e3-4619-844b-c6619bec4428] succeeded in 0.00315939198480919s: 4
+[2017-07-27 14:47:22,407: INFO/MainProcess] Received task: task.tasks.add[561e6385-779b-4fb3-a499-5494e33491ce]
+[2017-07-27 14:47:22,413: INFO/MainProcess] Task task.tasks.add[561e6385-779b-4fb3-a499-5494e33491ce] succeeded in 0.003193459997419268s: 4
+[2017-07-27 14:47:24,065: INFO/MainProcess] Received task: task.tasks.add[9097f9e3-a801-489b-9e78-6bcf269fd523]
+[2017-07-27 14:47:24,072: INFO/MainProcess] Task task.tasks.add[9097f9e3-a801-489b-9e78-6bcf269fd523] succeeded in 0.00297147105447948s: 4
+[2017-07-27 14:47:25,169: INFO/MainProcess] Received task: task.tasks.add[51054201-b05f-48b1-90d7-10e2e3253393]
+[2017-07-27 14:47:25,175: INFO/MainProcess] Task task.tasks.add[51054201-b05f-48b1-90d7-10e2e3253393] succeeded in 0.0022766219917684793s: 4
+[2017-07-27 14:47:26,122: INFO/MainProcess] Received task: task.tasks.add[09a0fa97-4853-4eaf-816b-f4aa73fb7b11]
+[2017-07-27 14:47:26,127: INFO/MainProcess] Task task.tasks.add[09a0fa97-4853-4eaf-816b-f4aa73fb7b11] succeeded in 0.0022624339908361435s: 4
+[2017-07-27 14:47:27,078: INFO/MainProcess] Received task: task.tasks.add[26455c33-e3fc-44f4-8815-0176937bceec]
+[2017-07-27 14:47:27,084: INFO/MainProcess] Task task.tasks.add[26455c33-e3fc-44f4-8815-0176937bceec] succeeded in 0.002376902033574879s: 4
+[2017-07-27 14:47:41,086: INFO/MainProcess] Received task: task.tasks.add[79f345b1-3862-4883-96a9-0e80c9756a38]
+[2017-07-27 14:47:41,092: INFO/MainProcess] Task task.tasks.add[79f345b1-3862-4883-96a9-0e80c9756a38] succeeded in 0.0022159700165502727s: 4
+[2017-07-27 14:47:41,935: INFO/MainProcess] Received task: task.tasks.add[6564e111-7dbb-4554-aef7-09410a114081]
+[2017-07-27 14:47:41,941: INFO/MainProcess] Task task.tasks.add[6564e111-7dbb-4554-aef7-09410a114081] succeeded in 0.0021553279948420823s: 4
+[2017-07-27 14:47:42,784: INFO/MainProcess] Received task: task.tasks.add[83c0c3b1-8cfa-478c-abf5-0067789db583]
+[2017-07-27 14:47:42,790: INFO/MainProcess] Task task.tasks.add[83c0c3b1-8cfa-478c-abf5-0067789db583] succeeded in 0.0022898410097695887s: 4
+[2017-07-27 14:47:43,631: INFO/MainProcess] Received task: task.tasks.add[a6756993-94b3-4a52-917c-1ed4c95c172f]
+[2017-07-27 14:47:43,637: INFO/MainProcess] Task task.tasks.add[a6756993-94b3-4a52-917c-1ed4c95c172f] succeeded in 0.0027805750141851604s: 4
+[2017-07-27 14:47:44,497: INFO/MainProcess] Received task: task.tasks.add[07fe964f-3fa6-43cd-9db8-f22fa87a7508]
+[2017-07-27 14:47:44,503: INFO/MainProcess] Task task.tasks.add[07fe964f-3fa6-43cd-9db8-f22fa87a7508] succeeded in 0.002553095982875675s: 4
+[2017-07-27 14:47:45,406: INFO/MainProcess] Received task: task.tasks.add[eaa04c2e-96ed-4446-9d09-20f3542f91e9]
+[2017-07-27 14:47:45,412: INFO/MainProcess] Task task.tasks.add[eaa04c2e-96ed-4446-9d09-20f3542f91e9] succeeded in 0.0022415900020860136s: 4
+[2017-07-27 16:01:58,412: INFO/MainProcess] sync with w3@lism-PC
+[2017-07-27 16:03:13,452: INFO/MainProcess] Received task: task.tasks.add[bc957afb-62ad-41cc-b12f-7f0b28f01eb2]
+[2017-07-27 16:03:13,457: INFO/MainProcess] Task task.tasks.add[bc957afb-62ad-41cc-b12f-7f0b28f01eb2] succeeded in 0.0022080460330471396s: 4
+[2017-07-27 16:04:11,700: INFO/MainProcess] Received task: task.tasks.add[b71df196-f09f-41b8-91f6-80a14ef261e8]
+[2017-07-27 16:04:11,718: ERROR/MainProcess] Task task.tasks.add[b71df196-f09f-41b8-91f6-80a14ef261e8] raised unexpected: TypeError("add() got an unexpected keyword argument 'queue'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() got an unexpected keyword argument 'queue'
+[2017-07-27 17:21:03,277: INFO/MainProcess] missed heartbeat from w3@lism-PC
+[2017-07-27 18:34:28,693: INFO/MainProcess] missed heartbeat from w2@lism-PC
+[2017-07-27 18:34:28,694: INFO/MainProcess] missed heartbeat from w3@lism-PC
+[2017-07-27 18:34:28,698: WARNING/MainProcess] Substantial drift from w2@lism-PC may mean clocks are out of sync.  Current drift is
+58 seconds.  [orig: 2017-07-27 18:34:28.698051 recv: 2017-07-27 18:33:30.699380]
+
+[2017-07-27 18:34:28,699: WARNING/MainProcess] Substantial drift from w3@lism-PC may mean clocks are out of sync.  Current drift is
+56 seconds.  [orig: 2017-07-27 18:34:28.699463 recv: 2017-07-27 18:33:32.701813]
+

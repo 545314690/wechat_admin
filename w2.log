@@ -1,0 +1,50 @@
+[2017-07-27 14:46:43,404: WARNING/MainProcess] /usr/local/lib/python3.5/dist-packages/celery/apps/worker.py:161: CDeprecationWarning: 
+Starting from version 3.2 Celery will refuse to accept pickle by default.
+
+The pickle serializer is a security concern as it may give attackers
+the ability to execute any command.  It's important to secure
+your broker from unauthorized access when using pickle, so we think
+that enabling pickle should require a deliberate action and not be
+the default choice.
+
+If you depend on pickle then you should set a setting to disable this
+warning and to be sure that everything will continue working
+when you upgrade to Celery 3.2::
+
+    CELERY_ACCEPT_CONTENT = ['pickle', 'json', 'msgpack', 'yaml']
+
+You must only enable the serializers that you will actually use.
+
+
+  warnings.warn(CDeprecationWarning(W_PICKLE_DEPRECATED))
+[2017-07-27 14:46:43,494: INFO/MainProcess] Connected to redis://:**@192.168.0.8:6379/10
+[2017-07-27 14:46:43,506: INFO/MainProcess] mingle: searching for neighbors
+[2017-07-27 14:46:44,515: INFO/MainProcess] mingle: sync with 1 nodes
+[2017-07-27 14:46:44,515: INFO/MainProcess] mingle: sync complete
+[2017-07-27 14:46:44,532: WARNING/MainProcess] w2@lism-PC ready.
+[2017-07-27 14:46:49,086: INFO/MainProcess] Events of group {task} enabled by remote.
+[2017-07-27 16:01:58,412: INFO/MainProcess] sync with w3@lism-PC
+[2017-07-27 16:05:14,530: INFO/MainProcess] Received task: task.tasks.add[57791d8c-8b09-422b-b9b7-89661d18664a]
+[2017-07-27 16:05:14,538: INFO/MainProcess] Task task.tasks.add[57791d8c-8b09-422b-b9b7-89661d18664a] succeeded in 0.003388573997654021s: 4
+[2017-07-27 16:05:42,859: INFO/MainProcess] Received task: task.tasks.add[86e23cc8-a645-464f-ba37-ad8c9b500a7b]
+[2017-07-27 16:05:42,866: INFO/MainProcess] Task task.tasks.add[86e23cc8-a645-464f-ba37-ad8c9b500a7b] succeeded in 0.0036772710154764354s: 4
+[2017-07-27 16:05:43,706: INFO/MainProcess] Received task: task.tasks.add[a4e1d319-7b84-4436-b94e-7a081de25d9b]
+[2017-07-27 16:05:43,712: INFO/MainProcess] Task task.tasks.add[a4e1d319-7b84-4436-b94e-7a081de25d9b] succeeded in 0.0034155729808844626s: 4
+[2017-07-27 16:05:44,727: INFO/MainProcess] Received task: task.tasks.add[ad6eb618-74de-42dd-9994-4e80af8ca1f8]
+[2017-07-27 16:05:44,734: INFO/MainProcess] Task task.tasks.add[ad6eb618-74de-42dd-9994-4e80af8ca1f8] succeeded in 0.0037124480004422367s: 4
+[2017-07-27 16:07:10,459: INFO/MainProcess] Received task: task.tasks.add[bd39fe77-3380-440c-92b9-9bb54b205310]
+[2017-07-27 16:07:10,464: INFO/MainProcess] Task task.tasks.add[bd39fe77-3380-440c-92b9-9bb54b205310] succeeded in 0.002430266991723329s: 4
+[2017-07-27 16:07:11,552: INFO/MainProcess] Received task: task.tasks.add[0d14e51e-c47c-489e-aea6-a66745adb4a6]
+[2017-07-27 16:07:11,559: INFO/MainProcess] Task task.tasks.add[0d14e51e-c47c-489e-aea6-a66745adb4a6] succeeded in 0.0031191770103760064s: 4
+[2017-07-27 16:07:28,239: INFO/MainProcess] Received task: task.tasks.add[a18c2f64-1444-4b53-a7ae-301a3d93ad23]
+[2017-07-27 16:07:28,245: INFO/MainProcess] Task task.tasks.add[a18c2f64-1444-4b53-a7ae-301a3d93ad23] succeeded in 0.0019518409972079098s: 4
+[2017-07-27 16:07:29,209: INFO/MainProcess] Received task: task.tasks.add[1033a67b-7024-45d1-b38f-ef604f413588]
+[2017-07-27 16:07:29,215: INFO/MainProcess] Task task.tasks.add[1033a67b-7024-45d1-b38f-ef604f413588] succeeded in 0.002647302986588329s: 4
+[2017-07-27 18:34:28,695: INFO/MainProcess] missed heartbeat from w1@lism-PC
+[2017-07-27 18:34:28,695: INFO/MainProcess] missed heartbeat from w3@lism-PC
+[2017-07-27 18:34:28,697: WARNING/MainProcess] Substantial drift from w1@lism-PC may mean clocks are out of sync.  Current drift is
+58 seconds.  [orig: 2017-07-27 18:34:28.697597 recv: 2017-07-27 18:33:30.699425]
+
+[2017-07-27 18:34:28,698: WARNING/MainProcess] Substantial drift from w3@lism-PC may mean clocks are out of sync.  Current drift is
+56 seconds.  [orig: 2017-07-27 18:34:28.698759 recv: 2017-07-27 18:33:32.701813]
+
