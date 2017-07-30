@@ -1,11 +1,16 @@
 # encoding=utf-8
+import os
+
+
 import json
 import random
 import re
 import time
 
+import django
 import requests
-
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "wechat_admin.settings")  # project_name 项目名称
+django.setup()
 from WeChatModel.admin import WeChatUserDao, KeywordDao
 from WeChatModel.models import WeChatUser
 from spider.db.redis_db import Cookies
@@ -37,7 +42,7 @@ def search_keyword(kw):
         logger.error("没有可用cookie。")
     else:
         token = get_token(name_cookies)
-        fetch_all(kw, 340, 5, name_cookies, token)
+        fetch_all(kw, 0, 5, name_cookies, token)
         logger.info('完成搜索公众号=========>关键词：' + kw)
         # 设置为不可用
         KeywordDao.set_enable(kw, False)
@@ -53,13 +58,12 @@ def get_total(kw, begin, count, name_cookies, token):
 def fetch_all(kw, begin, count, name_cookies, token):
     #先进行一次搜索并保存
     max_num = get_total(kw, begin, count, name_cookies, token)
-    begin += count
     while max_num > begin:
-        time.sleep(random.randint(20, 50))
+        time.sleep(random.randint(10, 15))
         logger.info('翻页###################begin=' + str(begin))
         try:
-            search_by_page(kw, begin, count, name_cookies, token)
             begin += count
+            search_by_page(kw, begin, count, name_cookies, token)
         except:
             logger.error('采集异常！！！！！！！')
 
@@ -91,3 +95,7 @@ def search_by_page(kw, begin, count, name_cookies, token):
         except:
             logger.info("保存失败："+json_str)
     return search_response.json()
+#
+#
+# if __name__ == '__main__':
+#     search_keyword('安全生产')

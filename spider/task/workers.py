@@ -12,8 +12,8 @@ worker_log_path = os.path.join(os.path.dirname(os.path.dirname(__file__)) + '/lo
 beat_log_path = os.path.join(os.path.dirname(os.path.dirname(__file__)) + '/logs', 'beat.log')
 
 tasks = ['spider.task.login', 'spider.task.gather','spider.task.keyword', 'spider.task.tasks']
-app = Celery('wechat_task', broker='redis://:topcom123@192.168.0.8:6379/10',
-             backend='redis://:topcom123@192.168.0.8:6379/11',
+app = Celery('wechat_task', broker='redis://:topcom123@localhost:6379/10',
+             backend='redis://:topcom123@localhost:6379/11',
              include=tasks)
 
 # app.conf.update(

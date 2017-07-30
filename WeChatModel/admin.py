@@ -64,6 +64,7 @@ class WeChatUserDao:
         wechat_user.service_type = json.get('service_type')
         wechat_user.round_head_img = json.get('round_head_img')
         wechat_user.fakeid = json.get('fakeid')
+        # return WeChatUser.objects.update_or_create(wechat_user)
         return WeChatUser.save(wechat_user)
 
 
@@ -76,7 +77,7 @@ class KeywordDao:
     # 设置是否启用
     @staticmethod
     def set_enable(kw, enable):
-        return WeChatUser.objects.filter(Q(name=kw)).update(enable=enable)
+        return Keyword.objects.filter(Q(name=kw)).update(enable=enable)
 
 
 admin.site.register(LoginUser, LoginUserAdmin)

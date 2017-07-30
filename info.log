@@ -1,0 +1,238 @@
+2017-07-31 01:13:52,412 - crawler - INFO - 开始search关键词=========>：0:安全生产
+2017-07-31 01:15:53,932 - crawler - INFO - 开始search关键词=========>：0:安全生产
+2017-07-31 01:16:42,012 - crawler - INFO - 开始search关键词=========>：0:安全生产
+2017-07-31 01:16:43,364 - crawler - INFO - {"fakeid": "MjM5OTI3MjI1MQ==", "nickname": "国家安全监管总局", "alias": "aqjgzj", "round_head_img": "http://mmbiz.qpic.cn/mmbiz/BXbCWOu0XvC65OEuVQIsibDHyvlxLqm8ljPxyUlID3crTWKHAo5PjS5l4jrYovAKnQI7unwaxyrub9CYoVqLoxg/0", "service_type": 1}
+2017-07-31 01:16:45,082 - crawler - INFO - {"fakeid": "MzAxODI2MzY1NQ==", "nickname": "安全生产模拟考试平台", "alias": "lulh929", "round_head_img": "http://mmbiz.qpic.cn/mmbiz/iaEpG1xfsB6vRBsR86Jur9I4qh3IMFlTy826YZ7VjvLUAHWx7QaMmAkIzTRaPHz1xq6WYaI5bnb7l5GWBGJdJpw/0", "service_type": 2}
+2017-07-31 01:16:45,204 - crawler - INFO - {"fakeid": "MjM5Mjg5NzQwMQ==", "nickname": "中国安全生产报", "alias": "www_aqsc_cn", "round_head_img": "http://mmbiz.qpic.cn/mmbiz/ia7n83nTvQKoUc7XVvnYjlFvmicfYnpQaTTsgYzdALae78Aas34oYsnIfpAvjtzibtibCbU4c5lZ9r0or76uO4YYGQ/0", "service_type": 1}
+2017-07-31 01:16:45,364 - crawler - INFO - {"fakeid": "MzAwMDE2Nzk1OQ==", "nickname": "安全生产技术", "alias": "Safety-T", "round_head_img": "http://mmbiz.qpic.cn/mmbiz/Pgldx7IwAkz00fp0APOuzd77mhriabDmscXjnNicjGRTXtuNxuGTa83XemoALJFM31xUpmJQbqg5TtdRHM1oRTnw/0", "service_type": 1}
+2017-07-31 01:16:45,499 - crawler - INFO - {"fakeid": "MzI5NjM1MTMyOA==", "nickname": "电力安全生产", "alias": "dianlianquan", "round_head_img": "http://mmbiz.qpic.cn/mmbiz/NK57wQK94oUGGV8jOVs7w84kFcyw31YU80d3nDxEUOtw2Iqe5Lv6J2OiaATMYee34yDiaCgjXYE4micfDuvypx7YA/0?wx_fmt=png", "service_type": 1}
+2017-07-31 01:38:39,735 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 01:38:39,736 - crawler - INFO - 分发账号爬取任务:安全生产
+2017-07-31 01:41:16,284 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 01:41:16,285 - crawler - INFO - 分发账号爬取任务:安全生产
+2017-07-31 01:48:34,759 - flower.command - INFO - Visit me at http://localhost:5555
+2017-07-31 01:48:34,771 - flower.command - INFO - Broker: redis://:**@localhost:6379/10
+2017-07-31 01:48:34,774 - flower.command - INFO - Registered tasks: 
+['celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'spider.task.gather.excute_crawl_history_task',
+ 'spider.task.gather.history_task',
+ 'spider.task.keyword.excute_keyword_task',
+ 'spider.task.keyword.keyword_task',
+ 'spider.task.login.excute_login_task',
+ 'spider.task.login.login_task',
+ 'spider.task.tasks.add',
+ 'spider.task.tasks.mul',
+ 'spider.task.tasks.xsum']
+2017-07-31 01:48:34,818 - kombu.mixins - INFO - Connected to redis://:**@localhost:6379/10
+2017-07-31 01:48:36,866 - flower.api.control - WARNING - 'stats' inspect method failed
+2017-07-31 01:48:36,866 - flower.api.control - WARNING - 'active_queues' inspect method failed
+2017-07-31 01:48:36,867 - flower.api.control - WARNING - 'registered' inspect method failed
+2017-07-31 01:48:36,867 - flower.api.control - WARNING - 'scheduled' inspect method failed
+2017-07-31 01:48:36,867 - flower.api.control - WARNING - 'active' inspect method failed
+2017-07-31 01:48:36,867 - flower.api.control - WARNING - 'reserved' inspect method failed
+2017-07-31 01:48:36,867 - flower.api.control - WARNING - 'revoked' inspect method failed
+2017-07-31 01:48:36,867 - flower.api.control - WARNING - 'conf' inspect method failed
+2017-07-31 03:39:24,361 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 03:39:24,362 - crawler - INFO - 分发账号爬取任务:安全生产
+2017-07-31 03:39:27,221 - tornado.general - WARNING - 404 GET /task/97febd8c-75c6-452b-90b5-39618ac8fbeb (127.0.0.1): Unknown task '97febd8c-75c6-452b-90b5-39618ac8fbeb'
+2017-07-31 03:40:31,076 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 03:40:31,076 - crawler - INFO - 分发账号爬取任务:安全生产
+2017-07-31 03:43:50,451 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 03:43:50,451 - crawler - INFO - 分发账号爬取任务:安全生产
+2017-07-31 05:19:48,507 - django.request - ERROR - Internal Server Error: /admin/WeChatModel/keyword/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 202, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 213, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 189, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 274, in get_new_connection
+    conn = Database.connect(**conn_params)
+  File "/usr/local/lib/python3.6/site-packages/mysqlclient-1.3.10-py3.6-linux-x86_64.egg/MySQLdb/__init__.py", line 86, in Connect
+    return Connection(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/mysqlclient-1.3.10-py3.6-linux-x86_64.egg/MySQLdb/connections.py", line 204, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+_mysql_exceptions.OperationalError: (2005, "Unknown MySQL server host 'bjtopcom.xicp.cn' (110)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/exception.py", line 41, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.6/site-packages/django/core/handlers/base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/options.py", line 551, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 213, in inner
+    if not self.has_permission(request):
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/admin/sites.py", line 187, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/usr/local/lib/python3.6/site-packages/django/utils/functional.py", line 238, in inner
+    self._setup()
+  File "/usr/local/lib/python3.6/site-packages/django/utils/functional.py", line 385, in _setup
+    self._wrapped = self._setupfunc()
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/__init__.py", line 210, in get_user
+    user_id = _get_user_session_key(request)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/__init__.py", line 61, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 57, in __getitem__
+    return self._session[key]
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/sessions/backends/db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 374, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 232, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 1118, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 863, in execute_sql
+    sql, params = self.as_sql()
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 420, in as_sql
+    where, w_params = self.compile(self.where) if self.where is not None else ("", [])
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 373, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/where.py", line 79, in as_sql
+    sql, params = compiler.compile(child)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 373, in compile
+    sql, params = node.as_sql(self, self.connection)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/lookups.py", line 169, in as_sql
+    lhs_sql, params = self.process_lhs(compiler, connection)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/lookups.py", line 162, in process_lhs
+    db_type = self.lhs.output_field.db_type(connection=connection)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/fields/__init__.py", line 644, in db_type
+    return connection.data_types[self.get_internal_type()] % data
+  File "/usr/local/lib/python3.6/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 174, in data_types
+    if self.features.supports_microsecond_precision:
+  File "/usr/local/lib/python3.6/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/features.py", line 53, in supports_microsecond_precision
+    return self.connection.mysql_version >= (5, 6, 4) and Database.version_info >= (1, 2, 5)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 385, in mysql_version
+    with self.temporary_connection() as cursor:
+  File "/usr/local/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 591, in temporary_connection
+    cursor = self.cursor()
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 254, in cursor
+    return self._cursor()
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 229, in _cursor
+    self.ensure_connection()
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 213, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.6/site-packages/django/utils/six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 213, in ensure_connection
+    self.connect()
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/base/base.py", line 189, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 274, in get_new_connection
+    conn = Database.connect(**conn_params)
+  File "/usr/local/lib/python3.6/site-packages/mysqlclient-1.3.10-py3.6-linux-x86_64.egg/MySQLdb/__init__.py", line 86, in Connect
+    return Connection(*args, **kwargs)
+  File "/usr/local/lib/python3.6/site-packages/mysqlclient-1.3.10-py3.6-linux-x86_64.egg/MySQLdb/connections.py", line 204, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+django.db.utils.OperationalError: (2005, "Unknown MySQL server host 'bjtopcom.xicp.cn' (110)")
+2017-07-31 05:38:28,611 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 05:38:28,611 - crawler - INFO - 分发账号爬取任务:煤矿事故
+2017-07-31 05:46:31,640 - flower.command - INFO - Visit me at http://localhost:5555
+2017-07-31 05:46:31,649 - flower.command - INFO - Broker: redis://:**@localhost:6379/10
+2017-07-31 05:46:31,651 - flower.command - INFO - Registered tasks: 
+['celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'spider.task.gather.excute_crawl_history_task',
+ 'spider.task.gather.history_task',
+ 'spider.task.keyword.excute_keyword_task',
+ 'spider.task.keyword.keyword_task',
+ 'spider.task.login.excute_login_task',
+ 'spider.task.login.login_task',
+ 'spider.task.tasks.add',
+ 'spider.task.tasks.mul',
+ 'spider.task.tasks.xsum']
+2017-07-31 05:46:31,665 - kombu.mixins - INFO - Connected to redis://:**@localhost:6379/10
+2017-07-31 05:53:03,484 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 05:53:03,485 - crawler - INFO - 分发账号爬取任务:Java
+2017-07-31 06:11:01,439 - spider.loggers.log - INFO - 本轮模拟登陆开始
+2017-07-31 06:22:02,762 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 06:22:02,762 - crawler - INFO - 分发账号爬取任务:Java
+2017-07-31 06:22:36,020 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 06:22:36,020 - crawler - INFO - 分发账号爬取任务:Java
+2017-07-31 06:48:31,984 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 06:48:31,985 - crawler - INFO - 分发账号爬取任务:Java
+2017-07-31 06:48:57,269 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 06:48:57,269 - crawler - INFO - 分发账号爬取任务:Java
+2017-07-31 06:49:22,086 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 06:49:22,086 - crawler - INFO - 分发账号爬取任务:Java
+2017-07-31 06:50:02,404 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 06:50:02,404 - crawler - INFO - 分发账号爬取任务:Java
+2017-07-31 06:51:10,291 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 06:51:10,292 - crawler - INFO - 分发账号爬取任务:Java
+2017-07-31 06:51:29,806 - flower.command - INFO - Visit me at http://localhost:5555
+2017-07-31 06:51:29,816 - flower.command - INFO - Broker: redis://:**@localhost:6379/10
+2017-07-31 06:51:29,819 - flower.command - INFO - Registered tasks: 
+['celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'spider.task.gather.excute_crawl_history_task',
+ 'spider.task.gather.history_task',
+ 'spider.task.keyword.excute_keyword_task',
+ 'spider.task.keyword.keyword_task',
+ 'spider.task.login.excute_login_task',
+ 'spider.task.login.login_task',
+ 'spider.task.tasks.add',
+ 'spider.task.tasks.mul',
+ 'spider.task.tasks.xsum']
+2017-07-31 06:51:29,853 - kombu.mixins - INFO - Connected to redis://:**@localhost:6379/10
+2017-07-31 06:51:37,993 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 06:51:37,994 - crawler - INFO - 分发账号爬取任务:Java
+2017-07-31 06:54:35,284 - crawler - INFO - 本次搜索关键词个数:1
+2017-07-31 06:54:35,284 - crawler - INFO - 分发账号爬取任务:Java
+2017-07-31 07:30:58,903 - django.request - WARNING - Not Found: /favicon.ico
+2017-07-31 07:30:59,093 - django.request - WARNING - Not Found: /favicon.ico

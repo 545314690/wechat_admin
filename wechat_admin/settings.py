@@ -86,8 +86,8 @@ DATABASES = {
         'NAME': 'wechat',
         'USER': 'anjian',
         'PASSWORD': 'topcom123',
-        'HOST': '192.168.0.151',
-        'PORT': '3306',
+        'HOST': 'bjtopcom.xicp.cn',
+        'PORT': '3307',
     }
 }
 # DATABASES = {
