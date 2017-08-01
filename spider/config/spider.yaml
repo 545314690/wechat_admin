@@ -15,10 +15,10 @@ yundama_passwd: ''             # 云打码密码
 url_save_path: /home/lism/urls/
 db:
 #    host: 115.28.72.158
-#    host: 192.168.0.151
-#    port: 3306
-    host: bjtopcom.xicp.cn
-    port: 3307
+    host: 192.168.0.151
+    port: 3306
+#    host: bjtopcom.xicp.cn
+#    port: 3307
     user: anjian
     password: topcom123
     db_name: wechat
@@ -27,7 +27,8 @@ db:
 # 保存登录的cookies
 redis:
 #    host: 115.28.72.158
-    host: localhost
+    host: 192.168.0.8
+#    host: localhost
     port: 6379
     password: topcom123
     cookies: 1 # cookie存取

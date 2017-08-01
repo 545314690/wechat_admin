@@ -1,0 +1,132 @@
+# encoding=utf-8
+import json
+import os
+
+import time
+
+from bs4 import BeautifulSoup
+
+import wechat_admin.wsgi
+from WeChatModel.admin import WeChatUserDao, KeywordDao
+from WeChatModel.models import WeChatData
+from spider.config.conf import get_url_save_path
+from spider.loggers.log import crawler as logger
+from spider.service.common import *
+from spider.task import wechat_crawl
+from spider.util.json import class_to_dict
+
+url_save_path = get_url_save_path()
+
+
+# https://mp.weixin.qq.com/cgi-bin/appmsg?token=1975411548&lang=zh_CN&f=json&ajax=1&random=0.06881077661095647&action=list_ex&begin=0&count=50&query=&fakeid=MjM5MTM0NjQ2MQ%3D%3D&type=9
+# 获取总数
+def get_total(wechat_user_id, begin, count, name_cookies):
+    response = search_by_page(wechat_user_id, begin, count, name_cookies)
+    max_num = response.json().get('app_msg_cnt')
+    return max_num
+
+
+# 获取所有相关文章
+def fetch_all_url(wechat_biz, begin, count, name_cookies):
+    # 先进行一次搜索并保存
+    max_num = get_total(wechat_biz, begin, 1, name_cookies)
+    while max_num > begin:
+        search_url = get_search_wechat_url(query=wechat_biz, begin=begin, count=count)
+        logger.info(search_url)
+        wechat_crawl.excute_wechat_url_crawl_task(search_url)
+        begin += count
+    WeChatUserDao.set_history_crawled(wechat_biz)
+
+
+# 分页搜索并保存到数据库
+def search_by_page(wechat_biz, begin, count, name_cookies):
+    logger.info('开始search公众号=========>：' + str(begin) + ':' + wechat_biz)
+    login_user = name_cookies[0]
+    cookies = name_cookies[1]
+    token = cookies['token']
+    search_url = get_search_wechat_url(query=wechat_biz, begin=begin, count=count, token=token)
+    logger.info(search_url)
+    search_response = requests.get(search_url, cookies=cookies, headers=header)
+    return search_response
+
+
+# 分页搜索并保存到数据库
+def get_article_url_list(search_url):
+    random_time = random.randint(15, 30)
+    time.sleep(random_time)
+    # 通过队列获取账号的cookie
+    name_cookies = get_cookie()
+    while name_cookies == None:
+        logger.info('cookie 为空,重新获取')
+        name_cookies = get_cookie()
+
+    cookies = name_cookies[1]
+    token = cookies['token']
+    search_url = search_url + '&token=' + token
+    logger.info("searching article ==========>:" + search_url)
+    search_response = requests.get(search_url, cookies=cookies, headers=header)
+    lists = search_response.json().get('app_msg_list')
+
+    urls_file = open(url_save_path + '/urls.txt', 'a+', encoding='utf-8')
+
+    for item in lists:
+        json_str = json.dumps(item, ensure_ascii=False)
+        logger.info(json_str)
+        try:
+            urls_file.write(item.get('link') + '\n')
+        except:
+            logger.info("保存失败：" + json_str)
+
+    urls_file.close()
+
+
+def get_article(article_url):
+    print(article_url)
+    response = requests.get(article_url)
+    soup = BeautifulSoup(response.content, 'lxml')
+    html_str = str(soup)
+    try:
+        # article = soup.find('div', class_='rich_media')
+        # title = article.find('h2').get_text()
+        # meta_content = soup.find(id='meta_content')
+        # time_str = meta_content.find(id='post-date').get_text()
+        # nickname = meta_content.find_all('em')[1].get_text()
+        content_div = soup.find(id='js_content')
+        images = []
+
+        content = content_div.get_text()
+        msg_title = (re.search('(var msg_title = ")(.*)"', html_str).group(2))
+        nickname = (re.search('(var nickname = ")(.*)"', html_str).group(2))
+        alias = (re.search('(var user_name = ")(.*)"', html_str).group(2))
+        # publish_time = (re.search('(var ct = ")(.*)" ', html_str).group(2))
+        publish_time = (re.search('(var publish_time = ")(.*)" ', html_str).group(2))
+        round_head_img = (re.search('(var round_head_img = ")(.*)"', html_str).group(2))
+        ori_head_img_url = (re.search('(var ori_head_img_url = ")(.*)"', html_str).group(2))
+        msg_desc = (re.search('(var msg_desc = ")(.*)"', html_str).group(2))
+        msg_source_url = (re.search('(var msg_source_url = \')(.*)\'', html_str).group(2))
+
+        if msg_title:
+            item = WeChatData()
+            item.url = response.url
+            item.title = msg_title
+            item.nickname = nickname
+            item.alias = alias
+            item.publish_time = publish_time
+            item.round_head_img = round_head_img
+            item.ori_head_img_url = ori_head_img_url
+            item.msg_desc = msg_desc
+            item.msg_source_url = msg_source_url
+            item.content = content
+            #保存
+            WeChatData.save(item)
+            dic = class_to_dict(item)
+            urls_file = open(url_save_path + '/articles.txt', 'a+', encoding='utf-8')
+            urls_file.writelines(str(dic) + '\n')
+            urls_file.close()
+    except Exception as e:
+        logger.error(e)
+
+
+if __name__ == '__main__':
+    get_article(
+        'https://mp.weixin.qq.com/s?__biz=MjM5MTM0NjQ2MQ==&mid=2650140341&idx=1&sn=3c964be4fb3023e6989bb00330f2f00b&chksm=beb7b4c789c03dd17f068a511e247847d27d67d2e606072db534d6f327f6ec41e8224b71f388#rd')

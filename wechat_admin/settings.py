@@ -24,8 +24,10 @@ SECRET_KEY = ')eh35!-%(@%o0q6unr8#a$44l6+&y14(5m#y&ug)-h@#usy=x3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = [
+    '*',  # Allow domain and subdomains
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -86,8 +88,8 @@ DATABASES = {
         'NAME': 'wechat',
         'USER': 'anjian',
         'PASSWORD': 'topcom123',
-        'HOST': 'bjtopcom.xicp.cn',
-        'PORT': '3307',
+        'HOST': '192.168.0.151',
+        'PORT': '3306',
     }
 }
 # DATABASES = {

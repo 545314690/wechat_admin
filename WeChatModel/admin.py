@@ -53,7 +53,7 @@ class WeChatUserDao:
     # 设置为爬取过历史
     @staticmethod
     def set_history_crawled(account):
-        return WeChatUser.objects.filter(Q(alias=account) | Q(nickname=account)).update(crawled_history=True)
+        return WeChatUser.objects.filter(Q(fakeid=account)).update(crawled_history=True)
 
     #
     @staticmethod

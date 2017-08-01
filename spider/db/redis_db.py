@@ -28,8 +28,9 @@ class Cookies(object):
         for i in range(cls.rd_con.llen('account_queue')):
             name = cls.rd_con.rpop('account_queue').decode('utf-8')
             if name:
-                j_account = cls.rd_con.hget('account', name).decode('utf-8')
+                j_account = cls.rd_con.hget('account', name)
                 if j_account:
+                    j_account = j_account.decode('utf-8')
                     cls.rd_con.lpush('account_queue', name)  # 当账号不存在时，这个name也会清除，并取下一个name
                     account = json.loads(j_account)
                     login_time = datetime.datetime.fromtimestamp(account['loginTime'])

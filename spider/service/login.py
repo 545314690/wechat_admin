@@ -3,8 +3,8 @@ from selenium import webdriver
 import time
 
 from spider.db.redis_db import Cookies
-
-
+from spider.loggers.log import login
+from spider.service.common import get_token_by_cookies
 def do_wechat_login(name, password):
     wechat_login_page = 'https://mp.weixin.qq.com/'
     post = {}
@@ -32,7 +32,14 @@ def do_wechat_login(name, password):
         post[cookie_item['name']] = cookie_item['value']
     # 判断是否登录成功,保存cookie
     if (post['data_ticket'] != None):
+        #根据cookies 获取token，只需要带上cookie访问首页
+        token = get_token_by_cookies(post)
+        post['token'] = token
+        #保存cookie
         Cookies.store_cookies(name, post)
+        login.info(name + "登录成功！")
+    else:
+        login.error(name + "登录失败！")
         # cookie_str = json.dumps(post)
         # with open('cookie.txt', 'w+', encoding='utf-8') as f:
         #     f.write(cookie_str)

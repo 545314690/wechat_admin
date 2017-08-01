@@ -17,9 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 
 import testdb
-from spider.controller.spider_controller import gather_history, search_keyword,login
-from spider.controller.spider_controller import test_task
-from WeChatModel.views import index
+from WeChatModel.views import test_task, index,gather_history, search_keyword,login
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^test_save_user$', testdb.test_save_user),

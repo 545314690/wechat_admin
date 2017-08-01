@@ -2764,3 +2764,1092 @@ AttributeError: 'NoneType' object has no attribute 'decode'
 [2017-07-31 07:43:36,810: INFO/Worker-1] 翻页###################begin=650
 [2017-07-31 07:43:36,810: INFO/Worker-1] 开始search关键词=========>：650:Java
 [2017-07-31 07:43:37,147: ERROR/Worker-1] 采集异常！！！！！！！
+[2017-07-31 12:01:31,739: INFO/MainProcess] Connected to redis://:**@192.168.0.8:6379/5
+[2017-07-31 12:01:31,776: INFO/MainProcess] mingle: searching for neighbors
+[2017-07-31 12:01:32,784: INFO/MainProcess] mingle: all alone
+[2017-07-31 12:01:32,828: WARNING/MainProcess] /usr/local/lib/python3.5/dist-packages/celery/fixups/django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never '
+
+[2017-07-31 12:01:32,829: WARNING/MainProcess] celery@lism-PC ready.
+[2017-07-31 12:02:07,257: INFO/MainProcess] Events of group {task} enabled by remote.
+[2017-07-31 12:03:14,665: INFO/MainProcess] Received task: spider.task.tasks.add[82aef3ca-d3c3-4c50-a460-d00ed93779be]
+[2017-07-31 12:03:14,726: ERROR/MainProcess] Task spider.task.tasks.add[82aef3ca-d3c3-4c50-a460-d00ed93779be] raised unexpected: ZeroDivisionError('division by zero',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/lism/my/projects/wechat_admin/spider/task/tasks.py", line 6, in add
+    return x / y
+ZeroDivisionError: division by zero
+[2017-07-31 12:04:47,032: WARNING/MainProcess] Error in atexit._run_exitfuncs:
+[2017-07-31 12:04:47,033: WARNING/MainProcess] Traceback (most recent call last):
+[2017-07-31 12:04:47,033: WARNING/MainProcess] File "/usr/lib/python3.5/multiprocessing/util.py", line 254, in _run_finalizers
+[2017-07-31 12:04:47,074: WARNING/MainProcess] finalizer()
+[2017-07-31 12:04:47,075: WARNING/MainProcess] File "/usr/lib/python3.5/multiprocessing/util.py", line 186, in __call__
+[2017-07-31 12:04:47,075: WARNING/MainProcess] res = self._callback(*self._args, **self._kwargs)
+[2017-07-31 12:04:47,075: WARNING/MainProcess] File "/usr/local/lib/python3.5/dist-packages/billiard/pool.py", line 1572, in _terminate_pool
+[2017-07-31 12:04:47,085: WARNING/MainProcess] cls._help_stuff_finish(*help_stuff_finish_args)
+[2017-07-31 12:04:47,085: WARNING/MainProcess] File "/usr/local/lib/python3.5/dist-packages/celery/concurrency/asynpool.py", line 1259, in _help_stuff_finish
+[2017-07-31 12:04:47,093: WARNING/MainProcess] readable, _, again = _select(inqR, timeout=0.5)
+[2017-07-31 12:04:47,093: WARNING/MainProcess] File "/usr/local/lib/python3.5/dist-packages/celery/concurrency/asynpool.py", line 141, in _select
+[2017-07-31 12:04:47,093: WARNING/MainProcess] r, w, e = select.select(readers, writers, err, timeout)
+[2017-07-31 12:04:47,093: WARNING/MainProcess] File "/usr/local/lib/python3.5/dist-packages/celery/apps/worker.py", line 293, in _handle_request
+[2017-07-31 12:04:47,094: WARNING/MainProcess] raise exc()
+[2017-07-31 12:04:47,094: WARNING/MainProcess] celery.exceptions
+[2017-07-31 12:04:47,094: WARNING/MainProcess] .
+[2017-07-31 12:04:47,094: WARNING/MainProcess] WorkerTerminate
+[2017-07-31 12:04:49,834: INFO/MainProcess] Connected to redis://:**@192.168.0.8:6379/5
+[2017-07-31 12:04:49,854: INFO/MainProcess] mingle: searching for neighbors
+[2017-07-31 12:04:50,861: INFO/MainProcess] mingle: all alone
+[2017-07-31 12:04:50,881: WARNING/MainProcess] /usr/local/lib/python3.5/dist-packages/celery/fixups/django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never '
+
+[2017-07-31 12:04:50,881: WARNING/MainProcess] celery@lism-PC ready.
+[2017-07-31 12:04:52,245: INFO/MainProcess] Events of group {task} enabled by remote.
+[2017-07-31 12:05:08,448: INFO/MainProcess] Received task: spider.task.tasks.add[b57e274e-1b2a-4482-922d-01971826cd60]
+[2017-07-31 12:05:08,544: ERROR/MainProcess] Task spider.task.tasks.add[b57e274e-1b2a-4482-922d-01971826cd60] raised unexpected: EncodeError(TypeError(TypeError('<generator object add at 0x7f6e55f7b360> is not JSON serializable',),),)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 283, in trace_task
+    uuid, retval, SUCCESS, request=task_request,
+  File "/usr/local/lib/python3.5/dist-packages/celery/backends/base.py", line 271, in store_result
+    request=request, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/backends/base.py", line 505, in _store_result
+    self.set(self.get_key_for_task(task_id), self.encode(meta))
+  File "/usr/local/lib/python3.5/dist-packages/celery/backends/base.py", line 195, in encode
+    _, _, payload = dumps(data, serializer=self.serializer)
+  File "/usr/local/lib/python3.5/dist-packages/kombu/serialization.py", line 164, in dumps
+    payload = encoder(data)
+  File "/usr/lib/python3.5/contextlib.py", line 77, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.5/dist-packages/kombu/serialization.py", line 59, in _reraise_errors
+    reraise(wrapper, wrapper(exc), sys.exc_info()[2])
+  File "/usr/local/lib/python3.5/dist-packages/kombu/five.py", line 131, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.5/dist-packages/kombu/serialization.py", line 55, in _reraise_errors
+    yield
+  File "/usr/local/lib/python3.5/dist-packages/kombu/serialization.py", line 164, in dumps
+    payload = encoder(data)
+  File "/usr/local/lib/python3.5/dist-packages/anyjson/__init__.py", line 141, in dumps
+    return implementation.dumps(value)
+  File "/usr/local/lib/python3.5/dist-packages/anyjson/__init__.py", line 89, in dumps
+    raise TypeError(TypeError(*exc.args)).with_traceback(sys.exc_info()[2])
+  File "/usr/local/lib/python3.5/dist-packages/anyjson/__init__.py", line 87, in dumps
+    return self._encode(data)
+  File "/usr/lib/python3.5/json/__init__.py", line 230, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.5/json/encoder.py", line 198, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.5/json/encoder.py", line 256, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.5/json/encoder.py", line 179, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+kombu.exceptions.EncodeError: <generator object add at 0x7f6e55f7b360> is not JSON serializable
+[2017-07-31 12:08:09,340: WARNING/MainProcess] Error in atexit._run_exitfuncs:
+[2017-07-31 12:08:09,340: WARNING/MainProcess] Traceback (most recent call last):
+[2017-07-31 12:08:09,340: WARNING/MainProcess] File "/usr/lib/python3.5/multiprocessing/util.py", line 254, in _run_finalizers
+[2017-07-31 12:08:09,340: WARNING/MainProcess] finalizer()
+[2017-07-31 12:08:09,341: WARNING/MainProcess] File "/usr/lib/python3.5/multiprocessing/util.py", line 186, in __call__
+[2017-07-31 12:08:09,341: WARNING/MainProcess] res = self._callback(*self._args, **self._kwargs)
+[2017-07-31 12:08:09,341: WARNING/MainProcess] File "/usr/local/lib/python3.5/dist-packages/billiard/pool.py", line 1572, in _terminate_pool
+[2017-07-31 12:08:09,341: WARNING/MainProcess] cls._help_stuff_finish(*help_stuff_finish_args)
+[2017-07-31 12:08:09,342: WARNING/MainProcess] File "/usr/local/lib/python3.5/dist-packages/celery/concurrency/asynpool.py", line 1259, in _help_stuff_finish
+[2017-07-31 12:08:09,342: WARNING/MainProcess] readable, _, again = _select(inqR, timeout=0.5)
+[2017-07-31 12:08:09,342: WARNING/MainProcess] File "/usr/local/lib/python3.5/dist-packages/celery/concurrency/asynpool.py", line 141, in _select
+[2017-07-31 12:08:09,342: WARNING/MainProcess] r, w, e = select.select(readers, writers, err, timeout)
+[2017-07-31 12:08:09,342: WARNING/MainProcess] File "/usr/local/lib/python3.5/dist-packages/celery/apps/worker.py", line 293, in _handle_request
+[2017-07-31 12:08:09,343: WARNING/MainProcess] raise exc()
+[2017-07-31 12:08:09,343: WARNING/MainProcess] celery.exceptions
+[2017-07-31 12:08:09,343: WARNING/MainProcess] .
+[2017-07-31 12:08:09,343: WARNING/MainProcess] WorkerTerminate
+[2017-07-31 12:08:11,202: INFO/MainProcess] Connected to redis://:**@192.168.0.8:6379/5
+[2017-07-31 12:08:11,215: INFO/MainProcess] mingle: searching for neighbors
+[2017-07-31 12:08:12,223: INFO/MainProcess] mingle: all alone
+[2017-07-31 12:08:12,241: WARNING/MainProcess] /usr/local/lib/python3.5/dist-packages/celery/fixups/django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never '
+
+[2017-07-31 12:08:12,242: WARNING/MainProcess] celery@lism-PC ready.
+[2017-07-31 12:08:17,244: INFO/MainProcess] Events of group {task} enabled by remote.
+[2017-07-31 12:08:17,874: INFO/MainProcess] Received task: spider.task.tasks.add[aa2245db-8424-4589-a76d-9100efddd2a5]
+[2017-07-31 12:08:17,900: INFO/MainProcess] Received task: spider.task.tasks.add[aa2245db-8424-4589-a76d-9100efddd2a5] eta:[2017-07-31 12:11:17.886027+08:00]
+[2017-07-31 12:08:17,926: INFO/MainProcess] Task spider.task.tasks.add[aa2245db-8424-4589-a76d-9100efddd2a5] retry: Retry in 180s: ZeroDivisionError('division by zero',)
+[2017-07-31 12:08:46,924: INFO/MainProcess] Received task: spider.task.tasks.add[5444b0fa-4bd9-46ca-b6fa-99fa094160a3]
+[2017-07-31 12:08:46,930: INFO/MainProcess] Received task: spider.task.tasks.add[5444b0fa-4bd9-46ca-b6fa-99fa094160a3] eta:[2017-07-31 12:11:46.926624+08:00]
+[2017-07-31 12:08:46,934: INFO/MainProcess] Task spider.task.tasks.add[5444b0fa-4bd9-46ca-b6fa-99fa094160a3] retry: Retry in 180s: ZeroDivisionError('division by zero',)
+[2017-07-31 12:09:20,088: INFO/MainProcess] Received task: spider.task.tasks.add[4eac5b38-b69b-4a8a-8484-6178a6470736]
+[2017-07-31 12:09:20,101: INFO/MainProcess] Received task: spider.task.tasks.add[4eac5b38-b69b-4a8a-8484-6178a6470736] eta:[2017-07-31 12:12:20.094806+08:00]
+[2017-07-31 12:09:20,113: INFO/MainProcess] Task spider.task.tasks.add[4eac5b38-b69b-4a8a-8484-6178a6470736] retry: Retry in 180s: ZeroDivisionError('division by zero',)
+[2017-07-31 12:11:18,470: INFO/MainProcess] Received task: spider.task.tasks.add[aa2245db-8424-4589-a76d-9100efddd2a5] eta:[2017-07-31 12:14:18.466819+08:00]
+[2017-07-31 12:11:18,474: INFO/MainProcess] Task spider.task.tasks.add[aa2245db-8424-4589-a76d-9100efddd2a5] retry: Retry in 180s: ZeroDivisionError('division by zero',)
+[2017-07-31 12:11:47,248: INFO/MainProcess] Received task: spider.task.tasks.add[5444b0fa-4bd9-46ca-b6fa-99fa094160a3] eta:[2017-07-31 12:14:47.245022+08:00]
+[2017-07-31 12:11:47,252: INFO/MainProcess] Task spider.task.tasks.add[5444b0fa-4bd9-46ca-b6fa-99fa094160a3] retry: Retry in 180s: ZeroDivisionError('division by zero',)
+[2017-07-31 12:12:20,548: INFO/MainProcess] Received task: spider.task.tasks.add[4eac5b38-b69b-4a8a-8484-6178a6470736] eta:[2017-07-31 12:15:20.544489+08:00]
+[2017-07-31 12:12:20,552: INFO/MainProcess] Task spider.task.tasks.add[4eac5b38-b69b-4a8a-8484-6178a6470736] retry: Retry in 180s: ZeroDivisionError('division by zero',)
+[2017-07-31 12:14:18,688: INFO/MainProcess] Received task: spider.task.tasks.add[aa2245db-8424-4589-a76d-9100efddd2a5] eta:[2017-07-31 12:17:18.684938+08:00]
+[2017-07-31 12:14:18,693: INFO/MainProcess] Task spider.task.tasks.add[aa2245db-8424-4589-a76d-9100efddd2a5] retry: Retry in 180s: ZeroDivisionError('division by zero',)
+[2017-07-31 12:14:47,305: INFO/MainProcess] Received task: spider.task.tasks.add[5444b0fa-4bd9-46ca-b6fa-99fa094160a3] eta:[2017-07-31 12:17:47.301689+08:00]
+[2017-07-31 12:14:47,309: INFO/MainProcess] Task spider.task.tasks.add[5444b0fa-4bd9-46ca-b6fa-99fa094160a3] retry: Retry in 180s: ZeroDivisionError('division by zero',)
+[2017-07-31 12:15:20,769: INFO/MainProcess] Received task: spider.task.tasks.add[4eac5b38-b69b-4a8a-8484-6178a6470736] eta:[2017-07-31 12:18:20.765415+08:00]
+[2017-07-31 12:15:20,774: INFO/MainProcess] Task spider.task.tasks.add[4eac5b38-b69b-4a8a-8484-6178a6470736] retry: Retry in 180s: ZeroDivisionError('division by zero',)
+[2017-07-31 12:17:18,946: ERROR/MainProcess] Task spider.task.tasks.add[aa2245db-8424-4589-a76d-9100efddd2a5] raised unexpected: ZeroDivisionError('division by zero',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/lism/my/projects/wechat_admin/spider/task/tasks.py", line 9, in add
+    raise add.retry(exc=exc)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/task.py", line 684, in retry
+    maybe_reraise()
+  File "/usr/local/lib/python3.5/dist-packages/celery/utils/__init__.py", line 248, in maybe_reraise
+    reraise(exc_info[0], exc_info[1], exc_info[2])
+  File "/usr/local/lib/python3.5/dist-packages/celery/five.py", line 91, in reraise
+    raise value
+  File "/media/lism/my/projects/wechat_admin/spider/task/tasks.py", line 7, in add
+    return x / y
+ZeroDivisionError: division by zero
+[2017-07-31 12:17:47,334: ERROR/MainProcess] Task spider.task.tasks.add[5444b0fa-4bd9-46ca-b6fa-99fa094160a3] raised unexpected: ZeroDivisionError('division by zero',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/lism/my/projects/wechat_admin/spider/task/tasks.py", line 9, in add
+    raise add.retry(exc=exc)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/task.py", line 684, in retry
+    maybe_reraise()
+  File "/usr/local/lib/python3.5/dist-packages/celery/utils/__init__.py", line 248, in maybe_reraise
+    reraise(exc_info[0], exc_info[1], exc_info[2])
+  File "/usr/local/lib/python3.5/dist-packages/celery/five.py", line 91, in reraise
+    raise value
+  File "/media/lism/my/projects/wechat_admin/spider/task/tasks.py", line 7, in add
+    return x / y
+ZeroDivisionError: division by zero
+[2017-07-31 12:18:20,811: ERROR/MainProcess] Task spider.task.tasks.add[4eac5b38-b69b-4a8a-8484-6178a6470736] raised unexpected: ZeroDivisionError('division by zero',)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/media/lism/my/projects/wechat_admin/spider/task/tasks.py", line 9, in add
+    raise add.retry(exc=exc)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/task.py", line 684, in retry
+    maybe_reraise()
+  File "/usr/local/lib/python3.5/dist-packages/celery/utils/__init__.py", line 248, in maybe_reraise
+    reraise(exc_info[0], exc_info[1], exc_info[2])
+  File "/usr/local/lib/python3.5/dist-packages/celery/five.py", line 91, in reraise
+    raise value
+  File "/media/lism/my/projects/wechat_admin/spider/task/tasks.py", line 7, in add
+    return x / y
+ZeroDivisionError: division by zero
+[2017-07-31 13:41:08,546: INFO/MainProcess] Connected to redis://:**@192.168.0.8:6379/5
+[2017-07-31 13:41:08,559: INFO/MainProcess] mingle: searching for neighbors
+[2017-07-31 13:41:09,567: INFO/MainProcess] mingle: all alone
+[2017-07-31 13:41:09,586: WARNING/MainProcess] /usr/local/lib/python3.5/dist-packages/celery/fixups/django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never '
+
+[2017-07-31 13:41:09,587: WARNING/MainProcess] celery@lism-PC ready.
+[2017-07-31 13:41:12,243: INFO/MainProcess] Events of group {task} enabled by remote.
+[2017-07-31 13:41:43,894: INFO/MainProcess] Received task: spider.task.tasks.add[fd601725-deca-4193-af0b-d1168cfacd75]
+[2017-07-31 13:41:43,897: ERROR/Worker-1] Sending task raised: ZeroDivisionError('division by zero',)
+Traceback (most recent call last):
+  File "/media/lism/my/projects/wechat_admin/spider/task/tasks.py", line 8, in add
+    return x / y
+ZeroDivisionError: division by zero
+[2017-07-31 13:41:43,912: INFO/MainProcess] Task spider.task.tasks.add[fd601725-deca-4193-af0b-d1168cfacd75] succeeded in 0.013578133999544661s: None
+[2017-07-31 13:54:52,371: INFO/MainProcess] Connected to redis://:**@192.168.0.8:6379/5
+[2017-07-31 13:54:52,384: INFO/MainProcess] mingle: searching for neighbors
+[2017-07-31 13:54:53,392: INFO/MainProcess] mingle: all alone
+[2017-07-31 13:54:53,413: WARNING/MainProcess] /usr/local/lib/python3.5/dist-packages/celery/fixups/django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never '
+
+[2017-07-31 13:54:53,413: WARNING/MainProcess] celery@lism-PC ready.
+[2017-07-31 13:54:58,169: INFO/MainProcess] Events of group {task} enabled by remote.
+[2017-07-31 13:56:25,321: INFO/MainProcess] Received task: spider.task.tasks.add[f26230a9-2701-405b-a35a-d505f59eca5d]
+[2017-07-31 13:56:25,330: ERROR/MainProcess] Task spider.task.tasks.add[f26230a9-2701-405b-a35a-d505f59eca5d] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 13:56:35,323: INFO/MainProcess] Received task: spider.task.tasks.add[04388e5a-75f8-4d04-bf76-9fa44455a5f3]
+[2017-07-31 13:56:35,329: ERROR/MainProcess] Task spider.task.tasks.add[04388e5a-75f8-4d04-bf76-9fa44455a5f3] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 13:56:45,325: INFO/MainProcess] Received task: spider.task.tasks.add[b1f1d0c5-239b-4d83-a4fd-241ca21617f6]
+[2017-07-31 13:56:45,332: ERROR/MainProcess] Task spider.task.tasks.add[b1f1d0c5-239b-4d83-a4fd-241ca21617f6] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 13:56:55,325: INFO/MainProcess] Received task: spider.task.tasks.add[1c686967-3291-4c40-a607-63270437fc09]
+[2017-07-31 13:56:55,331: ERROR/MainProcess] Task spider.task.tasks.add[1c686967-3291-4c40-a607-63270437fc09] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 13:57:05,325: INFO/MainProcess] Received task: spider.task.tasks.add[0042949f-6531-4f11-aca1-6911e8cbd533]
+[2017-07-31 13:57:05,333: ERROR/MainProcess] Task spider.task.tasks.add[0042949f-6531-4f11-aca1-6911e8cbd533] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 13:57:15,326: INFO/MainProcess] Received task: spider.task.tasks.add[cd08c578-783a-4f6f-960d-797ec8ee71b0]
+[2017-07-31 13:57:15,332: ERROR/MainProcess] Task spider.task.tasks.add[cd08c578-783a-4f6f-960d-797ec8ee71b0] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:08,453: INFO/MainProcess] Connected to redis://:**@192.168.0.8:6379/5
+[2017-07-31 14:03:08,465: INFO/MainProcess] mingle: searching for neighbors
+[2017-07-31 14:03:09,473: INFO/MainProcess] mingle: all alone
+[2017-07-31 14:03:09,495: WARNING/MainProcess] /usr/local/lib/python3.5/dist-packages/celery/fixups/django.py:265: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never '
+
+[2017-07-31 14:03:09,496: WARNING/MainProcess] celery@lism-PC ready.
+[2017-07-31 14:03:09,502: INFO/MainProcess] Received task: spider.task.tasks.add[a246adb7-8f17-48a2-b329-5c0ff7aec10f]
+[2017-07-31 14:03:09,504: INFO/MainProcess] Received task: spider.task.tasks.add[f4e2f205-7fb4-4908-8d04-fc28b34e8d0b]
+[2017-07-31 14:03:09,508: INFO/MainProcess] Received task: spider.task.tasks.add[e9bfef32-d6c3-4a9a-86d9-a66b7c5abace]
+[2017-07-31 14:03:09,510: ERROR/MainProcess] Task spider.task.tasks.add[a246adb7-8f17-48a2-b329-5c0ff7aec10f] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,512: INFO/MainProcess] Received task: spider.task.tasks.add[96ead8c6-dcec-4a0d-bc83-2072967f7c9b]
+[2017-07-31 14:03:09,514: INFO/MainProcess] Received task: spider.task.tasks.add[7da5cec2-4d6c-4e80-87e8-4c131c9b5b5a]
+[2017-07-31 14:03:09,516: ERROR/MainProcess] Task spider.task.tasks.add[f4e2f205-7fb4-4908-8d04-fc28b34e8d0b] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,518: INFO/MainProcess] Received task: spider.task.tasks.add[5490c845-e6d2-427f-ae41-f7306461bf29]
+[2017-07-31 14:03:09,520: ERROR/MainProcess] Task spider.task.tasks.add[e9bfef32-d6c3-4a9a-86d9-a66b7c5abace] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,522: INFO/MainProcess] Received task: spider.task.tasks.add[a752b7cf-7e4f-475f-91ba-87978930d860]
+[2017-07-31 14:03:09,524: ERROR/MainProcess] Task spider.task.tasks.add[96ead8c6-dcec-4a0d-bc83-2072967f7c9b] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,526: INFO/MainProcess] Received task: spider.task.tasks.add[ce49b97b-8328-45a1-a227-75993439dea0]
+[2017-07-31 14:03:09,527: ERROR/MainProcess] Task spider.task.tasks.add[7da5cec2-4d6c-4e80-87e8-4c131c9b5b5a] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,530: INFO/MainProcess] Received task: spider.task.tasks.add[9b6463a7-12a0-4727-9f1b-b19033804ed3]
+[2017-07-31 14:03:09,531: ERROR/MainProcess] Task spider.task.tasks.add[5490c845-e6d2-427f-ae41-f7306461bf29] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,534: INFO/MainProcess] Received task: spider.task.tasks.add[f60c16b5-0d8a-4111-bb6d-c886d305e0ac]
+[2017-07-31 14:03:09,535: ERROR/MainProcess] Task spider.task.tasks.add[a752b7cf-7e4f-475f-91ba-87978930d860] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,538: INFO/MainProcess] Received task: spider.task.tasks.add[eb7d221d-b79d-4b3e-a4a6-0919a385e9c9]
+[2017-07-31 14:03:09,539: ERROR/MainProcess] Task spider.task.tasks.add[ce49b97b-8328-45a1-a227-75993439dea0] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,542: INFO/MainProcess] Received task: spider.task.tasks.add[1d4bef64-f8e2-4ba1-bf3f-a65cb5df07df]
+[2017-07-31 14:03:09,543: ERROR/MainProcess] Task spider.task.tasks.add[9b6463a7-12a0-4727-9f1b-b19033804ed3] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,546: INFO/MainProcess] Received task: spider.task.tasks.add[4be4327c-9617-4669-ac37-13b4d0f415d5]
+[2017-07-31 14:03:09,547: ERROR/MainProcess] Task spider.task.tasks.add[f60c16b5-0d8a-4111-bb6d-c886d305e0ac] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,550: INFO/MainProcess] Received task: spider.task.tasks.add[94e9e70d-3cd7-48f4-9a4c-353d4c603189]
+[2017-07-31 14:03:09,551: ERROR/MainProcess] Task spider.task.tasks.add[eb7d221d-b79d-4b3e-a4a6-0919a385e9c9] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,554: INFO/MainProcess] Received task: spider.task.tasks.add[217f39a2-5794-4828-b935-602757d05b4a]
+[2017-07-31 14:03:09,555: ERROR/MainProcess] Task spider.task.tasks.add[1d4bef64-f8e2-4ba1-bf3f-a65cb5df07df] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,557: INFO/MainProcess] Received task: spider.task.tasks.add[4917d532-1d55-49d8-9255-588b4330e215]
+[2017-07-31 14:03:09,559: ERROR/MainProcess] Task spider.task.tasks.add[4be4327c-9617-4669-ac37-13b4d0f415d5] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,561: INFO/MainProcess] Received task: spider.task.tasks.add[f499a3aa-9f1f-44d8-94c6-1b780938d080]
+[2017-07-31 14:03:09,562: ERROR/MainProcess] Task spider.task.tasks.add[94e9e70d-3cd7-48f4-9a4c-353d4c603189] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,565: INFO/MainProcess] Received task: spider.task.tasks.add[859a6720-5909-4600-a247-065f5639e065]
+[2017-07-31 14:03:09,566: ERROR/MainProcess] Task spider.task.tasks.add[217f39a2-5794-4828-b935-602757d05b4a] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,568: INFO/MainProcess] Received task: spider.task.tasks.add[3388700b-5512-477c-8f83-dfd9aaef72bd]
+[2017-07-31 14:03:09,569: ERROR/MainProcess] Task spider.task.tasks.add[4917d532-1d55-49d8-9255-588b4330e215] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,572: INFO/MainProcess] Received task: spider.task.tasks.add[d6de8c4b-c90c-416d-b812-1b823bc5ca3b]
+[2017-07-31 14:03:09,573: ERROR/MainProcess] Task spider.task.tasks.add[f499a3aa-9f1f-44d8-94c6-1b780938d080] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,575: INFO/MainProcess] Received task: spider.task.tasks.add[523ea196-03bd-4ea4-8d10-06cb91a79f16]
+[2017-07-31 14:03:09,576: ERROR/MainProcess] Task spider.task.tasks.add[859a6720-5909-4600-a247-065f5639e065] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,579: INFO/MainProcess] Received task: spider.task.tasks.add[0f51bde2-9190-48d4-97fc-e2ada6b04928]
+[2017-07-31 14:03:09,580: ERROR/MainProcess] Task spider.task.tasks.add[3388700b-5512-477c-8f83-dfd9aaef72bd] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,583: INFO/MainProcess] Received task: spider.task.tasks.add[8f98a158-0816-4b6c-a7be-2181f50ebd0a]
+[2017-07-31 14:03:09,584: ERROR/MainProcess] Task spider.task.tasks.add[d6de8c4b-c90c-416d-b812-1b823bc5ca3b] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,586: INFO/MainProcess] Received task: spider.task.tasks.add[8ffe9da3-3118-485c-94f1-f4fcbd315fb3]
+[2017-07-31 14:03:09,588: ERROR/MainProcess] Task spider.task.tasks.add[523ea196-03bd-4ea4-8d10-06cb91a79f16] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,590: INFO/MainProcess] Received task: spider.task.tasks.add[3e6436b6-cdd7-4480-bc80-57f9f0952872]
+[2017-07-31 14:03:09,591: ERROR/MainProcess] Task spider.task.tasks.add[0f51bde2-9190-48d4-97fc-e2ada6b04928] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,593: INFO/MainProcess] Received task: spider.task.tasks.add[a07533a9-6b9b-41f7-a18d-3096652d7599]
+[2017-07-31 14:03:09,595: ERROR/MainProcess] Task spider.task.tasks.add[8f98a158-0816-4b6c-a7be-2181f50ebd0a] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,597: INFO/MainProcess] Received task: spider.task.tasks.add[89e631b0-42bd-473e-acb7-ca89d6cc1ac4]
+[2017-07-31 14:03:09,598: ERROR/MainProcess] Task spider.task.tasks.add[8ffe9da3-3118-485c-94f1-f4fcbd315fb3] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,600: INFO/MainProcess] Received task: spider.task.tasks.add[2add19ca-57e5-42f8-b7f2-0e5eb7f1a84c]
+[2017-07-31 14:03:09,602: ERROR/MainProcess] Task spider.task.tasks.add[3e6436b6-cdd7-4480-bc80-57f9f0952872] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,604: INFO/MainProcess] Received task: spider.task.tasks.add[0bb398db-5a81-48db-ae22-2127fa425050]
+[2017-07-31 14:03:09,605: ERROR/MainProcess] Task spider.task.tasks.add[a07533a9-6b9b-41f7-a18d-3096652d7599] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,608: INFO/MainProcess] Received task: spider.task.tasks.add[771206d6-7659-419e-82c4-137578557fb1]
+[2017-07-31 14:03:09,609: ERROR/MainProcess] Task spider.task.tasks.add[89e631b0-42bd-473e-acb7-ca89d6cc1ac4] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,611: INFO/MainProcess] Received task: spider.task.tasks.add[5ed87ab2-4670-4325-a3e2-5097417b8b00]
+[2017-07-31 14:03:09,612: ERROR/MainProcess] Task spider.task.tasks.add[2add19ca-57e5-42f8-b7f2-0e5eb7f1a84c] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,615: INFO/MainProcess] Received task: spider.task.tasks.add[cf03ed0b-55ae-4f57-a7b9-846c17f6b575]
+[2017-07-31 14:03:09,616: ERROR/MainProcess] Task spider.task.tasks.add[0bb398db-5a81-48db-ae22-2127fa425050] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,618: INFO/MainProcess] Received task: spider.task.tasks.add[c5e10fb3-275c-48fb-a34c-3d0e534acc19]
+[2017-07-31 14:03:09,619: ERROR/MainProcess] Task spider.task.tasks.add[771206d6-7659-419e-82c4-137578557fb1] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,622: INFO/MainProcess] Received task: spider.task.tasks.add[9b10a5e2-e567-4100-bf0a-6a53af6f63ba]
+[2017-07-31 14:03:09,623: ERROR/MainProcess] Task spider.task.tasks.add[5ed87ab2-4670-4325-a3e2-5097417b8b00] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,625: INFO/MainProcess] Received task: spider.task.tasks.add[17392d07-9981-4750-b361-6d0b4a409254]
+[2017-07-31 14:03:09,626: ERROR/MainProcess] Task spider.task.tasks.add[cf03ed0b-55ae-4f57-a7b9-846c17f6b575] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,629: ERROR/MainProcess] Task spider.task.tasks.add[c5e10fb3-275c-48fb-a34c-3d0e534acc19] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,632: ERROR/MainProcess] Task spider.task.tasks.add[9b10a5e2-e567-4100-bf0a-6a53af6f63ba] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:09,635: ERROR/MainProcess] Task spider.task.tasks.add[17392d07-9981-4750-b361-6d0b4a409254] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:14,127: INFO/MainProcess] Events of group {task} enabled by remote.
+[2017-07-31 14:03:15,390: INFO/MainProcess] Received task: spider.task.tasks.add[420226bf-728b-4f3e-9456-95b73ec435bf]
+[2017-07-31 14:03:15,396: ERROR/MainProcess] Task spider.task.tasks.add[420226bf-728b-4f3e-9456-95b73ec435bf] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:25,391: INFO/MainProcess] Received task: spider.task.tasks.add[f765ca7e-8e31-4ca7-8833-55ee53dd09d3]
+[2017-07-31 14:03:25,396: ERROR/MainProcess] Task spider.task.tasks.add[f765ca7e-8e31-4ca7-8833-55ee53dd09d3] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:35,394: INFO/MainProcess] Received task: spider.task.tasks.add[e6184f52-0f7d-4464-b725-8bfa8fefe789]
+[2017-07-31 14:03:35,401: ERROR/MainProcess] Task spider.task.tasks.add[e6184f52-0f7d-4464-b725-8bfa8fefe789] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:45,394: INFO/MainProcess] Received task: spider.task.tasks.add[e69c061f-c141-4b7b-8b26-bab53cec104b]
+[2017-07-31 14:03:45,400: ERROR/MainProcess] Task spider.task.tasks.add[e69c061f-c141-4b7b-8b26-bab53cec104b] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:03:55,395: INFO/MainProcess] Received task: spider.task.tasks.add[f3f01f97-0203-4e58-b49e-ba4e051f459b]
+[2017-07-31 14:03:55,401: ERROR/MainProcess] Task spider.task.tasks.add[f3f01f97-0203-4e58-b49e-ba4e051f459b] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:04:05,398: INFO/MainProcess] Received task: spider.task.tasks.add[16f4b3c7-fef2-45e9-bb63-826ac2767fb0]
+[2017-07-31 14:04:05,405: ERROR/MainProcess] Task spider.task.tasks.add[16f4b3c7-fef2-45e9-bb63-826ac2767fb0] raised unexpected: TypeError("add() missing 2 required positional arguments: 'x' and 'y'",)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 240, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/celery/app/trace.py", line 438, in __protected_call__
+    return self.run(*args, **kwargs)
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+[2017-07-31 14:04:15,401: INFO/MainProcess] Received task: spider.task.tasks.test[c8e6e85f-b210-46c8-a142-d17f1592d055]
+[2017-07-31 14:04:15,403: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:04:15,407: INFO/MainProcess] Task spider.task.tasks.test[c8e6e85f-b210-46c8-a142-d17f1592d055] succeeded in 0.002506777000235161s: None
+[2017-07-31 14:04:25,399: INFO/MainProcess] Received task: spider.task.tasks.test[11d39530-30b0-469a-94a3-c7a0c8844488]
+[2017-07-31 14:04:25,401: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:04:25,404: INFO/MainProcess] Task spider.task.tasks.test[11d39530-30b0-469a-94a3-c7a0c8844488] succeeded in 0.0023899329989944817s: None
+[2017-07-31 14:04:35,399: INFO/MainProcess] Received task: spider.task.tasks.test[694c529e-1004-4fae-ae6d-d28fcf093a7c]
+[2017-07-31 14:04:35,401: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:04:35,404: INFO/MainProcess] Task spider.task.tasks.test[694c529e-1004-4fae-ae6d-d28fcf093a7c] succeeded in 0.002280507000250509s: None
+[2017-07-31 14:04:45,399: INFO/MainProcess] Received task: spider.task.tasks.test[08e2e3e5-6ef7-4ce5-8d9a-50cc120d903f]
+[2017-07-31 14:04:45,401: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:04:45,404: INFO/MainProcess] Task spider.task.tasks.test[08e2e3e5-6ef7-4ce5-8d9a-50cc120d903f] succeeded in 0.0022154489997774363s: None
+[2017-07-31 14:04:55,400: INFO/MainProcess] Received task: spider.task.tasks.test[2040da92-5559-404a-b8bd-5e6ea74f4b2a]
+[2017-07-31 14:04:55,402: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:04:55,406: INFO/MainProcess] Task spider.task.tasks.test[2040da92-5559-404a-b8bd-5e6ea74f4b2a] succeeded in 0.002559672999268514s: None
+[2017-07-31 14:05:05,401: INFO/MainProcess] Received task: spider.task.tasks.test[5104ca3b-17e6-4880-a3ca-814cbe18aaea]
+[2017-07-31 14:05:05,403: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:05:05,407: INFO/MainProcess] Task spider.task.tasks.test[5104ca3b-17e6-4880-a3ca-814cbe18aaea] succeeded in 0.002676583999345894s: None
+[2017-07-31 14:05:15,401: INFO/MainProcess] Received task: spider.task.tasks.test[22281199-bf74-4b81-a9fe-f091c002f84a]
+[2017-07-31 14:05:15,403: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:05:15,407: INFO/MainProcess] Task spider.task.tasks.test[22281199-bf74-4b81-a9fe-f091c002f84a] succeeded in 0.0023745180005789734s: None
+[2017-07-31 14:05:25,402: INFO/MainProcess] Received task: spider.task.tasks.test[fb41317a-cdcf-425e-a69b-3fb439e4d97d]
+[2017-07-31 14:05:25,405: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:05:25,408: INFO/MainProcess] Task spider.task.tasks.test[fb41317a-cdcf-425e-a69b-3fb439e4d97d] succeeded in 0.0024500650015397696s: None
+[2017-07-31 14:05:35,403: INFO/MainProcess] Received task: spider.task.tasks.test[e97600b2-838f-44f6-b135-5505892dfc55]
+[2017-07-31 14:05:35,405: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:05:35,409: INFO/MainProcess] Task spider.task.tasks.test[e97600b2-838f-44f6-b135-5505892dfc55] succeeded in 0.0027744930011976976s: None
+[2017-07-31 14:05:45,403: INFO/MainProcess] Received task: spider.task.tasks.test[1436e1f8-19b0-4169-abf7-e5da540e8da2]
+[2017-07-31 14:05:45,406: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:05:45,409: INFO/MainProcess] Task spider.task.tasks.test[1436e1f8-19b0-4169-abf7-e5da540e8da2] succeeded in 0.0027266960005363217s: None
+[2017-07-31 14:05:55,405: INFO/MainProcess] Received task: spider.task.tasks.test[c77aeaf9-83ad-40a1-a38a-f1435516c604]
+[2017-07-31 14:05:55,408: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:05:55,411: INFO/MainProcess] Task spider.task.tasks.test[c77aeaf9-83ad-40a1-a38a-f1435516c604] succeeded in 0.0026605339990055654s: None
+[2017-07-31 14:06:05,408: INFO/MainProcess] Received task: spider.task.tasks.test[b568189e-fba6-4afa-8d85-fd81a5432860]
+[2017-07-31 14:06:05,410: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:06:05,414: INFO/MainProcess] Task spider.task.tasks.test[b568189e-fba6-4afa-8d85-fd81a5432860] succeeded in 0.002467713000442018s: None
+[2017-07-31 14:06:15,408: INFO/MainProcess] Received task: spider.task.tasks.test[bbbe9ab3-3972-4018-84b3-17d57d690a1f]
+[2017-07-31 14:06:15,410: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:06:15,413: INFO/MainProcess] Task spider.task.tasks.test[bbbe9ab3-3972-4018-84b3-17d57d690a1f] succeeded in 0.0025588440003048163s: None
+[2017-07-31 14:06:25,410: INFO/MainProcess] Received task: spider.task.tasks.test[aaccad5e-ee63-47f7-b3b2-0e83e972c39c]
+[2017-07-31 14:06:25,413: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:06:25,417: INFO/MainProcess] Task spider.task.tasks.test[aaccad5e-ee63-47f7-b3b2-0e83e972c39c] succeeded in 0.003128881000520778s: None
+[2017-07-31 14:06:35,411: INFO/MainProcess] Received task: spider.task.tasks.test[2229631a-fc69-4cb7-8348-b61f7c77c49b]
+[2017-07-31 14:06:35,413: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:06:35,417: INFO/MainProcess] Task spider.task.tasks.test[2229631a-fc69-4cb7-8348-b61f7c77c49b] succeeded in 0.0027581489994190633s: None
+[2017-07-31 14:06:45,413: INFO/MainProcess] Received task: spider.task.tasks.test[16f4c51b-7726-4682-a866-6a92dd5d00c4]
+[2017-07-31 14:06:45,416: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:06:45,420: INFO/MainProcess] Task spider.task.tasks.test[16f4c51b-7726-4682-a866-6a92dd5d00c4] succeeded in 0.0027282169994578s: None
+[2017-07-31 14:06:55,415: INFO/MainProcess] Received task: spider.task.tasks.test[4aae9cfd-4008-4886-ac58-264f7cecf224]
+[2017-07-31 14:06:55,417: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:06:55,421: INFO/MainProcess] Task spider.task.tasks.test[4aae9cfd-4008-4886-ac58-264f7cecf224] succeeded in 0.0025704729996505193s: None
+[2017-07-31 14:07:05,415: INFO/MainProcess] Received task: spider.task.tasks.test[0324982b-1848-42f4-8a02-1c9fd589c881]
+[2017-07-31 14:07:05,419: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:07:05,423: INFO/MainProcess] Task spider.task.tasks.test[0324982b-1848-42f4-8a02-1c9fd589c881] succeeded in 0.003167160999510088s: None
+[2017-07-31 14:07:15,416: INFO/MainProcess] Received task: spider.task.tasks.test[98834e09-0600-46ff-bb12-de20c2719ac1]
+[2017-07-31 14:07:15,419: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:07:15,422: INFO/MainProcess] Task spider.task.tasks.test[98834e09-0600-46ff-bb12-de20c2719ac1] succeeded in 0.0025457140000071377s: None
+[2017-07-31 14:07:25,416: INFO/MainProcess] Received task: spider.task.tasks.test[7b05099b-859d-490d-a668-a22eb54addda]
+[2017-07-31 14:07:25,418: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:07:25,421: INFO/MainProcess] Task spider.task.tasks.test[7b05099b-859d-490d-a668-a22eb54addda] succeeded in 0.0024120239995681914s: None
+[2017-07-31 14:07:35,418: INFO/MainProcess] Received task: spider.task.tasks.test[d03e26af-23f2-4158-8112-f29b21c169a5]
+[2017-07-31 14:07:35,421: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:07:35,424: INFO/MainProcess] Task spider.task.tasks.test[d03e26af-23f2-4158-8112-f29b21c169a5] succeeded in 0.0026693740001064725s: None
+[2017-07-31 14:07:45,420: INFO/MainProcess] Received task: spider.task.tasks.test[47bb7861-2e44-4b1d-9ded-5c98d0475e52]
+[2017-07-31 14:07:45,422: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:07:45,425: INFO/MainProcess] Task spider.task.tasks.test[47bb7861-2e44-4b1d-9ded-5c98d0475e52] succeeded in 0.0022089609992690384s: None
+[2017-07-31 14:07:55,420: INFO/MainProcess] Received task: spider.task.tasks.test[c8f9c32c-114a-4268-aeaf-0473aa949140]
+[2017-07-31 14:07:55,422: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:07:55,425: INFO/MainProcess] Task spider.task.tasks.test[c8f9c32c-114a-4268-aeaf-0473aa949140] succeeded in 0.0022255799995036796s: None
+[2017-07-31 14:08:05,423: INFO/MainProcess] Received task: spider.task.tasks.test[0b5890be-da4b-4364-b296-69db2aa99412]
+[2017-07-31 14:08:05,425: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:08:05,428: INFO/MainProcess] Task spider.task.tasks.test[0b5890be-da4b-4364-b296-69db2aa99412] succeeded in 0.002384438999797567s: None
+[2017-07-31 14:08:15,423: INFO/MainProcess] Received task: spider.task.tasks.test[1d50b16d-f2b9-49b1-bc69-60bcd93ca179]
+[2017-07-31 14:08:15,425: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:08:15,428: INFO/MainProcess] Task spider.task.tasks.test[1d50b16d-f2b9-49b1-bc69-60bcd93ca179] succeeded in 0.0025542870007484453s: None
+[2017-07-31 14:08:25,425: INFO/MainProcess] Received task: spider.task.tasks.test[61c4532c-9702-4bf5-820c-13f3dee348cf]
+[2017-07-31 14:08:25,428: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:08:25,431: INFO/MainProcess] Task spider.task.tasks.test[61c4532c-9702-4bf5-820c-13f3dee348cf] succeeded in 0.002836916000887868s: None
+[2017-07-31 14:08:35,426: INFO/MainProcess] Received task: spider.task.tasks.test[e0bc353d-dac5-416f-a901-5c2eb8ec16cd]
+[2017-07-31 14:08:35,429: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:08:35,432: INFO/MainProcess] Task spider.task.tasks.test[e0bc353d-dac5-416f-a901-5c2eb8ec16cd] succeeded in 0.0025128570014203433s: None
+[2017-07-31 14:08:45,426: INFO/MainProcess] Received task: spider.task.tasks.test[4eeed922-83b6-4fc2-8372-4f37530b6fb2]
+[2017-07-31 14:08:45,428: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:08:45,431: INFO/MainProcess] Task spider.task.tasks.test[4eeed922-83b6-4fc2-8372-4f37530b6fb2] succeeded in 0.002069250998829375s: None
+[2017-07-31 14:08:55,427: INFO/MainProcess] Received task: spider.task.tasks.test[258757cd-e20f-4172-ba19-cdcfa6fee0c6]
+[2017-07-31 14:08:55,430: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:08:55,433: INFO/MainProcess] Task spider.task.tasks.test[258757cd-e20f-4172-ba19-cdcfa6fee0c6] succeeded in 0.002648215000590426s: None
+[2017-07-31 14:09:05,428: INFO/MainProcess] Received task: spider.task.tasks.test[aa3609ca-0f3a-4386-b743-ffaa0b47f6ef]
+[2017-07-31 14:09:05,431: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:09:05,434: INFO/MainProcess] Task spider.task.tasks.test[aa3609ca-0f3a-4386-b743-ffaa0b47f6ef] succeeded in 0.001954847000888549s: None
+[2017-07-31 14:09:15,429: INFO/MainProcess] Received task: spider.task.tasks.test[afb79e69-86ff-4191-a789-ee62d9a5bb66]
+[2017-07-31 14:09:15,431: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:09:15,435: INFO/MainProcess] Task spider.task.tasks.test[afb79e69-86ff-4191-a789-ee62d9a5bb66] succeeded in 0.0029371349992288742s: None
+[2017-07-31 14:09:25,429: INFO/MainProcess] Received task: spider.task.tasks.test[ca1c950a-9863-4446-b64f-2db2168050f4]
+[2017-07-31 14:09:25,431: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:09:25,434: INFO/MainProcess] Task spider.task.tasks.test[ca1c950a-9863-4446-b64f-2db2168050f4] succeeded in 0.0023121180001908215s: None
+[2017-07-31 14:09:35,430: INFO/MainProcess] Received task: spider.task.tasks.test[61477153-98a1-4276-83ae-c720e42025f7]
+[2017-07-31 14:09:35,433: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:09:35,437: INFO/MainProcess] Task spider.task.tasks.test[61477153-98a1-4276-83ae-c720e42025f7] succeeded in 0.0031890310001472244s: None
+[2017-07-31 14:09:45,430: INFO/MainProcess] Received task: spider.task.tasks.test[b10d8c79-640d-410a-a04c-c2d74693c6c7]
+[2017-07-31 14:09:45,432: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:09:45,436: INFO/MainProcess] Task spider.task.tasks.test[b10d8c79-640d-410a-a04c-c2d74693c6c7] succeeded in 0.002944533000118099s: None
+[2017-07-31 14:09:55,430: INFO/MainProcess] Received task: spider.task.tasks.test[45dce2b1-14d3-413a-a7bc-c214dc323962]
+[2017-07-31 14:09:55,432: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:09:55,435: INFO/MainProcess] Task spider.task.tasks.test[45dce2b1-14d3-413a-a7bc-c214dc323962] succeeded in 0.0019026250010938384s: None
+[2017-07-31 14:10:05,432: INFO/MainProcess] Received task: spider.task.tasks.test[0a5d1510-fd7d-4c1e-a5c9-0695216a2e39]
+[2017-07-31 14:10:05,434: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:10:05,438: INFO/MainProcess] Task spider.task.tasks.test[0a5d1510-fd7d-4c1e-a5c9-0695216a2e39] succeeded in 0.002566524999565445s: None
+[2017-07-31 14:10:15,435: INFO/MainProcess] Received task: spider.task.tasks.test[e19e76dd-4bdd-4782-aabb-89ef0ade4302]
+[2017-07-31 14:10:15,436: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:10:15,440: INFO/MainProcess] Task spider.task.tasks.test[e19e76dd-4bdd-4782-aabb-89ef0ade4302] succeeded in 0.0024046819999057334s: None
+[2017-07-31 14:10:25,435: INFO/MainProcess] Received task: spider.task.tasks.test[ba1bb7d4-c8ff-425d-91c6-173cf034d555]
+[2017-07-31 14:10:25,437: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:10:25,440: INFO/MainProcess] Task spider.task.tasks.test[ba1bb7d4-c8ff-425d-91c6-173cf034d555] succeeded in 0.002127230000041891s: None
+[2017-07-31 14:10:35,438: INFO/MainProcess] Received task: spider.task.tasks.test[334a972f-1abb-4176-ba60-73ef22deefc6]
+[2017-07-31 14:10:35,440: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:10:35,443: INFO/MainProcess] Task spider.task.tasks.test[334a972f-1abb-4176-ba60-73ef22deefc6] succeeded in 0.0022221149993129075s: None
+[2017-07-31 14:10:45,439: INFO/MainProcess] Received task: spider.task.tasks.test[c8c212bc-688a-45bc-9c58-864448b0d39d]
+[2017-07-31 14:10:45,442: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:10:45,447: INFO/MainProcess] Task spider.task.tasks.test[c8c212bc-688a-45bc-9c58-864448b0d39d] succeeded in 0.003739196999958949s: None
+[2017-07-31 14:10:55,441: INFO/MainProcess] Received task: spider.task.tasks.test[e3678f8a-3c0a-420c-bd26-e03fc0eb3dd5]
+[2017-07-31 14:10:55,443: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:10:55,446: INFO/MainProcess] Task spider.task.tasks.test[e3678f8a-3c0a-420c-bd26-e03fc0eb3dd5] succeeded in 0.0022256640004343353s: None
+[2017-07-31 14:11:05,442: INFO/MainProcess] Received task: spider.task.tasks.test[92423fb4-884b-4d6a-b32e-bedcd168a4ee]
+[2017-07-31 14:11:05,444: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:11:05,447: INFO/MainProcess] Task spider.task.tasks.test[92423fb4-884b-4d6a-b32e-bedcd168a4ee] succeeded in 0.002555772000050638s: None
+[2017-07-31 14:11:15,443: INFO/MainProcess] Received task: spider.task.tasks.test[d1cd9739-dea0-4bb3-85fe-ee56d98b6d34]
+[2017-07-31 14:11:15,445: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:11:15,449: INFO/MainProcess] Task spider.task.tasks.test[d1cd9739-dea0-4bb3-85fe-ee56d98b6d34] succeeded in 0.0023829370002204087s: None
+[2017-07-31 14:11:25,444: INFO/MainProcess] Received task: spider.task.tasks.test[ab2b9102-0ee8-4e27-80a5-ae08c1490b45]
+[2017-07-31 14:11:25,446: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:11:25,450: INFO/MainProcess] Task spider.task.tasks.test[ab2b9102-0ee8-4e27-80a5-ae08c1490b45] succeeded in 0.0025542480016156333s: None
+[2017-07-31 14:11:35,445: INFO/MainProcess] Received task: spider.task.tasks.test[c5dbf625-6f4f-4310-8704-ce8ed326f8f1]
+[2017-07-31 14:11:35,448: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:11:35,451: INFO/MainProcess] Task spider.task.tasks.test[c5dbf625-6f4f-4310-8704-ce8ed326f8f1] succeeded in 0.002025502999458695s: None
+[2017-07-31 14:11:45,446: INFO/MainProcess] Received task: spider.task.tasks.test[47615b4f-23ef-4127-8ca1-a9b0694881cd]
+[2017-07-31 14:11:45,448: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:11:45,451: INFO/MainProcess] Task spider.task.tasks.test[47615b4f-23ef-4127-8ca1-a9b0694881cd] succeeded in 0.002191182999013108s: None
+[2017-07-31 14:11:55,446: INFO/MainProcess] Received task: spider.task.tasks.test[d1c8e2b0-d1e7-4912-b144-f7607b63e73a]
+[2017-07-31 14:11:55,448: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:11:55,452: INFO/MainProcess] Task spider.task.tasks.test[d1c8e2b0-d1e7-4912-b144-f7607b63e73a] succeeded in 0.002506307999283308s: None
+[2017-07-31 14:12:05,447: INFO/MainProcess] Received task: spider.task.tasks.test[6d383562-d0e0-4ecc-8ebb-f8a69ddb0843]
+[2017-07-31 14:12:05,449: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:12:05,452: INFO/MainProcess] Task spider.task.tasks.test[6d383562-d0e0-4ecc-8ebb-f8a69ddb0843] succeeded in 0.002193372001784155s: None
+[2017-07-31 14:12:15,447: INFO/MainProcess] Received task: spider.task.tasks.test[a7180175-9c9e-4016-be54-fb4c85b316e9]
+[2017-07-31 14:12:15,449: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:12:15,452: INFO/MainProcess] Task spider.task.tasks.test[a7180175-9c9e-4016-be54-fb4c85b316e9] succeeded in 0.001982756999495905s: None
+[2017-07-31 14:12:25,450: INFO/MainProcess] Received task: spider.task.tasks.test[97c45ad0-b6c4-4d08-a7d4-97a54079ab0f]
+[2017-07-31 14:12:25,453: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:12:25,457: INFO/MainProcess] Task spider.task.tasks.test[97c45ad0-b6c4-4d08-a7d4-97a54079ab0f] succeeded in 0.003666104999865638s: None
+[2017-07-31 14:12:35,450: INFO/MainProcess] Received task: spider.task.tasks.test[075b00fe-2eef-4530-8357-15b198ef24c1]
+[2017-07-31 14:12:35,454: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:12:35,458: INFO/MainProcess] Task spider.task.tasks.test[075b00fe-2eef-4530-8357-15b198ef24c1] succeeded in 0.0025977690020226873s: None
+[2017-07-31 14:12:45,451: INFO/MainProcess] Received task: spider.task.tasks.test[105c7034-2d20-41df-9c7f-47b3a90ca376]
+[2017-07-31 14:12:45,453: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:12:45,456: INFO/MainProcess] Task spider.task.tasks.test[105c7034-2d20-41df-9c7f-47b3a90ca376] succeeded in 0.00232175999917672s: None
+[2017-07-31 14:12:55,451: INFO/MainProcess] Received task: spider.task.tasks.test[ea61f025-e7a7-418f-94bf-7149abb50ecf]
+[2017-07-31 14:12:55,454: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:12:55,456: INFO/MainProcess] Task spider.task.tasks.test[ea61f025-e7a7-418f-94bf-7149abb50ecf] succeeded in 0.0022796849989390466s: None
+[2017-07-31 14:13:05,452: INFO/MainProcess] Received task: spider.task.tasks.test[b72b538f-1bdf-46be-8bdd-e58c3d963528]
+[2017-07-31 14:13:05,455: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:13:05,458: INFO/MainProcess] Task spider.task.tasks.test[b72b538f-1bdf-46be-8bdd-e58c3d963528] succeeded in 0.002561910998338135s: None
+[2017-07-31 14:13:15,455: INFO/MainProcess] Received task: spider.task.tasks.test[5c2c41d0-118e-4e3f-a1e4-3da7d634f062]
+[2017-07-31 14:13:15,457: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:13:15,461: INFO/MainProcess] Task spider.task.tasks.test[5c2c41d0-118e-4e3f-a1e4-3da7d634f062] succeeded in 0.002820533001795411s: None
+[2017-07-31 14:13:25,455: INFO/MainProcess] Received task: spider.task.tasks.test[838de5b1-b845-49a4-b26f-abea2cf35752]
+[2017-07-31 14:13:25,457: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:13:25,461: INFO/MainProcess] Task spider.task.tasks.test[838de5b1-b845-49a4-b26f-abea2cf35752] succeeded in 0.0027070010000898037s: None
+[2017-07-31 14:13:35,456: INFO/MainProcess] Received task: spider.task.tasks.test[47cc79f5-fb24-4835-a185-74595c5af721]
+[2017-07-31 14:13:35,458: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:13:35,461: INFO/MainProcess] Task spider.task.tasks.test[47cc79f5-fb24-4835-a185-74595c5af721] succeeded in 0.002576097998826299s: None
+[2017-07-31 14:13:45,456: INFO/MainProcess] Received task: spider.task.tasks.test[e4526afa-c4f2-4f79-9187-06f487c435c9]
+[2017-07-31 14:13:45,458: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:13:45,462: INFO/MainProcess] Task spider.task.tasks.test[e4526afa-c4f2-4f79-9187-06f487c435c9] succeeded in 0.002359276000788668s: None
+[2017-07-31 14:13:55,458: INFO/MainProcess] Received task: spider.task.tasks.test[74706bcd-00aa-49c0-815e-492e9c8034eb]
+[2017-07-31 14:13:55,460: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:13:55,464: INFO/MainProcess] Task spider.task.tasks.test[74706bcd-00aa-49c0-815e-492e9c8034eb] succeeded in 0.0028125570024712943s: None
+[2017-07-31 14:14:05,458: INFO/MainProcess] Received task: spider.task.tasks.test[fe6626fd-a43e-42d2-bc4b-ecd685e50f22]
+[2017-07-31 14:14:05,461: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:14:05,468: INFO/MainProcess] Task spider.task.tasks.test[fe6626fd-a43e-42d2-bc4b-ecd685e50f22] succeeded in 0.005277244999888353s: None
+[2017-07-31 14:14:15,459: INFO/MainProcess] Received task: spider.task.tasks.test[8205409f-f6a0-40d7-82fd-874498b5d4a9]
+[2017-07-31 14:14:15,461: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:14:15,464: INFO/MainProcess] Task spider.task.tasks.test[8205409f-f6a0-40d7-82fd-874498b5d4a9] succeeded in 0.002105988998664543s: None
+[2017-07-31 14:14:25,461: INFO/MainProcess] Received task: spider.task.tasks.test[22f7e28d-ad98-4ed4-ab97-ba2ab53a8913]
+[2017-07-31 14:14:25,464: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:14:25,467: INFO/MainProcess] Task spider.task.tasks.test[22f7e28d-ad98-4ed4-ab97-ba2ab53a8913] succeeded in 0.0026911720015050378s: None
+[2017-07-31 14:14:35,462: INFO/MainProcess] Received task: spider.task.tasks.test[504d5da2-ce52-4b73-bb01-dac4b32f4b14]
+[2017-07-31 14:14:35,464: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:14:35,467: INFO/MainProcess] Task spider.task.tasks.test[504d5da2-ce52-4b73-bb01-dac4b32f4b14] succeeded in 0.0022052929998608306s: None
+[2017-07-31 14:14:45,462: INFO/MainProcess] Received task: spider.task.tasks.test[59fd3b90-6a62-4f23-83a6-a0dda0f39eda]
+[2017-07-31 14:14:45,465: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:14:45,468: INFO/MainProcess] Task spider.task.tasks.test[59fd3b90-6a62-4f23-83a6-a0dda0f39eda] succeeded in 0.0026432220001879614s: None
+[2017-07-31 14:14:55,463: INFO/MainProcess] Received task: spider.task.tasks.test[f31c6925-f5b5-445f-92cd-69322d5f18c7]
+[2017-07-31 14:14:55,465: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:14:55,468: INFO/MainProcess] Task spider.task.tasks.test[f31c6925-f5b5-445f-92cd-69322d5f18c7] succeeded in 0.002320892999705393s: None
+[2017-07-31 14:15:05,464: INFO/MainProcess] Received task: spider.task.tasks.test[5beffced-c981-442c-8536-4fdba6202120]
+[2017-07-31 14:15:05,466: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:15:05,469: INFO/MainProcess] Task spider.task.tasks.test[5beffced-c981-442c-8536-4fdba6202120] succeeded in 0.0025102180006797425s: None
+[2017-07-31 14:15:15,466: INFO/MainProcess] Received task: spider.task.tasks.test[8a4e336c-c237-413e-a667-2ba1c0e6ab35]
+[2017-07-31 14:15:15,468: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:15:15,471: INFO/MainProcess] Task spider.task.tasks.test[8a4e336c-c237-413e-a667-2ba1c0e6ab35] succeeded in 0.001961891997780185s: None
+[2017-07-31 14:15:25,466: INFO/MainProcess] Received task: spider.task.tasks.test[c6a0c3f8-8e8c-48a3-a74c-ee621f82bcb9]
+[2017-07-31 14:15:25,468: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:15:25,471: INFO/MainProcess] Task spider.task.tasks.test[c6a0c3f8-8e8c-48a3-a74c-ee621f82bcb9] succeeded in 0.0026468750002095476s: None
+[2017-07-31 14:15:35,468: INFO/MainProcess] Received task: spider.task.tasks.test[1fb74953-d23e-4ac9-9939-dbb3ff5795c6]
+[2017-07-31 14:15:35,470: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:15:35,476: INFO/MainProcess] Task spider.task.tasks.test[1fb74953-d23e-4ac9-9939-dbb3ff5795c6] succeeded in 0.004362278999906266s: None
+[2017-07-31 14:15:45,468: INFO/MainProcess] Received task: spider.task.tasks.test[bdac0f43-d20f-4dee-8e8c-f7ad22be3764]
+[2017-07-31 14:15:45,470: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:15:45,473: INFO/MainProcess] Task spider.task.tasks.test[bdac0f43-d20f-4dee-8e8c-f7ad22be3764] succeeded in 0.0022500980012409855s: None
+[2017-07-31 14:15:55,470: INFO/MainProcess] Received task: spider.task.tasks.test[4b98d031-d8a4-4ce3-a300-8cf6260202cb]
+[2017-07-31 14:15:55,472: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:15:55,475: INFO/MainProcess] Task spider.task.tasks.test[4b98d031-d8a4-4ce3-a300-8cf6260202cb] succeeded in 0.002212293999036774s: None
+[2017-07-31 14:16:05,471: INFO/MainProcess] Received task: spider.task.tasks.test[3ced29c6-fa77-48de-a585-c0b77f9dcebc]
+[2017-07-31 14:16:05,473: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:16:05,476: INFO/MainProcess] Task spider.task.tasks.test[3ced29c6-fa77-48de-a585-c0b77f9dcebc] succeeded in 0.002173965000110911s: None
+[2017-07-31 14:16:15,473: INFO/MainProcess] Received task: spider.task.tasks.test[2274bff1-6893-41f6-a95e-9285915ca931]
+[2017-07-31 14:16:15,475: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:16:15,478: INFO/MainProcess] Task spider.task.tasks.test[2274bff1-6893-41f6-a95e-9285915ca931] succeeded in 0.0023449710024578962s: None
+[2017-07-31 14:16:25,474: INFO/MainProcess] Received task: spider.task.tasks.test[60ea5380-ff6f-40f0-a0eb-62d08b017cf1]
+[2017-07-31 14:16:25,477: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:16:25,480: INFO/MainProcess] Task spider.task.tasks.test[60ea5380-ff6f-40f0-a0eb-62d08b017cf1] succeeded in 0.0029437120028887875s: None
+[2017-07-31 14:16:35,475: INFO/MainProcess] Received task: spider.task.tasks.test[f45cef5a-f0f8-4ea6-84ab-c82c5c944294]
+[2017-07-31 14:16:35,477: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:16:35,480: INFO/MainProcess] Task spider.task.tasks.test[f45cef5a-f0f8-4ea6-84ab-c82c5c944294] succeeded in 0.002263237001898233s: None
+[2017-07-31 14:16:45,475: INFO/MainProcess] Received task: spider.task.tasks.test[1250e158-4c8e-4e5f-a569-49d53742d7a5]
+[2017-07-31 14:16:45,477: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:16:45,481: INFO/MainProcess] Task spider.task.tasks.test[1250e158-4c8e-4e5f-a569-49d53742d7a5] succeeded in 0.0026002720005635638s: None
+[2017-07-31 14:16:55,477: INFO/MainProcess] Received task: spider.task.tasks.test[6304fcd5-c313-4b1c-aa13-1cffef1d7d83]
+[2017-07-31 14:16:55,480: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:16:55,483: INFO/MainProcess] Task spider.task.tasks.test[6304fcd5-c313-4b1c-aa13-1cffef1d7d83] succeeded in 0.002491028000804363s: None
+[2017-07-31 14:17:05,478: INFO/MainProcess] Received task: spider.task.tasks.test[ea213ff4-4bb2-42a2-89cd-ce13831b3222]
+[2017-07-31 14:17:05,480: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:17:05,483: INFO/MainProcess] Task spider.task.tasks.test[ea213ff4-4bb2-42a2-89cd-ce13831b3222] succeeded in 0.0023986599990166724s: None
+[2017-07-31 14:17:15,481: INFO/MainProcess] Received task: spider.task.tasks.test[748712c2-246c-4367-a11f-a551a1788036]
+[2017-07-31 14:17:15,483: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:17:15,487: INFO/MainProcess] Task spider.task.tasks.test[748712c2-246c-4367-a11f-a551a1788036] succeeded in 0.002488114001607755s: None
+[2017-07-31 14:17:25,482: INFO/MainProcess] Received task: spider.task.tasks.test[7bc7d4a9-513b-4b12-9f40-06bacdd7f357]
+[2017-07-31 14:17:25,485: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:17:25,489: INFO/MainProcess] Task spider.task.tasks.test[7bc7d4a9-513b-4b12-9f40-06bacdd7f357] succeeded in 0.0030039970006328076s: None
+[2017-07-31 14:17:35,485: INFO/MainProcess] Received task: spider.task.tasks.test[622cbcce-6b17-459e-bb91-593fce2879a1]
+[2017-07-31 14:17:35,488: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:17:35,491: INFO/MainProcess] Task spider.task.tasks.test[622cbcce-6b17-459e-bb91-593fce2879a1] succeeded in 0.0027958159989793785s: None
+[2017-07-31 14:17:45,486: INFO/MainProcess] Received task: spider.task.tasks.test[746e4b24-b5a6-44db-83c5-db77196f3ea4]
+[2017-07-31 14:17:45,489: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:17:45,493: INFO/MainProcess] Task spider.task.tasks.test[746e4b24-b5a6-44db-83c5-db77196f3ea4] succeeded in 0.002932002000306966s: None
+[2017-07-31 14:17:55,488: INFO/MainProcess] Received task: spider.task.tasks.test[b98fbd15-8b09-416e-931d-66a8a810c064]
+[2017-07-31 14:17:55,491: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:17:55,496: INFO/MainProcess] Task spider.task.tasks.test[b98fbd15-8b09-416e-931d-66a8a810c064] succeeded in 0.003428218999033561s: None
+[2017-07-31 14:18:05,490: INFO/MainProcess] Received task: spider.task.tasks.test[d3ee6abb-255d-43e5-923c-87db1ffe40b7]
+[2017-07-31 14:18:05,492: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:18:05,496: INFO/MainProcess] Task spider.task.tasks.test[d3ee6abb-255d-43e5-923c-87db1ffe40b7] succeeded in 0.00290205500277807s: None
+[2017-07-31 14:18:15,491: INFO/MainProcess] Received task: spider.task.tasks.test[7c63af7e-be32-40ca-abe3-f39ebf58122a]
+[2017-07-31 14:18:15,494: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:18:15,498: INFO/MainProcess] Task spider.task.tasks.test[7c63af7e-be32-40ca-abe3-f39ebf58122a] succeeded in 0.003170811996824341s: None
+[2017-07-31 14:18:25,491: INFO/MainProcess] Received task: spider.task.tasks.test[19174fe8-7a92-4ea0-9d14-90b9ff399895]
+[2017-07-31 14:18:25,494: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:18:25,497: INFO/MainProcess] Task spider.task.tasks.test[19174fe8-7a92-4ea0-9d14-90b9ff399895] succeeded in 0.0023549590005131904s: None
+[2017-07-31 14:18:35,494: INFO/MainProcess] Received task: spider.task.tasks.test[d92122d1-5129-4fb9-914d-f3ce354f506f]
+[2017-07-31 14:18:35,497: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:18:35,501: INFO/MainProcess] Task spider.task.tasks.test[d92122d1-5129-4fb9-914d-f3ce354f506f] succeeded in 0.002917661000537919s: None
+[2017-07-31 14:18:45,494: INFO/MainProcess] Received task: spider.task.tasks.test[1c92ff62-53cc-4590-a0b5-523de021618c]
+[2017-07-31 14:18:45,496: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:18:45,500: INFO/MainProcess] Task spider.task.tasks.test[1c92ff62-53cc-4590-a0b5-523de021618c] succeeded in 0.003013285000633914s: None
+[2017-07-31 14:18:55,495: INFO/MainProcess] Received task: spider.task.tasks.test[1c18fd67-14a1-48d6-b6eb-344654c7809c]
+[2017-07-31 14:18:55,497: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:18:55,499: INFO/MainProcess] Task spider.task.tasks.test[1c18fd67-14a1-48d6-b6eb-344654c7809c] succeeded in 0.0019041550003748853s: None
+[2017-07-31 14:19:05,495: INFO/MainProcess] Received task: spider.task.tasks.test[fadf7545-0ebe-48ab-af15-ab6646bb1a3b]
+[2017-07-31 14:19:05,497: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:19:05,500: INFO/MainProcess] Task spider.task.tasks.test[fadf7545-0ebe-48ab-af15-ab6646bb1a3b] succeeded in 0.002033876000496093s: None
+[2017-07-31 14:19:15,498: INFO/MainProcess] Received task: spider.task.tasks.test[a3e9038b-556a-4ce7-9b93-e299e1e1c3a6]
+[2017-07-31 14:19:15,500: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:19:15,504: INFO/MainProcess] Task spider.task.tasks.test[a3e9038b-556a-4ce7-9b93-e299e1e1c3a6] succeeded in 0.0024774240009719506s: None
+[2017-07-31 14:19:25,500: INFO/MainProcess] Received task: spider.task.tasks.test[590f294f-5f73-4c18-9bb2-87e53d9cb1b1]
+[2017-07-31 14:19:25,502: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:19:25,505: INFO/MainProcess] Task spider.task.tasks.test[590f294f-5f73-4c18-9bb2-87e53d9cb1b1] succeeded in 0.002225177999207517s: None
+[2017-07-31 14:19:35,503: INFO/MainProcess] Received task: spider.task.tasks.test[1b7d6693-45e0-4083-91f7-e0244e6d1a49]
+[2017-07-31 14:19:35,505: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:19:35,508: INFO/MainProcess] Task spider.task.tasks.test[1b7d6693-45e0-4083-91f7-e0244e6d1a49] succeeded in 0.0020993680009269156s: None
+[2017-07-31 14:19:45,502: INFO/MainProcess] Received task: spider.task.tasks.test[977df58f-8bb9-4b4d-8fac-c8f6be1ab48b]
+[2017-07-31 14:19:45,504: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:19:45,508: INFO/MainProcess] Task spider.task.tasks.test[977df58f-8bb9-4b4d-8fac-c8f6be1ab48b] succeeded in 0.00283742300234735s: None
+[2017-07-31 14:19:55,503: INFO/MainProcess] Received task: spider.task.tasks.test[79c19c25-2fa8-4634-9e9a-5267d96331a8]
+[2017-07-31 14:19:55,505: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:19:55,508: INFO/MainProcess] Task spider.task.tasks.test[79c19c25-2fa8-4634-9e9a-5267d96331a8] succeeded in 0.002292601999215549s: None
+[2017-07-31 14:20:05,504: INFO/MainProcess] Received task: spider.task.tasks.test[689dace1-9ffb-4e14-8d5f-4f6e94a664c0]
+[2017-07-31 14:20:05,506: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:20:05,509: INFO/MainProcess] Task spider.task.tasks.test[689dace1-9ffb-4e14-8d5f-4f6e94a664c0] succeeded in 0.002216681998106651s: None
+[2017-07-31 14:20:15,506: INFO/MainProcess] Received task: spider.task.tasks.test[396ae10c-03d6-4115-8fba-923e9692404a]
+[2017-07-31 14:20:15,508: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:20:15,511: INFO/MainProcess] Task spider.task.tasks.test[396ae10c-03d6-4115-8fba-923e9692404a] succeeded in 0.0022763409979233984s: None
+[2017-07-31 14:20:25,507: INFO/MainProcess] Received task: spider.task.tasks.test[a8136676-6447-4af9-a500-346901e0f511]
+[2017-07-31 14:20:25,510: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:20:25,513: INFO/MainProcess] Task spider.task.tasks.test[a8136676-6447-4af9-a500-346901e0f511] succeeded in 0.0026380079980299342s: None
+[2017-07-31 14:20:35,507: INFO/MainProcess] Received task: spider.task.tasks.test[3e347a92-8cc2-431d-a861-df441d9d1d04]
+[2017-07-31 14:20:35,510: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:20:35,513: INFO/MainProcess] Task spider.task.tasks.test[3e347a92-8cc2-431d-a861-df441d9d1d04] succeeded in 0.0024022409997996874s: None
+[2017-07-31 14:20:45,508: INFO/MainProcess] Received task: spider.task.tasks.test[d09b2850-133b-4bbb-b0f8-fb51ff743f5e]
+[2017-07-31 14:20:45,510: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:20:45,513: INFO/MainProcess] Task spider.task.tasks.test[d09b2850-133b-4bbb-b0f8-fb51ff743f5e] succeeded in 0.0023416780022671446s: None
+[2017-07-31 14:20:55,510: INFO/MainProcess] Received task: spider.task.tasks.test[3159583a-4951-4f5b-9a7e-052291a0a2eb]
+[2017-07-31 14:20:55,512: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:20:55,517: INFO/MainProcess] Task spider.task.tasks.test[3159583a-4951-4f5b-9a7e-052291a0a2eb] succeeded in 0.003416464001929853s: None
+[2017-07-31 14:21:05,510: INFO/MainProcess] Received task: spider.task.tasks.test[1e8bf765-f991-42c6-ae3e-9a302d9b8d0d]
+[2017-07-31 14:21:05,513: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:21:05,516: INFO/MainProcess] Task spider.task.tasks.test[1e8bf765-f991-42c6-ae3e-9a302d9b8d0d] succeeded in 0.0025508049984637182s: None
+[2017-07-31 14:21:15,511: INFO/MainProcess] Received task: spider.task.tasks.test[501e44ea-425a-49e5-901b-89283e9764e8]
+[2017-07-31 14:21:15,513: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:21:15,517: INFO/MainProcess] Task spider.task.tasks.test[501e44ea-425a-49e5-901b-89283e9764e8] succeeded in 0.0027637940002023242s: None
+[2017-07-31 14:21:25,512: INFO/MainProcess] Received task: spider.task.tasks.test[65fb159c-8443-4129-a47e-74be14f3ea6f]
+[2017-07-31 14:21:25,514: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:21:25,517: INFO/MainProcess] Task spider.task.tasks.test[65fb159c-8443-4129-a47e-74be14f3ea6f] succeeded in 0.002445105001243064s: None
+[2017-07-31 14:21:35,512: INFO/MainProcess] Received task: spider.task.tasks.test[1349bd8e-ae3f-4585-a2dd-877bfa2a8507]
+[2017-07-31 14:21:35,514: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:21:35,518: INFO/MainProcess] Task spider.task.tasks.test[1349bd8e-ae3f-4585-a2dd-877bfa2a8507] succeeded in 0.0024648430007800926s: None
+[2017-07-31 14:21:45,514: INFO/MainProcess] Received task: spider.task.tasks.test[5aed792c-04e4-49c2-86f1-829523a4f883]
+[2017-07-31 14:21:45,517: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:21:45,520: INFO/MainProcess] Task spider.task.tasks.test[5aed792c-04e4-49c2-86f1-829523a4f883] succeeded in 0.0025001649992191233s: None
+[2017-07-31 14:21:55,515: INFO/MainProcess] Received task: spider.task.tasks.test[87333519-4947-41ca-b244-3b17f32e0679]
+[2017-07-31 14:21:55,517: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:21:55,520: INFO/MainProcess] Task spider.task.tasks.test[87333519-4947-41ca-b244-3b17f32e0679] succeeded in 0.0022310780004772823s: None
+[2017-07-31 14:22:05,515: INFO/MainProcess] Received task: spider.task.tasks.test[527d5bac-714e-4cc7-97d5-1afea676cee8]
+[2017-07-31 14:22:05,517: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:22:05,520: INFO/MainProcess] Task spider.task.tasks.test[527d5bac-714e-4cc7-97d5-1afea676cee8] succeeded in 0.002625429999170592s: None
+[2017-07-31 14:22:15,515: INFO/MainProcess] Received task: spider.task.tasks.test[8dadcfe7-c923-4910-a120-71a03a05dfe9]
+[2017-07-31 14:22:15,517: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:22:15,520: INFO/MainProcess] Task spider.task.tasks.test[8dadcfe7-c923-4910-a120-71a03a05dfe9] succeeded in 0.002268123997055227s: None
+[2017-07-31 14:22:25,518: INFO/MainProcess] Received task: spider.task.tasks.test[b04e219f-111a-4384-813b-847db53443c3]
+[2017-07-31 14:22:25,520: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:22:25,523: INFO/MainProcess] Task spider.task.tasks.test[b04e219f-111a-4384-813b-847db53443c3] succeeded in 0.0021364679996622726s: None
+[2017-07-31 14:22:35,519: INFO/MainProcess] Received task: spider.task.tasks.test[e659c669-8ba8-4440-8eff-2529198a131d]
+[2017-07-31 14:22:35,521: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:22:35,524: INFO/MainProcess] Task spider.task.tasks.test[e659c669-8ba8-4440-8eff-2529198a131d] succeeded in 0.0022565399995073676s: None
+[2017-07-31 14:22:45,519: INFO/MainProcess] Received task: spider.task.tasks.test[314da837-2da9-4967-a8c1-816815090b1e]
+[2017-07-31 14:22:45,521: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:22:45,524: INFO/MainProcess] Task spider.task.tasks.test[314da837-2da9-4967-a8c1-816815090b1e] succeeded in 0.002169999999750871s: None
+[2017-07-31 14:22:55,520: INFO/MainProcess] Received task: spider.task.tasks.test[ab6a9442-90a5-4508-8ccf-3dd6d50ca3e9]
+[2017-07-31 14:22:55,522: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:22:55,524: INFO/MainProcess] Task spider.task.tasks.test[ab6a9442-90a5-4508-8ccf-3dd6d50ca3e9] succeeded in 0.0020141390014032368s: None
+[2017-07-31 14:23:05,520: INFO/MainProcess] Received task: spider.task.tasks.test[206b0d50-7a71-4169-9c53-ac9f6d2246f7]
+[2017-07-31 14:23:05,522: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:23:05,526: INFO/MainProcess] Task spider.task.tasks.test[206b0d50-7a71-4169-9c53-ac9f6d2246f7] succeeded in 0.002467376998538384s: None
+[2017-07-31 14:23:15,522: INFO/MainProcess] Received task: spider.task.tasks.test[6d0af151-4cdf-41e7-9d1f-519374b47abf]
+[2017-07-31 14:23:15,524: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:23:15,527: INFO/MainProcess] Task spider.task.tasks.test[6d0af151-4cdf-41e7-9d1f-519374b47abf] succeeded in 0.0024296070005220827s: None
+[2017-07-31 14:23:25,523: INFO/MainProcess] Received task: spider.task.tasks.test[ace53ce3-38e3-4d1d-8a35-61be41e21821]
+[2017-07-31 14:23:25,526: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:23:25,529: INFO/MainProcess] Task spider.task.tasks.test[ace53ce3-38e3-4d1d-8a35-61be41e21821] succeeded in 0.002183131000492722s: None
+[2017-07-31 14:23:35,525: INFO/MainProcess] Received task: spider.task.tasks.test[e51ce373-cfeb-4c82-831d-90ab0b9760ea]
+[2017-07-31 14:23:35,528: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:23:35,532: INFO/MainProcess] Task spider.task.tasks.test[e51ce373-cfeb-4c82-831d-90ab0b9760ea] succeeded in 0.002969394001411274s: None
+[2017-07-31 14:23:45,525: INFO/MainProcess] Received task: spider.task.tasks.test[8022faaf-a089-418b-a067-607b2f10ef4e]
+[2017-07-31 14:23:45,527: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:23:45,530: INFO/MainProcess] Task spider.task.tasks.test[8022faaf-a089-418b-a067-607b2f10ef4e] succeeded in 0.002347681001992896s: None
+[2017-07-31 14:23:55,526: INFO/MainProcess] Received task: spider.task.tasks.test[29cf2bf3-9964-49f7-8643-9406c7fe069d]
+[2017-07-31 14:23:55,528: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:23:55,531: INFO/MainProcess] Task spider.task.tasks.test[29cf2bf3-9964-49f7-8643-9406c7fe069d] succeeded in 0.0023601419998158235s: None
+[2017-07-31 14:24:05,526: INFO/MainProcess] Received task: spider.task.tasks.test[224ca1f5-0847-415b-a8a1-40f6002e2330]
+[2017-07-31 14:24:05,528: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:24:05,531: INFO/MainProcess] Task spider.task.tasks.test[224ca1f5-0847-415b-a8a1-40f6002e2330] succeeded in 0.002409352000540821s: None
+[2017-07-31 14:24:15,528: INFO/MainProcess] Received task: spider.task.tasks.test[f71324e8-0904-4025-a74e-40af505c4b87]
+[2017-07-31 14:24:15,530: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:24:15,533: INFO/MainProcess] Task spider.task.tasks.test[f71324e8-0904-4025-a74e-40af505c4b87] succeeded in 0.00249929499841528s: None
+[2017-07-31 14:24:25,528: INFO/MainProcess] Received task: spider.task.tasks.test[8d63dc0f-6202-4539-aab1-b31c23e80edd]
+[2017-07-31 14:24:25,531: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:24:25,535: INFO/MainProcess] Task spider.task.tasks.test[8d63dc0f-6202-4539-aab1-b31c23e80edd] succeeded in 0.002694644997973228s: None
+[2017-07-31 14:24:35,529: INFO/MainProcess] Received task: spider.task.tasks.test[2a8cfb39-88d7-4092-ad56-9e4cde587088]
+[2017-07-31 14:24:35,531: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:24:35,534: INFO/MainProcess] Task spider.task.tasks.test[2a8cfb39-88d7-4092-ad56-9e4cde587088] succeeded in 0.002288659001351334s: None
+[2017-07-31 14:24:45,530: INFO/MainProcess] Received task: spider.task.tasks.test[6cd79375-f931-4156-b09d-ad2cd7290089]
+[2017-07-31 14:24:45,532: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:24:45,535: INFO/MainProcess] Task spider.task.tasks.test[6cd79375-f931-4156-b09d-ad2cd7290089] succeeded in 0.002590051997685805s: None
+[2017-07-31 14:24:55,530: INFO/MainProcess] Received task: spider.task.tasks.test[3f185122-68eb-4b07-9d17-b8caa5d67591]
+[2017-07-31 14:24:55,532: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:24:55,535: INFO/MainProcess] Task spider.task.tasks.test[3f185122-68eb-4b07-9d17-b8caa5d67591] succeeded in 0.0022722639987478033s: None
+[2017-07-31 14:25:05,531: INFO/MainProcess] Received task: spider.task.tasks.test[5c7b47eb-d521-4ad1-b7a5-1cfca49c48dc]
+[2017-07-31 14:25:05,534: ERROR/Worker-1] this is a test
+NoneType: None
+[2017-07-31 14:25:05,538: INFO/MainProcess] Task spider.task.tasks.test[5c7b47eb-d521-4ad1-b7a5-1cfca49c48dc] succeeded in 0.003026028000022052s: None
