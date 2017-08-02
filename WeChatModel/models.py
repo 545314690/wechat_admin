@@ -76,8 +76,8 @@ class WeChatData(BaseModel):
     # user = models.ForeignKey(WeChatUser)
     nickname = models.CharField('nickname', max_length=100, default=None)
     alias = models.CharField('alias', max_length=100, default=None)
-    round_head_img = models.URLField('round_head_img', max_length=100, default=None)
-    ori_head_img_url = models.URLField('ori_head_img_url', default=None)
+    round_head_img = models.URLField('round_head_img', max_length=500, default=None)
+    ori_head_img_url = models.URLField('ori_head_img_url', max_length=500, default=None)
     msg_desc = models.CharField('msg_desc', max_length=200, default=None)
     msg_source_url = models.URLField('msg_source_url', default=None)
 
