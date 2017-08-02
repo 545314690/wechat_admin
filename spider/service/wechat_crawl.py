@@ -13,29 +13,35 @@ from spider.config.conf import get_url_save_path
 from spider.loggers.log import crawler as logger
 from spider.service.common import *
 from spider.task import wechat_crawl
-from spider.util.json import class_to_dict
+from spider.util.DateUtil import timestamp_datetime
+from spider.util.headers import header_wechat
 
 url_save_path = get_url_save_path()
 
-
 # https://mp.weixin.qq.com/cgi-bin/appmsg?token=1975411548&lang=zh_CN&f=json&ajax=1&random=0.06881077661095647&action=list_ex&begin=0&count=50&query=&fakeid=MjM5MTM0NjQ2MQ%3D%3D&type=9
+# 入口：获取所有相关文章
+def fetch_user_all_url(wechat_biz):
+    begin = 0
+    count =50
+    name_cookies = get_cookie()
+    # 先进行一次搜索并保存
+    max_num = get_total(wechat_biz, begin, 1, name_cookies)
+    while max_num > begin:
+        search_url = get_search_wechat_url(fakeid=wechat_biz, begin=begin, count=count)
+        logger.info(search_url)
+
+        # 发送搜索url任务
+        wechat_crawl.excute_wechat_url_crawl_task(search_url)
+
+        begin += count
+    WeChatUserDao.set_history_crawled(wechat_biz)
+
+
 # 获取总数
 def get_total(wechat_user_id, begin, count, name_cookies):
     response = search_by_page(wechat_user_id, begin, count, name_cookies)
     max_num = response.json().get('app_msg_cnt')
     return max_num
-
-
-# 获取所有相关文章
-def fetch_all_url(wechat_biz, begin, count, name_cookies):
-    # 先进行一次搜索并保存
-    max_num = get_total(wechat_biz, begin, 1, name_cookies)
-    while max_num > begin:
-        search_url = get_search_wechat_url(query=wechat_biz, begin=begin, count=count)
-        logger.info(search_url)
-        wechat_crawl.excute_wechat_url_crawl_task(search_url)
-        begin += count
-    WeChatUserDao.set_history_crawled(wechat_biz)
 
 
 # 分页搜索并保存到数据库
@@ -44,7 +50,7 @@ def search_by_page(wechat_biz, begin, count, name_cookies):
     login_user = name_cookies[0]
     cookies = name_cookies[1]
     token = cookies['token']
-    search_url = get_search_wechat_url(query=wechat_biz, begin=begin, count=count, token=token)
+    search_url = get_search_wechat_url(fakeid=wechat_biz, begin=begin, count=count, token=token)
     logger.info(search_url)
     search_response = requests.get(search_url, cookies=cookies, headers=header)
     return search_response
@@ -52,8 +58,6 @@ def search_by_page(wechat_biz, begin, count, name_cookies):
 
 # 分页搜索并保存到数据库
 def get_article_url_list(search_url):
-    random_time = random.randint(15, 30)
-    time.sleep(random_time)
     # 通过队列获取账号的cookie
     name_cookies = get_cookie()
     while name_cookies == None:
@@ -73,16 +77,22 @@ def get_article_url_list(search_url):
         json_str = json.dumps(item, ensure_ascii=False)
         logger.info(json_str)
         try:
-            urls_file.write(item.get('link') + '\n')
+            link = item.get('link')
+            # url写入文件
+            urls_file.write(link + '\n')
+            # 发送微信文章爬虫任务
+            wechat_crawl.excute_wechat_crawl_task(link)
+
         except:
             logger.info("保存失败：" + json_str)
 
     urls_file.close()
-
+    random_time = random.randint(15, 30)
+    time.sleep(random_time)
 
 def get_article(article_url):
-    print(article_url)
-    response = requests.get(article_url)
+    logger.info("crawling page : " + article_url)
+    response = requests.get(article_url, headers=header_wechat)
     soup = BeautifulSoup(response.content, 'lxml')
     html_str = str(soup)
     try:
@@ -92,14 +102,14 @@ def get_article(article_url):
         # time_str = meta_content.find(id='post-date').get_text()
         # nickname = meta_content.find_all('em')[1].get_text()
         content_div = soup.find(id='js_content')
-        images = []
-
         content = content_div.get_text()
         msg_title = (re.search('(var msg_title = ")(.*)"', html_str).group(2))
         nickname = (re.search('(var nickname = ")(.*)"', html_str).group(2))
         alias = (re.search('(var user_name = ")(.*)"', html_str).group(2))
-        # publish_time = (re.search('(var ct = ")(.*)" ', html_str).group(2))
-        publish_time = (re.search('(var publish_time = ")(.*)" ', html_str).group(2))
+        publish_timestamp = (re.search('(var ct = ")(.*)"', html_str).group(2))
+        publish_time = timestamp_datetime(publish_timestamp, type='s')
+        # publish_time = time.localtime(int(publish_time_long))
+        # publish_time = (re.search('(var publish_time = ")(.*)" ', html_str).group(2))
         round_head_img = (re.search('(var round_head_img = ")(.*)"', html_str).group(2))
         ori_head_img_url = (re.search('(var ori_head_img_url = ")(.*)"', html_str).group(2))
         msg_desc = (re.search('(var msg_desc = ")(.*)"', html_str).group(2))
@@ -111,22 +121,25 @@ def get_article(article_url):
             item.title = msg_title
             item.nickname = nickname
             item.alias = alias
-            item.publish_time = publish_time
+            item.pub_time = publish_time
             item.round_head_img = round_head_img
             item.ori_head_img_url = ori_head_img_url
             item.msg_desc = msg_desc
             item.msg_source_url = msg_source_url
             item.content = content
-            #保存
-            WeChatData.save(item)
-            dic = class_to_dict(item)
-            urls_file = open(url_save_path + '/articles.txt', 'a+', encoding='utf-8')
-            urls_file.writelines(str(dic) + '\n')
-            urls_file.close()
+            # 保存
+            try:
+                WeChatData.save(item)
+            except Exception as err:
+                logger.error("保存微信文章异常：")
+                logger.error(err)
+                # dic = class_to_dict(item)
+                # urls_file = open(url_save_path + '/articles.txt', 'a+', encoding='utf-8')
+                # urls_file.writelines(str(dic) + '\n')
+                # urls_file.close()
     except Exception as e:
         logger.error(e)
 
-
-if __name__ == '__main__':
-    get_article(
-        'https://mp.weixin.qq.com/s?__biz=MjM5MTM0NjQ2MQ==&mid=2650140341&idx=1&sn=3c964be4fb3023e6989bb00330f2f00b&chksm=beb7b4c789c03dd17f068a511e247847d27d67d2e606072db534d6f327f6ec41e8224b71f388#rd')
+# if __name__ == '__main__':
+#     get_article(
+#         'https://mp.weixin.qq.com/s?__biz=MjM5MTM0NjQ2MQ==&mid=2650140341&idx=1&sn=3c964be4fb3023e6989bb00330f2f00b&chksm=beb7b4c789c03dd17f068a511e247847d27d67d2e606072db534d6f327f6ec41e8224b71f388#rd')

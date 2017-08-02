@@ -2,25 +2,63 @@
 import yaml
 import logging.config
 import os
+import logging.config as log_conf
+log_dir = os.path.dirname(os.path.dirname(__file__))+'/logs'
+if not os.path.exists(log_dir):
+    os.mkdir(log_dir)
 
-config_path = os.path.join(os.path.dirname(__file__), 'logging.yaml')
+log_path = os.path.join(log_dir, 'wechat.log')
 
-def setup_logging(default_path="logging.yaml", default_level=logging.INFO, env_key="LOG_CFG"):
-    path = default_path
-    value = os.getenv(env_key, None)
-    if value:
-        path = value
-    if os.path.exists(path):
-        with open(path, "r") as f:
-            logging.config.dictConfig(yaml.load(f))
-    else:
-        logging.basicConfig(level=default_level)
+log_config = {
+    'version': 1.0,
+    'formatters': {
+        'detail': {
+            'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+            'datefmt': "%Y-%m-%d %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(name)s - %(levelname)s - %(message)s',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'level': 'INFO',
+            'formatter': 'detail'
+        },
+        'file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'maxBytes': 1024 * 1024 * 5,
+            'backupCount': 10,
+            'filename': log_path,
+            'level': 'INFO',
+            'formatter': 'detail',
+            'encoding': 'utf-8',
+        },
+    },
+    'loggers': {
+        'crawler': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+        },
+        'parser': {
+            'handlers': ['file'],
+            'level': 'INFO',
+        },
+        'other': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+        },
+        'storage': {
+            'handlers': ['file'],
+            'level': 'INFO',
+        }
+    }
+}
 
-
-setup_logging(default_path=config_path, default_level=logging.INFO)
+log_conf.dictConfig(log_config)
 
 logger = logging.getLogger(__name__)
-
 login = logging.getLogger('login')
 search = logging.getLogger('search')
 crawler = logging.getLogger('crawler')

@@ -1,7 +1,6 @@
 # coding:utf-8
 import time
 
-from spider.db.redis_db import Cookies
 from spider.task.workers import app
 from spider.service import gather
 from spider.loggers.log import crawler

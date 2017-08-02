@@ -8,7 +8,7 @@ from spider.loggers.log import logger
 
 url = 'https://mp.weixin.qq.com'
 base_search_biz_url = 'https://mp.weixin.qq.com/cgi-bin/searchbiz'
-base_search_wechat_url = 'https://mp.weixin.qq.com/cgi-bin/searchbiz'
+base_search_wechat_url = 'https://mp.weixin.qq.com/cgi-bin/appmsg'
 header = {
     "HOST": "mp.weixin.qq.com",
     "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0"
@@ -55,16 +55,17 @@ def get_request_url(base_url, params):
     return request_url
 
 #得到搜索公众号的链接
-def get_search_biz_url(query='', begin=0, count=10, token=None, default={
-    'action': 'search_biz',
-    'lang': 'zh_CN',
-    'f': 'json',
-    'ajax': '1',
-    'random': random.random(),
-    'query': '',
-    'begin': '{}'.format(str(0)),
-    'count': 10
-}):
+def get_search_biz_url(query='', begin=0, count=10, token=None):
+    default = {
+        'action': 'search_biz',
+        'lang': 'zh_CN',
+        'f': 'json',
+        'ajax': '1',
+        'random': random.random(),
+        'query': '',
+        'begin': '{}'.format(str(0)),
+        'count': 10
+    }
     default['query'] = query
     default['begin'] = '{}'.format(str(begin))
     default['count'] = '{}'.format(str(count))
@@ -73,18 +74,19 @@ def get_search_biz_url(query='', begin=0, count=10, token=None, default={
     return get_request_url(base_search_biz_url, default)
 
 #得到搜索文章的链接
-def get_search_wechat_url(fakeid='', begin=0, count=50, token=None, default={
-                'lang': 'zh_CN',
-                'f': 'json',
-                'ajax': '1',
-                'random': random.random(),
-                'action': 'list_ex',
-                'begin': '0',
-                'count': '50',
-                'fakeid': '',#公众号的biz
-                'query': '', #文章关键词搜索，这里写空，代表搜索所有文章
-                'type': '9'
-            }):
+def get_search_wechat_url(fakeid='', begin=0, count=50, token=None):
+    default = {
+        'lang': 'zh_CN',
+        'f': 'json',
+        'ajax': '1',
+        'random': random.random(),
+        'action': 'list_ex',
+        'begin': '0',
+        'count': '50',
+        'fakeid': '',  # 公众号的biz
+        'query': '',  # 文章关键词搜索，这里写空，代表搜索所有文章
+        'type': '9'
+    }
     default['fakeid'] = fakeid
     default['begin'] = '{}'.format(str(begin))
     default['count'] = '{}'.format(str(count))

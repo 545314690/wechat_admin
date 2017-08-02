@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'UserModel',
     'WeChatModel'
 ]
 
@@ -85,7 +84,7 @@ WSGI_APPLICATION = 'wechat_admin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'wechat',
+        'NAME': 'spider',
         'USER': 'anjian',
         'PASSWORD': 'topcom123',
         'HOST': '192.168.0.151',

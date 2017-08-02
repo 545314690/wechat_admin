@@ -7,13 +7,13 @@ from WeChatModel.models import LoginUser, Keyword, WeChatData, WeChatUser
 
 
 class LoginUserAdmin(admin.ModelAdmin):
-    list_display = ('name', 'password', 'enable')  # list
+    list_display = ('name', 'password', 'enable','date_created','date_modified')  # list
     search_fields = ['name', 'enable']
     list_per_page = 20
 
 
 class KeywordAdmin(admin.ModelAdmin):
-    list_display = ('name', 'enable')  # list
+    list_display = ('name', 'enable','date_created','date_modified')  # list
     search_fields = ['name']
     list_per_page = 20
 
@@ -31,10 +31,10 @@ class WeChatUserAdmin(admin.ModelAdmin):
 
 class WeChatDataAdmin(admin.ModelAdmin):
     list_display = (
-        'title', 'pub_time', 'url', 'like_num', 'read_num', 'content')  # list
+        'title', 'pub_time','date_created','content', 'url')  # list
     search_fields = ('title', 'user', 'content')
-    list_per_page = 20
-    ordering = ['pub_time', 'like_num', 'read_num']
+    list_per_page = 10
+    ordering = ['date_created','pub_time']
     # inlines = [LoginUserInline]
 
 
@@ -64,6 +64,7 @@ class WeChatUserDao:
         wechat_user.service_type = json.get('service_type')
         wechat_user.round_head_img = json.get('round_head_img')
         wechat_user.fakeid = json.get('fakeid')
+        wechat_user.description = ''
         # return WeChatUser.objects.update_or_create(wechat_user)
         return WeChatUser.save(wechat_user)
 

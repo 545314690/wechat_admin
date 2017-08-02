@@ -21,7 +21,7 @@ db:
 #    port: 3307
     user: anjian
     password: topcom123
-    db_name: wechat
+    db_name: spider
     db_type: mysql
 
 # 保存登录的cookies

@@ -7,6 +7,7 @@ import wechat_admin.wsgi
 from WeChatModel.admin import WeChatUserDao, KeywordDao
 from spider.loggers.log import crawler as logger
 from spider.service.common import *
+from spider.task import wechat_crawl
 from spider.task import keyword
 
 
@@ -42,8 +43,6 @@ def search_by_page(kw, begin, count, name_cookies):
 
 # 分页搜索并保存到数据库
 def get_user_list(search_url):
-    random_time = random.randint(20, 50)
-    time.sleep(random_time)
     # 通过队列获取账号的cookie
     name_cookies = get_cookie()
     while name_cookies == None:
@@ -61,10 +60,18 @@ def get_user_list(search_url):
         logger.info(json_str)
         try:
             WeChatUserDao.create_by_json(item)
-        except:
-            logger.info("保存失败：" + json_str)
+            #TODO:
+            #触发爬取该用户url的任务,根据公众号的fakeid，即为biz
+            logger.info("开始爬取公众号：" + item.get('nickname'))
+            wechat_crawl.excute_wechat_user_crawl_task(item.get('fakeid'))
+        except Exception as e:
+            logger.error("保存公众号失败：" + json_str)
+            logger.error(e)
+    #执行完后休息一段时间
+    random_time = random.randint(20, 50)
+    time.sleep(random_time)
 
-
+#
 # if __name__ == '__main__':
 #     get_user_list(
-#         'https://mp.weixin.qq.com/cgi-bin/searchbiz?f=json&random=0.23848947846439528&lang=zh_CN&begin=1850&action=search_biz&ajax=1&count=10&query=Java&token=')
+#         'https://mp.weixin.qq.com/cgi-bin/searchbiz?count=1&action=search_biz&query=datangleiyin&ajax=1&random=0.7103990078836312&lang=zh_CN&begin=0&f=json')

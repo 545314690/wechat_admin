@@ -1,8 +1,5 @@
 # encoding=utf-8
 import wechat_admin.wsgi
-# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "wechat_admin.settings")
-# from django.core.wsgi import get_wsgi_application
-# application = get_wsgi_application()
 from WeChatModel.admin import KeywordDao
 from spider.loggers.log import crawler as logger
 from spider.service import user_crawl
@@ -25,4 +22,4 @@ def search_keyword(kw):
 
 # if __name__ == '__main__':
 #
-#     search_keyword('Java')
+#     search_keyword('datangleiyin')

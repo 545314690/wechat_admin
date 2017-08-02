@@ -47,7 +47,10 @@ app.conf.update(
         'spider.task.login.login_task': {'queue': 'login_queue'},
         'spider.task.gather.history_task': {'queue': 'crawl_history_queue'},
         'spider.task.keyword.keyword_task': {'queue': 'search_keyword_queue'},
-        'spider.task.keyword.user_crawl_task': {'queue': 'user_crawl_queue'},
+        'spider.task.keyword.user_list_crawl_task': {'queue': 'user_list_crawl_queue'},
+        'spider.task.wechat_crawl.wechat_user_crawl_task': {'queue': 'wechat_user_crawl_queue'},
+        'spider.task.wechat_crawl.wechat_url_crawl_task': {'queue': 'wechat_url_crawl_queue'},
+        'spider.task.wechat_crawl.wechat_crawl_task': {'queue': 'wechat_crawl_queue'},
     },
     CELERYBEAT_SCHEDULE={
         # 'add_task': {

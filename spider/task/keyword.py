@@ -1,7 +1,6 @@
 # coding:utf-8
 import time
 
-from spider.db.redis_db import Cookies
 from spider.task.workers import app
 from spider.service import keyword, user_crawl
 from spider.loggers.log import crawler
@@ -25,10 +24,11 @@ def excute_keyword_task():
         logger.info('分发账号爬取任务:' + kw)
         app.send_task('spider.task.keyword.keyword_task', args=[kw], queue='search_keyword_queue')
 
+#获取公众号列表任务
 @app.task(ignore_result=True)
-def user_crawl_task(search_url):
+def user_list_crawl_task(search_url):
     user_crawl.get_user_list(search_url)
 
 
 def excute_user_crawl_task(search_url):
-    app.send_task('spider.task.keyword.user_crawl_task', args=[search_url], queue='user_crawl_queue')
+    app.send_task('spider.task.keyword.user_list_crawl_task', args=[search_url], queue='user_list_crawl_queue')

@@ -16,14 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-import testdb
 from WeChatModel.views import test_task, index,gather_history, search_keyword,login
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^test_save_user$', testdb.test_save_user),
-    url(r'^test_get_user$', testdb.test_get_user),
-    url(r'^test_update$', testdb.test_update),
-    url(r'^test_remove$', testdb.test_remove),
     url(r'^test_task', test_task),
     url(r'^gather_history', gather_history),
     url(r'^search_keyword', search_keyword),
