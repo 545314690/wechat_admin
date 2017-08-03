@@ -5,7 +5,8 @@ from datetime import timedelta
 from celery import Celery, platforms
 from kombu import Exchange, Queue
 
-from spider.config.conf import get_redis_args
+from spider.config.conf import get_redis_args, get_broker_or_backend
+
 # 允许celery以root身份启动
 platforms.C_FORCE_ROOT = True
 #获取redis配置参数
@@ -13,15 +14,18 @@ redis_args = get_redis_args()
 worker_log_path = os.path.join(os.path.dirname(os.path.dirname(__file__)) + '/logs', 'celery.log')
 beat_log_path = os.path.join(os.path.dirname(os.path.dirname(__file__)) + '/logs', 'beat.log')
 
-host = redis_args.get('host')
-port = str(redis_args.get('port'))
-password = redis_args.get('password')
-db_broker = str(redis_args.get('broker'))
-db_backend = str(redis_args.get('backend'))
-
-url_broker = 'redis://:' + password + '@' + host + ':' + port + '/' + db_broker
-url_backend = 'redis://:' + password + '@' + host + ':' + port + '/' + db_backend
+# host = redis_args.get('host')
+# port = str(redis_args.get('port'))
+# password = redis_args.get('password')
+# db_broker = str(redis_args.get('broker'))
+# db_backend = str(redis_args.get('backend'))
+#
+# url_broker = 'redis://:' + password + '@' + host + ':' + port + '/' + db_broker
+# url_backend = 'redis://:' + password + '@' + host + ':' + port + '/' + db_backend
+url_broker = get_broker_or_backend(1)
+url_backend = get_broker_or_backend(2)
 tasks = ['spider.task.login', 'spider.task.gather', 'spider.task.keyword', 'spider.task.tasks']
+
 app = Celery('wechat_task', broker=url_broker, backend=url_backend, include=tasks)
 
 app.conf.update(
@@ -65,5 +69,5 @@ app.conf.update(
     # ),
 
 )
-if __name__ == '__main__':
-    app.start()
+# if __name__ == '__main__':
+#     app.start()

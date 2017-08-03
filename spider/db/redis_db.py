@@ -60,6 +60,19 @@ class Urls(object):
     def store_crawl_url(cls, url, result):
         cls.rd_con.set(url, result)
 
+    #保存爬取过的url
+    @classmethod
+    def store_crawled_url(cls, url):
+        cls.rd_con.sadd('crawled_url',url)
+    #判断是否爬取过
+    @classmethod
+    def is_crawled_url(cls, url):
+        return cls.rd_con.sismember('crawled_url',url)
+    #保存爬取失败的url
+    @classmethod
+    def store_crawl_failed_url(cls, url):
+        cls.rd_con.sadd('crawl_failed_url',url)
+
 
 class IdNames(object):
     rd_con = redis.StrictRedis(host=redis_args.get('host'), port=redis_args.get('port'),

@@ -10,6 +10,7 @@ import wechat_admin.wsgi
 from WeChatModel.admin import WeChatUserDao, KeywordDao
 from WeChatModel.models import WeChatData
 from spider.config.conf import get_url_save_path
+from spider.db.redis_db import Urls
 from spider.loggers.log import crawler as logger
 from spider.service.common import *
 from spider.task import wechat_crawl
@@ -71,8 +72,9 @@ def get_article_url_list(search_url):
     search_response = requests.get(search_url, cookies=cookies, headers=header)
     lists = search_response.json().get('app_msg_list')
 
+    if not os.path.exists(url_save_path):
+        os.mkdir(url_save_path)
     urls_file = open(url_save_path + '/urls.txt', 'a+', encoding='utf-8')
-
     for item in lists:
         json_str = json.dumps(item, ensure_ascii=False)
         logger.info(json_str)
@@ -91,6 +93,10 @@ def get_article_url_list(search_url):
     time.sleep(random_time)
 
 def get_article(article_url):
+    is_crawled = Urls.is_crawled_url(article_url)
+    if(is_crawled == 0):
+        logger.info("ingore crawled page : " + article_url)
+        return
     logger.info("crawling page : " + article_url)
     response = requests.get(article_url, headers=header_wechat)
     soup = BeautifulSoup(response.content, 'lxml')
@@ -130,6 +136,7 @@ def get_article(article_url):
             # 保存
             try:
                 WeChatData.save(item)
+                Urls.store_crawled_url(article_url)
             except Exception as err:
                 logger.error("保存微信文章异常：")
                 logger.error(err)
@@ -138,6 +145,7 @@ def get_article(article_url):
                 # urls_file.writelines(str(dic) + '\n')
                 # urls_file.close()
     except Exception as e:
+        Urls.store_crawl_failed_url(article_url)
         logger.error(e)
 
 # if __name__ == '__main__':

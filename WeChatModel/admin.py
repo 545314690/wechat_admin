@@ -31,8 +31,8 @@ class WeChatUserAdmin(admin.ModelAdmin):
 
 class WeChatDataAdmin(admin.ModelAdmin):
     list_display = (
-        'title', 'pub_time','date_created','content', 'url')  # list
-    search_fields = ('title', 'user', 'content')
+        'nickname','title', 'pub_time','date_created', 'url')  # list
+    search_fields = ('nickname','alias','title','content')
     list_per_page = 10
     ordering = ['date_created','pub_time']
     # inlines = [LoginUserInline]
