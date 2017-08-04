@@ -10,12 +10,14 @@ import wechat_admin.wsgi
 from WeChatModel.admin import WeChatUserDao, KeywordDao
 from WeChatModel.models import WeChatData
 from spider.config.conf import get_url_save_path
+from spider.db.kafka import kafka_producer
 from spider.db.redis_db import Urls
 from spider.loggers.log import crawler as logger
 from spider.service.common import *
 from spider.task import wechat_crawl
 from spider.util.DateUtil import timestamp_datetime
 from spider.util.headers import header_wechat
+from spider.util.json_util import class_to_dict
 
 url_save_path = get_url_save_path()
 
@@ -94,7 +96,7 @@ def get_article_url_list(search_url):
 
 def get_article(article_url):
     is_crawled = Urls.is_crawled_url(article_url)
-    if(is_crawled == 0):
+    if(is_crawled == 1):
         logger.info("ingore crawled page : " + article_url)
         return
     logger.info("crawling page : " + article_url)
@@ -133,10 +135,15 @@ def get_article(article_url):
             item.msg_desc = msg_desc
             item.msg_source_url = msg_source_url
             item.content = content
-            # 保存
+            # 文章处理
             try:
+                #保存到数据库
                 WeChatData.save(item)
                 Urls.store_crawled_url(article_url)
+                dic = class_to_dict(item)
+                del dic['_state']
+                # 发送到kafka
+                kafka_producer.send(dic)
             except Exception as err:
                 logger.error("保存微信文章异常：")
                 logger.error(err)
@@ -149,5 +156,5 @@ def get_article(article_url):
         logger.error(e)
 
 # if __name__ == '__main__':
-#     get_article(
-#         'https://mp.weixin.qq.com/s?__biz=MjM5MTM0NjQ2MQ==&mid=2650140341&idx=1&sn=3c964be4fb3023e6989bb00330f2f00b&chksm=beb7b4c789c03dd17f068a511e247847d27d67d2e606072db534d6f327f6ec41e8224b71f388#rd')
+    # get_article(
+    #     'http://mp.weixin.qq.com/s?__biz=MzA3NjcwNjgyOQ==&mid=204671295&idx=3&sn=731238aecce2c638c3c1157092650e18#rd')

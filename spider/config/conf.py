@@ -5,7 +5,6 @@ from yaml import load
 
 config_path = os.path.join(os.path.dirname(__file__), 'spider.yaml')
 
-
 with open(config_path, encoding='utf-8') as f:
     cont = f.read()
 
@@ -79,5 +78,18 @@ def get_code_username():
 def get_code_password():
     return cf.get('yundama_passwd')
 
+
 def get_url_save_path():
     return cf.get('url_save_path')
+
+
+def get_kafka_args():
+    return cf.get('kafka')
+
+
+def get_kafka_info():
+    kafka_args = get_kafka_args()
+    host = kafka_args.get('host')
+    port = kafka_args.get('port')
+    topics = kafka_args.get('topics')
+    return {'host': host, 'port': port, 'topics': topics}

@@ -1,6 +1,6 @@
 # Optional configuration, see the application user guide.
 import os
-from datetime import timedelta
+from wechat_admin import wsgi
 
 from celery import Celery, platforms
 from kombu import Exchange, Queue

@@ -37,6 +37,13 @@ redis:
     backend: 6 # celery的backend
     id_name: 8 # user_id和对应的name，这个是为转发微博分析而存在的
 
+# kafka配置
+kafka:
+    host: 192.168.0.161
+    port: 9092
+    topics:
+        topic_wechat: topic_wechat_python
+
 
 
 

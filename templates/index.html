@@ -2,7 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>菜鸟教程(runoob.com)</title>
+<title>微信爬虫任务</title>
+    <style type="text/css" href="/static/suit/bootstrap/css/bootstrap.min.css"></style>
+    <script src="/static/suit/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/suit/js/jquery-2.2.4.min.js"></script>
+
     <style>
         button{
             padding: 0px 50px;
@@ -14,7 +18,8 @@
     <div>
         <button onclick="window.open('/login','login')"> 模拟登陆</button>
         <button onclick="window.open('/search_keyword','search_keyword')"> 搜索关键词</button>
-        <button onclick="window.open('/gather_history','gather_history')"> 抓取公众号</button>
+        <button onclick="window.open('/gather_history','gather_history')"> 抓取公众号历史文章</button>
+        <button onclick="window.open('/gather_failed','gather_failed')"> 重新爬取失败url</button>
     </div>
 </body>
 </html>

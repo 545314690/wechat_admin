@@ -3,7 +3,8 @@ import yaml
 import logging.config
 import os
 import logging.config as log_conf
-log_dir = os.path.dirname(os.path.dirname(__file__))+'/logs'
+
+log_dir = os.path.dirname(os.path.dirname(__file__)) + '/logs'
 if not os.path.exists(log_dir):
     os.mkdir(log_dir)
 
@@ -66,4 +67,4 @@ parser = logging.getLogger('page_parser')
 storage = logging.getLogger('storage')
 other = logging.getLogger('other')
 
-__all__ = ['login','logger', 'crawler', 'parser', 'search', 'storage', 'other']
+__all__ = ['login', 'logger', 'crawler', 'parser', 'search', 'storage', 'other']
