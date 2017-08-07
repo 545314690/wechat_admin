@@ -78,8 +78,8 @@ class WeChatData(BaseModel):
     alias = models.CharField('作者biz','alias', max_length=100, default=None)
     round_head_img = models.URLField('作者头像','round_head_img', max_length=500, default=None)
     ori_head_img_url = models.URLField('作者头像','ori_head_img_url', max_length=500, default=None)
-    msg_desc = models.CharField('摘要','msg_desc', max_length=200, default=None)
-    msg_source_url = models.URLField('原文链接','msg_source_url', default=None)
+    msg_desc = models.CharField('摘要','msg_desc', max_length=500, default=None)
+    msg_source_url = models.URLField('原文链接','msg_source_url', max_length=500, default=None)
 
     def __unicode__(self):
         return self.url

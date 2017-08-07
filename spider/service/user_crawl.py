@@ -46,7 +46,8 @@ def get_user_list(search_url):
     # 通过队列获取账号的cookie
     name_cookies = get_cookie()
     while name_cookies == None:
-        logger.info('cookie 为空,重新获取')
+        logger.info('cookie 为空,60s后 重新获取')
+        time.sleep(60)
         name_cookies = get_cookie()
 
     cookies = name_cookies[1]

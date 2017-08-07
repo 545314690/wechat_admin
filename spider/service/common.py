@@ -5,6 +5,7 @@ import requests
 
 from spider.db.redis_db import Cookies
 from spider.loggers.log import logger
+from spider.util.EmailUtil import EmailUtil
 
 url = 'https://mp.weixin.qq.com'
 base_search_biz_url = 'https://mp.weixin.qq.com/cgi-bin/searchbiz'
@@ -22,6 +23,8 @@ def get_cookie():
         return name_cookies
     else:
         logger.error("没有可用cookie。")
+        #发送登录提醒email
+        EmailUtil.send_wechat_login_remaind()
         return None
 
 

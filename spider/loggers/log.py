@@ -1,5 +1,4 @@
 # coding:utf-8
-import yaml
 import logging.config
 import os
 import logging.config as log_conf
