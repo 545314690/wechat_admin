@@ -4,11 +4,11 @@ from kafka import KafkaConsumer
 from kafka.errors import KafkaError
 import json
 
-from spider.config.conf import get_kafka_info
+from spider.config.conf import get_kafka_conf
+from spider.loggers.log import logger
 
 DEFAULT_CONFIG = {
     'value_serializer': lambda v: json.dumps(v).encode('utf-8'),
-    # 'value_serializer': lambda v: json.dumps(v).encode('utf-8'),
     'value_deserializer': lambda m: json.loads(m.decode('ascii'))
 }
 
@@ -17,6 +17,8 @@ class MyKafkaProducer():
     使用kafka的生产模块
     '''
     value_serializer = lambda v: json.dumps(v).encode('utf-8')
+    # 定义静态变量实例
+    __singleton = None
 
     def __init__(self, host, port, topic, value_serializer=None):
         if (value_serializer == None):
@@ -36,7 +38,16 @@ class MyKafkaProducer():
             producer.send(self.topic, message)
             producer.flush()
         except KafkaError as e:
-            print(e)
+            logger.info(e)
+
+    @staticmethod
+    def get_instance():
+        if MyKafkaProducer.__singleton is None:
+            kafka_info = get_kafka_conf()
+            kafka_producer = MyKafkaProducer(kafka_info.get('host'), kafka_info.get('port'),
+                                             kafka_info.get('topics').get('topic_wechat'))
+            MyKafkaProducer.__singleton = kafka_producer
+        return MyKafkaProducer.__singleton
 
 
 class MyKafkaConsumer():
@@ -62,7 +73,7 @@ class MyKafkaConsumer():
                 # print json.loads(message.value)
                 yield message
         except KeyboardInterrupt as e:
-            print(e)
+            logger.info(e)
 
 
 def main():
@@ -79,10 +90,8 @@ def main():
     # 消费模块的返回格式为ConsumerRecord(topic=u'ranktest', partition=0, offset=202, timestamp=None,
     # \timestamp_type=None, key=None, value='"{abetst}:{null}---0"', checksum=-1868164195,
     # \serialized_key_size=-1, serialized_value_size=21)
-    # kafka_producer = MyKafkaProducer('192.168.0.161', 9092, 'foobar')
-    # kafka_producer.send({'a':1})
     #
-    # kafka_producer = MyKafkaProducer('192.168.0.161', 9092,'topic_wechat_test')
+    # kafka_producer = MyKafkaProducer.get_instance()
     #
     # kafka_producer.send({'a': '1111111'})
 

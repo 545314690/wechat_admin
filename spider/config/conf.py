@@ -87,9 +87,17 @@ def get_kafka_args():
     return cf.get('kafka')
 
 
-def get_kafka_info():
+def get_kafka_conf():
     kafka_args = get_kafka_args()
     host = kafka_args.get('host')
     port = kafka_args.get('port')
     topics = kafka_args.get('topics')
     return {'host': host, 'port': port, 'topics': topics}
+
+
+def get_emali_conf():
+    return cf.get('email')
+
+
+def get_conf_by_key(key):
+    return cf.get(key)

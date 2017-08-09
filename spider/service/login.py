@@ -5,25 +5,27 @@ import time
 from spider.db.redis_db import Cookies
 from spider.loggers.log import login
 from spider.service.common import get_token_by_cookies
+
+account_xpath = '//*[@id="header"]/div[2]/div/div/form/div[1]/div[1]/div/span/input'
+pwd_xpath = '//*[@id="header"]/div[2]/div/div/form/div[1]/div[2]/div/span/input'
+login_btn_xpath = '//*[@id="header"]/div[2]/div/div/form/div[4]/a'
+wechat_login_page = 'https://mp.weixin.qq.com/'
 def do_wechat_login(name, password):
-    wechat_login_page = 'https://mp.weixin.qq.com/'
     post = {}
 
     driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver')
     driver.get(wechat_login_page)
     time.sleep(2)
-    driver.find_element_by_xpath("./*//input[@id='account']").clear()
-    # driver.find_element_by_xpath("./*//input[@id='account']").send_keys('962401440@qq.com')
-    driver.find_element_by_xpath("./*//input[@id='account']").send_keys(name)
-    driver.find_element_by_xpath("./*//input[@id='pwd']").clear()
-    # driver.find_element_by_xpath("./*//input[@id='pwd']").send_keys('lyc123456')
-    driver.find_element_by_xpath("./*//input[@id='pwd']").send_keys(password)
+    driver.find_element_by_xpath(account_xpath).clear()
+    driver.find_element_by_xpath(account_xpath).send_keys(name)
+    driver.find_element_by_xpath(pwd_xpath).clear()
+    driver.find_element_by_xpath(pwd_xpath).send_keys(password)
     # 在自动输完密码之后记得点一下记住我
     time.sleep(5)
     # driver.find_element_by_xpath("./*//a[@id='loginBt']").click()
     # yzm = input("Please input your 验证码:\n")
     # driver.find_element_by_xpath("./*//input[@id='verify']").send_keys(yzm)
-    driver.find_element_by_xpath("./*//a[@id='loginBt']").click()
+    driver.find_element_by_xpath(login_btn_xpath).click()
     # 拿手机扫二维码！
     time.sleep(15)
     driver.get(wechat_login_page)

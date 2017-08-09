@@ -2,9 +2,11 @@
 import random
 import re
 import requests
+import time
 
 from spider.db.redis_db import Cookies
 from spider.loggers.log import logger
+from spider.task.send_email import excute_send_remaind_email_task
 from spider.util.EmailUtil import EmailUtil
 
 url = 'https://mp.weixin.qq.com'
@@ -15,16 +17,22 @@ header = {
     "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0"
 }
 
+EMAIL_WECHAT_LOGIN = 'wechat_login'
 
+# 记录上次发送邮件时间，２小时内不再发送邮件
+last_remaind_time = 0
 def get_cookie():
     # 通过队列获取账号的cookie
     name_cookies = Cookies.fetch_cookies()
     if (name_cookies != None and len(name_cookies) != 0):
         return name_cookies
     else:
-        logger.error("没有可用cookie。")
-        #发送登录提醒email
-        EmailUtil.send_wechat_login_remaind()
+        logger.error("没有可用cookie,60s后 重新获取'")
+        time.sleep(60)
+        now = time.time()
+        if (now - EmailUtil.last_remaind_time >= 60 * 60 * 2):
+            #发送登录提醒email
+            excute_send_remaind_email_task(EMAIL_WECHAT_LOGIN)
         return None
 
 

@@ -10,12 +10,12 @@ import wechat_admin.wsgi
 from WeChatModel.admin import WeChatUserDao, KeywordDao
 from WeChatModel.models import WeChatData
 from spider.config.conf import get_url_save_path
-from spider.db.kafka import kafka_producer
 from spider.db.redis_db import Urls
 from spider.loggers.log import crawler as logger
 from spider.service.common import *
 from spider.task import wechat_crawl
 from spider.util.DateUtil import timestamp_datetime
+from spider.util.KafkaUtil import MyKafkaProducer
 from spider.util.headers import header_wechat
 from spider.util.json_util import class_to_dict
 
@@ -98,7 +98,7 @@ def get_article_url_list(search_url):
 def get_article(article_url):
     is_crawled = Urls.is_crawled_url(article_url)
     if(is_crawled == 1):
-        logger.info("ingore crawled page : " + article_url)
+        logger.info("ignore crawled page : " + article_url)
         return
     logger.info("crawling page : " + article_url)
     response = requests.get(article_url, headers=header_wechat)
@@ -111,7 +111,8 @@ def get_article(article_url):
         # time_str = meta_content.find(id='post-date').get_text()
         # nickname = meta_content.find_all('em')[1].get_text()
         content_div = soup.find(id='js_content')
-        content = content_div.get_text()
+        # content = content_div.get_text()
+        content = str(content_div)
         msg_title = (re.search('(var msg_title = ")(.*)"', html_str).group(2))
         nickname = (re.search('(var nickname = ")(.*)"', html_str).group(2))
         alias = (re.search('(var user_name = ")(.*)"', html_str).group(2))
@@ -138,13 +139,15 @@ def get_article(article_url):
             item.content = content
             # 文章处理
             try:
+                dic = class_to_dict(item)
+                del dic['_state']
+                dic['date_modified'] = dic['date_created'] = timestamp_datetime(time.time(), type='s')
+                # json_str = json.dumps(dic,ensure_ascii=False)
+                # 发送到kafka(必须先发送到kafka，否则时间格式会让发送不成功)
+                MyKafkaProducer.get_instance().send(dic)
                 #保存到数据库
                 WeChatData.save(item)
                 Urls.store_crawled_url(article_url)
-                dic = class_to_dict(item)
-                del dic['_state']
-                # 发送到kafka
-                kafka_producer.send(dic)
             except Exception as err:
                 logger.error("保存微信文章异常：")
                 logger.error(err)
@@ -157,5 +160,5 @@ def get_article(article_url):
         logger.error(e)
 
 # if __name__ == '__main__':
-    # get_article(
-    #     'http://mp.weixin.qq.com/s?__biz=MzA3NjcwNjgyOQ==&mid=204671295&idx=3&sn=731238aecce2c638c3c1157092650e18#rd')
+#     get_article(
+#         'http://mp.weixin.qq.com/s?__biz=MzA3NjcwNjgyOQ==&mid=204671295&idx=3&sn=731238aecce2c638c3c1157092650e18#rd')

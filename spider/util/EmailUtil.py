@@ -7,16 +7,19 @@ from email.mime.multipart import MIMEMultipart
 
 import time
 
+from spider.config.conf import get_emali_conf
 from spider.loggers.log import logger
+
+email_conf = get_emali_conf()
 
 
 class Email(object):
     def __init__(self):
-        self.From = 'lism@bjtopcom.com'
-        self.To = 'lism@bjtopcom.com'
-        self.user = 'lism@bjtopcom.com'
-        self.pwd = 'Lsm123456'
-        self.stmp = 'smtp.exmail.qq.com'
+        self.From = email_conf.get('From')
+        self.To = email_conf.get('To')
+        self.user = email_conf.get('user')
+        self.pwd = email_conf.get('pwd')
+        self.stmp = email_conf.get('stmp')
 
     def send_text(self, subject, text):
         msg = MIMEMultipart()
@@ -34,6 +37,11 @@ class Email(object):
 class EmailUtil(object):
     # 记录上次发送邮件时间，２小时内不再发送邮件
     last_remaind_time = 0
+
+    @staticmethod
+    def send_email(email_type):
+        if 'wechat_login' == email_type:
+            EmailUtil.send_wechat_login_remaind()
 
     @staticmethod
     def send_wechat_login_remaind():

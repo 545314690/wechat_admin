@@ -9,8 +9,8 @@ max_home_page: 35              # 主页微博最多抓取页数
 max_comment_page: 2000         # 每条微博最大抓取的评论页数（注意不是评论数）
 max_repost_page: 2000          # 转发信息最多抓取多少页
 max_retries: 5                 # 抓取失败重试次数
-yundama_username: ''           # 云打码用户名,如果登录账号全是在常用地登录，则不需要填写
-yundama_passwd: ''             # 云打码密码
+yundama_username:            # 云打码用户名,如果登录账号全是在常用地登录，则不需要填写
+yundama_passwd:              # 云打码密码
 
 url_save_path: /home/lism/urls/
 db:
@@ -43,6 +43,14 @@ kafka:
     port: 9092
     topics:
         topic_wechat: topic_wechat_python
+        
+# email配置
+email:
+    From: lism@bjtopcom.com
+    To: lism@bjtopcom.com
+    user: lism@bjtopcom.com
+    pwd: Lsm123456
+    stmp: smtp.exmail.qq.com
 
 
 
