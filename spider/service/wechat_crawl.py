@@ -151,6 +151,7 @@ def get_article(article_url):
             except Exception as err:
                 logger.error("保存微信文章异常：")
                 logger.error(err)
+                Urls.store_save_failed_url(article_url)
                 # dic = class_to_dict(item)
                 # urls_file = open(url_save_path + '/articles.txt', 'a+', encoding='utf-8')
                 # urls_file.writelines(str(dic) + '\n')
