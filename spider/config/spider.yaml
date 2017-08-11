@@ -27,7 +27,7 @@ db:
 # 保存登录的cookies
 redis:
 #    host: 115.28.72.158
-    host: 192.168.0.8
+    host: 192.168.0.183
 #    host: localhost
     port: 6379
     password: topcom123

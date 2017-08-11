@@ -26,7 +26,9 @@ class Site(BaseModel):
     name = models.CharField('站点名', max_length=100, blank=False)
     start_urls = models.TextField('入口页面', blank=False)  # 可多行
     allow_domains = models.TextField('允许的域名 正则 ', default=None)  # 可多行
-    url_rule = models.CharField('url 正则 ', default=None, max_length=255)
+    url_rule_reg = models.CharField('url 正则 ', default=None, max_length=255)
+    url_rule_css = models.CharField('url css ', default=None, max_length=255)
+    url_rule_xpath = models.CharField('url xpath ', default=None, max_length=255)
 
     title_rule_reg = models.CharField('title 正则 ', default=None, max_length=255, blank=True)
     title_rule_css = models.CharField('title css ', default=None, max_length=255, blank=True)
