@@ -17,7 +17,7 @@ def keyword_task(kw):
 
 @app.task(ignore_result=True)
 def excute_keyword_task():
-    infos = KeywordDao.get_enable()
+    infos = KeywordDao.get_enable_and_not_crawled()
     logger.info('本次搜索关键词个数:' + str(len(infos)))
     for info in infos:
         kw = info.name

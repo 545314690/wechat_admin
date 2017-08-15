@@ -13,7 +13,7 @@ class LoginUserAdmin(admin.ModelAdmin):
 
 
 class KeywordAdmin(admin.ModelAdmin):
-    list_display = ('name', 'enable','date_created','date_modified')  # list
+    list_display = ('name', 'enable','crawled','date_created','date_modified')  # list
     search_fields = ['name']
     list_per_page = 20
 
@@ -75,10 +75,15 @@ class KeywordDao:
     def get_enable():
         return Keyword.objects.filter(enable=True)
 
+    # 获取可用并且没有抓取过的关键词
+    @staticmethod
+    def get_enable_and_not_crawled():
+        return Keyword.objects.filter(enable=True,crawled=False)
+
     # 设置是否启用
     @staticmethod
     def set_enable(kw, enable):
-        return Keyword.objects.filter(Q(name=kw)).update(enable=enable)
+        return Keyword.objects.filter(Q(name=kw)).update(enable=enable,crawled=True)
 
 
 admin.site.register(LoginUser, LoginUserAdmin)
