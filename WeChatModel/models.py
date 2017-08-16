@@ -57,6 +57,7 @@ class WeChatUser(BaseModel):
 class Keyword(BaseModel):
     name = models.CharField('关键词', max_length=100, unique=True)
     enable = models.BooleanField('是否启用', default=True)
+    crawled = models.BooleanField('是否爬取过', default=False)
 
     def __unicode__(self):
         return self.name
