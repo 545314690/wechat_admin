@@ -12,7 +12,7 @@ max_retries: 5                 # 抓取失败重试次数
 yundama_username:            # 云打码用户名,如果登录账号全是在常用地登录，则不需要填写
 yundama_passwd:              # 云打码密码
 
-url_save_path: /home/lism/urls/
+url_save_path: ~/urls/
 db:
 #    host: 115.28.72.158
     host: 192.168.0.151
