@@ -36,3 +36,6 @@ def excute_login_task():
         app.send_task('spider.task.login.login_task', args=(info.name, info.password), queue='login_queue')
         # routing_key='for_login')
         time.sleep(10)
+
+if __name__ == '__main__':
+    excute_login_task()

@@ -39,7 +39,7 @@ log_config = {
     'loggers': {
         'crawler': {
             'handlers': ['console', 'file'],
-            'level': 'DEBUG',
+            'level': 'INFO',
         },
         'parser': {
             'handlers': ['file'],

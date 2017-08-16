@@ -13,7 +13,7 @@ class NewsAdmin(admin.ModelAdmin):
 
 class SiteAdmin(admin.ModelAdmin):
     list_display = (
-        'name', 'enable', 'start_urls', 'allow_domains',
+        'name', 'enable', 'start_urls', 'allow_domains','not_allowed_domains',
         'url_rule_css', 'url_rule_xpath', 'url_rule_reg',
         'title_rule_css', 'title_rule_xpath', 'title_rule_reg',
         'pub_time_rule_css', 'pub_time_rule_xpath', 'pub_time_rule_reg',
@@ -24,7 +24,7 @@ class SiteAdmin(admin.ModelAdmin):
     )  # list
     search_fields = ('name', 'allow_domains')
     fields = (
-        'name', 'enable', 'start_urls', 'allow_domains',
+        'name', 'enable', 'start_urls', 'allow_domains','not_allowed_domains',
         ('url_rule_css', 'url_rule_xpath', 'url_rule_reg'),
         ('title_rule_css', 'title_rule_xpath', 'title_rule_reg'),
         ('pub_time_rule_css', 'pub_time_rule_xpath', 'pub_time_rule_reg'),
@@ -35,6 +35,9 @@ class SiteAdmin(admin.ModelAdmin):
     )
     list_per_page = 10
 
-
+class SiteDao:
+    @staticmethod
+    def get_enable():
+        return Site.objects.filter(enable=True)
 admin.site.register(News, NewsAdmin)
 admin.site.register(Site, SiteAdmin)
