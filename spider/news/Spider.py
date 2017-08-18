@@ -148,11 +148,11 @@ class Spider():
                         crawler.info('ignore not allowed page : ' + url)
                 except Exception as e:
                     self.error_log.log(
-                        {'msg': 'crawl 2level page error', 'url': start_url, 'site': self.site.name, 'deep': deep})
+                        {'msg': 'crawl 2level page error', 'url': start_url, 'site': self.site.name, 'main_name': self.site.main_name, 'deep': deep})
                     crawler.error(e)
             # 放入抓取过的列表中
             self.duplicate.put(start_url, is2level_page=True)
-            self.success_log.log({'msg': 'success', 'url': start_url, 'site': self.site.name, 'deep': deep})
+            self.success_log.log({'msg': 'success', 'url': start_url, 'site': self.site.name, 'main_name': self.site.main_name, 'deep': deep})
         crawler.info('crawl_success_count : ' + str(self.crawl_success_count))
 
     '''
@@ -175,14 +175,14 @@ class Spider():
         title = self.parse_attr(soup, 'title')
         if (title == None):
             crawler.info('title none')
-            self.error_log.log({'msg': 'title', 'url': detail_url, 'site': self.site.name})
+            self.error_log.log({'msg': 'title', 'url': detail_url, 'site': self.site.name, 'main_name': self.site.main_name})
             return
         else:
             crawler.info('title-->' + title)
         pub_time = self.parse_attr(soup, 'pub_time')
         if (pub_time == None):
             crawler.info('pub_time none')
-            self.error_log.log({'msg': 'pub_time', 'url': detail_url, 'site': self.site.name})
+            self.error_log.log({'msg': 'pub_time', 'url': detail_url, 'site': self.site.name, 'main_name': self.site.main_name})
             return
         else:
             pub_time = DateUtil.cut_date_str(pub_time)
@@ -190,14 +190,14 @@ class Spider():
         source = self.parse_attr(soup, 'source')
         if (source == None):
             crawler.info('source none')
-            self.error_log.log({'msg': 'source', 'url': detail_url, 'site': self.site.name})
+            self.error_log.log({'msg': 'source', 'url': detail_url, 'site': self.site.name, 'main_name': self.site.main_name})
             return
         else:
             crawler.info('source-->' + source)
         content = self.parse_attr(soup, 'content')
         if (content == None):
             crawler.info('content none')
-            self.error_log.log({'msg': 'content', 'url': detail_url, 'site': self.site.name})
+            self.error_log.log({'msg': 'content', 'url': detail_url, 'site': self.site.name, 'main_name': self.site.main_name})
             return
         else:
             crawler.debug('content-->' + content)
@@ -210,7 +210,10 @@ class Spider():
             crawler.info('comment_num-->' + comment_num)
         # 保存数据
         news = News()
-        news.site = self.site.name
+        if(self.site.main_name):
+            news.site = self.site.main_name
+        else:
+            news.site = self.site.name
         news.title = title.strip()
         detail_url = detail_url.strip()
         news.url = detail_url
@@ -224,7 +227,7 @@ class Spider():
         # 放入去重器
         self.duplicate.put(detail_url)
         self.crawl_success_count = self.crawl_success_count + 1
-        self.success_log.log({'msg': 'success', 'url': detail_url, 'site': self.site.name})
+        self.success_log.log({'msg': 'success', 'url': detail_url, 'site': self.site.name, 'main_name': self.site.main_name})
 
     def parse_title(self, soup):
         title = None

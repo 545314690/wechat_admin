@@ -29,6 +29,7 @@ class News(BaseModel):
 class Site(BaseModel):
     enable = models.BooleanField('是否启用', default=True)
     name = models.CharField('站点名', max_length=100, blank=False)
+    main_name = models.CharField('主站点名', max_length=100, default=None,blank=False)
     start_urls = models.TextField('入口页面', blank=False)  # 可多行
     crawl_deep = models.IntegerField('爬取深度', default=2, blank=True)  # 默认２层
     allow_domains = models.TextField('允许的域名 正则 ', default=None)  # 可多行

@@ -13,7 +13,7 @@ class NewsAdmin(admin.ModelAdmin):
 
 class SiteAdmin(admin.ModelAdmin):
     list_display = (
-        'name','op_btn', 'enable','crawl_deep', 'start_urls', 'allow_domains', 'not_allowed_domains',
+        'main_name','name','op_btn', 'enable','crawl_deep', 'start_urls', 'allow_domains', 'not_allowed_domains',
         'url_rule_css', 'url_rule_xpath', 'url_rule_reg',
         'title_rule_css', 'title_rule_xpath', 'title_rule_reg',
         'pub_time_rule_css', 'pub_time_rule_xpath', 'pub_time_rule_reg',
@@ -24,7 +24,7 @@ class SiteAdmin(admin.ModelAdmin):
     )  # list
     search_fields = ('name', 'allow_domains')
     fields = (
-        'name', 'enable','crawl_deep', 'start_urls', 'allow_domains', 'not_allowed_domains',
+        ('main_name','name'), 'enable','crawl_deep', 'start_urls', 'allow_domains', 'not_allowed_domains',
         ('url_rule_css', 'url_rule_xpath', 'url_rule_reg'),
         ('title_rule_css', 'title_rule_xpath', 'title_rule_reg'),
         ('pub_time_rule_css', 'pub_time_rule_xpath', 'pub_time_rule_reg'),
