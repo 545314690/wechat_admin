@@ -191,7 +191,7 @@ class Spider():
         if (source == None):
             crawler.info('source none')
             self.error_log.log({'msg': 'source', 'url': detail_url, 'site': self.site.name, 'main_name': self.site.main_name})
-            return
+            # return
         else:
             crawler.info('source-->' + source)
         content = self.parse_attr(soup, 'content')
