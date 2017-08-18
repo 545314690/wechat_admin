@@ -36,7 +36,7 @@ redis:
     broker: 5 # celery的broker
     backend: 6 # celery的backend
     id_name: 8 # user_id和对应的name，这个是为转发微博分析而存在的
-    expires: 36000 #二级页面的过期时间，设置为１个小时
+    expires: 3600 #二级页面的过期时间，设置为１个小时
 
 # kafka配置
 kafka:
