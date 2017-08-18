@@ -5,12 +5,19 @@ from django.db import models
 # Create your models here.
 from django.utils.html import format_html
 
+
 class BaseModel(models.Model):
     date_created = models.DateTimeField('创建时间', auto_now_add=True)
     date_modified = models.DateTimeField('更新时间', auto_now=True)
 
     class Meta:
         abstract = True
+
+    def to_dict(self):
+        data = {}
+        for f in self._meta.concrete_fields:
+            data[f.name] = f.value_from_object(self)
+        return data
 
 
 class LoginUser(BaseModel):
@@ -35,7 +42,7 @@ class WeChatUser(BaseModel):
     crawl_history = models.BooleanField('是否爬取历史文章', default=False)
     crawled_history = models.BooleanField('是否爬取过历史文章', default=False)
     monitored = models.BooleanField('是否监控最新文章', default=False)
-    description = models.CharField('描述', max_length=255, default=None,null=True)
+    description = models.CharField('描述', max_length=255, default=None, null=True)
     enable = models.BooleanField('是否启用', default=True)
 
     def __unicode__(self):
@@ -75,12 +82,12 @@ class WeChatData(BaseModel):
     url = models.URLField('链接', max_length=255, default=None, unique=True)
     pub_time = models.DateTimeField('发布时间', default=None)
     # user = models.ForeignKey(WeChatUser)
-    nickname = models.CharField('作者','nickname', max_length=100, default=None)
-    alias = models.CharField('作者biz','alias', max_length=100, default=None)
-    round_head_img = models.URLField('作者头像','round_head_img', max_length=500, default=None)
-    ori_head_img_url = models.URLField('作者头像','ori_head_img_url', max_length=500, default=None)
-    msg_desc = models.CharField('摘要','msg_desc', max_length=500, default=None)
-    msg_source_url = models.URLField('原文链接','msg_source_url', max_length=500, default=None)
+    nickname = models.CharField('作者', 'nickname', max_length=100, default=None)
+    alias = models.CharField('作者biz', 'alias', max_length=100, default=None)
+    round_head_img = models.URLField('作者头像', 'round_head_img', max_length=500, default=None)
+    ori_head_img_url = models.URLField('作者头像', 'ori_head_img_url', max_length=500, default=None)
+    msg_desc = models.CharField('摘要', 'msg_desc', max_length=500, default=None)
+    msg_source_url = models.URLField('原文链接', 'msg_source_url', max_length=500, default=None)
 
     def __unicode__(self):
         return self.url

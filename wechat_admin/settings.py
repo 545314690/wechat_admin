@@ -87,8 +87,10 @@ DATABASES = {
         'NAME': 'spider',
         'USER': 'anjian',
         'PASSWORD': 'topcom123',
-        'HOST': '192.168.0.151',
-        'PORT': '3306',
+        'HOST': '192.168.0.118',
+        'PORT': '33060',
+        # 'HOST': '192.168.0.151',
+        # 'PORT': '3306',
     }
 }
 # DATABASES = {

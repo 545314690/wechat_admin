@@ -95,8 +95,12 @@ def get_kafka_conf():
     return {'host': host, 'port': port, 'topics': topics}
 
 
-def get_emali_conf():
+def get_email_conf():
     return cf.get('email')
+
+
+def get_mongodb_conf():
+    return cf.get('mongodb')
 
 
 def get_conf_by_key(key):

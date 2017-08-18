@@ -24,7 +24,8 @@ beat_log_path = os.path.join(os.path.dirname(os.path.dirname(__file__)) + '/logs
 # url_backend = 'redis://:' + password + '@' + host + ':' + port + '/' + db_backend
 url_broker = get_broker_or_backend(1)
 url_backend = get_broker_or_backend(2)
-tasks = ['spider.task.login', 'spider.task.gather', 'spider.task.keyword', 'spider.task.send_email', 'spider.task.tasks']
+tasks = ['spider.task.login', 'spider.task.gather', 'spider.task.keyword', 'spider.task.send_email', 'spider.task.tasks',
+         'spider.task.news_crawl',]
 
 app = Celery('wechat_task', broker=url_broker, backend=url_backend, include=tasks)
 
@@ -56,6 +57,8 @@ app.conf.update(
         'spider.task.wechat_crawl.wechat_user_crawl_task': {'queue': 'wechat_user_crawl_queue'},
         'spider.task.wechat_crawl.wechat_url_crawl_task': {'queue': 'wechat_url_crawl_queue'},
         'spider.task.wechat_crawl.wechat_crawl_task': {'queue': 'wechat_crawl_queue'},
+        'spider.task.news_crawl.crawl_site_task': {'queue': 'crawl_news_site_queue'},
+        'spider.task.news_crawl.crawl_site_2level_page_task': {'queue': 'crawl_site_2level_page_queue'},
     },
     CELERYBEAT_SCHEDULE={
         # 'add_task': {

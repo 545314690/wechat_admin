@@ -12,13 +12,12 @@ max_retries: 5                 # 抓取失败重试次数
 yundama_username:            # 云打码用户名,如果登录账号全是在常用地登录，则不需要填写
 yundama_passwd:              # 云打码密码
 
-url_save_path: ~/urls/
+url_save_path: /home/lism/urls/
 db:
-#    host: 115.28.72.158
-    host: 192.168.0.151
-    port: 3306
-#    host: bjtopcom.xicp.cn
-#    port: 3307
+    host: 192.168.0.118
+#    host: 192.168.0.151
+    port: 33060
+#    port: 3306
     user: anjian
     password: topcom123
     db_name: spider
@@ -33,9 +32,11 @@ redis:
     password: topcom123
     cookies: 1 # cookie存取
     urls: 2 # 抓取过的url
+    2level_urls: 3 # 抓取过的2级url
     broker: 5 # celery的broker
     backend: 6 # celery的backend
     id_name: 8 # user_id和对应的name，这个是为转发微博分析而存在的
+    expires: 36000 #二级页面的过期时间，设置为１个小时
 
 # kafka配置
 kafka:
@@ -51,6 +52,14 @@ email:
     user: lism@bjtopcom.com
     pwd: Lsm123456
     stmp: smtp.exmail.qq.com
+
+# mongodb配置
+mongodb:
+    host: 192.168.0.2
+    port: 27007
+    db: anjian-db
+    user: anjian
+    pwd: topcom123
 
 
 

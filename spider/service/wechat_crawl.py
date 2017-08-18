@@ -17,7 +17,7 @@ from spider.task import wechat_crawl
 from spider.util.DateUtil import timestamp_datetime
 from spider.util.KafkaUtil import MyKafkaProducer
 from spider.util.headers import header_wechat
-from spider.util.json_util import class_to_dict
+from spider.util.JsonUtil import class_to_dict
 
 url_save_path = get_url_save_path()
 
@@ -95,13 +95,14 @@ def get_article_url_list(search_url):
     random_time = random.randint(15, 30)
     time.sleep(random_time)
 
+#防止无限等待，加上timeout参数
 def get_article(article_url):
     is_crawled = Urls.is_crawled_url(article_url)
     if(is_crawled == 1):
         logger.info("ignore crawled page : " + article_url)
         return
     logger.info("crawling page : " + article_url)
-    response = requests.get(article_url, headers=header_wechat)
+    response = requests.get(article_url, headers=header_wechat,timeout=(3, 5))
     soup = BeautifulSoup(response.content, 'lxml')
     html_str = str(soup)
     try:

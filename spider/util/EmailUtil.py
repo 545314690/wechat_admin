@@ -7,10 +7,10 @@ from email.mime.multipart import MIMEMultipart
 
 import time
 
-from spider.config.conf import get_emali_conf
+from spider.config.conf import get_email_conf
 from spider.loggers.log import logger
 
-email_conf = get_emali_conf()
+email_conf = get_email_conf()
 
 
 class Email(object):

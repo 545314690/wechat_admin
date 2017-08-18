@@ -11,15 +11,25 @@
         button{
             padding: 0px 50px;
             line-height: 50px;
+            background-color: #0f88eb;
+            color: aliceblue;
         }
+        .model{
+            padding: 50px;
+            margin: 50px;
+        }
+
     </style>
 </head>
 <body>
-    <div>
+    <div class="model">
         <button onclick="window.open('/login','login')"> 模拟登陆</button>
         <button onclick="window.open('/search_keyword','search_keyword')"> 搜索关键词</button>
         <button onclick="window.open('/gather_history','gather_history')"> 抓取公众号历史文章</button>
         <button onclick="window.open('/gather_failed','gather_failed')"> 重新爬取失败url</button>
+    </div>
+    <div class="model">
+        <button onclick="window.open('/crawl_news_site','crawl_news_site')"> 爬取新闻站点</button>
     </div>
 </body>
 </html>
