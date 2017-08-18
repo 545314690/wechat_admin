@@ -1,14 +1,10 @@
 from django.http import HttpResponse
-from django.shortcuts import render
-
 # Create your views here.
 from django.shortcuts import render_to_response
 
-from spider.news.SpiderLoader import SpiderLoader
 from spider.task.gather import excute_crawl_history_task
 from spider.task.keyword import excute_keyword_task
 from spider.task.login import excute_login_task
-
 # 表单
 from spider.task.workers import app
 
@@ -35,8 +31,3 @@ def search_keyword(request):
 def login(request):
     excute_login_task();
     return HttpResponse("开始模拟登陆...")
-
-def crawl_news_site(request):
-    loader = SpiderLoader();
-    loader.load_all()
-    return HttpResponse("开始爬取新闻站点...")

@@ -13,6 +13,7 @@ from spider.news.ModelJsonPipeline import ModelJsonPipeline
 from spider.news.MongoPipeline import MongoPipeline
 from spider.news.RedisDuplicate import RedisDuplicate
 from spider.task import news_crawl
+from spider.task.news_crawl import crawl_site_2level_page_task
 from spider.util.dateutil import DateUtil
 
 
@@ -94,8 +95,11 @@ class Spider():
         if (deep > self.site.crawl_deep or self.duplicate.is_duplicate(start_url, is2level_page=True) == True):
             return
         crawler.info('crawling [' + self.site.name + '] 第' + str(deep) + '层页面 ' + start_url)
-        response = requests.get(start_url, timeout=self.timeout)
-        soup = BeautifulSoup(response.content, 'lxml')
+        try:
+            response = requests.get(start_url, timeout=self.timeout)
+            soup = BeautifulSoup(response.content, 'lxml')
+        except Exception as exc :#如果爬虫出错，加入重试
+            raise crawl_site_2level_page_task.retry(exc=exc)
         urls = []
         if (self.site.url_rule_css):
             url_tags = soup.select(self.site.url_rule_css)

@@ -16,14 +16,16 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from WeChatModel.views import test_task, index, gather_history, search_keyword, login, crawl_news_site
+from WeChatModel.views import test_task, index, gather_history, search_keyword, login
+from NewsModel.views import crawl_news_site, crawl_site_by_id
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^test_task', test_task),
     url(r'^gather_history', gather_history),
     url(r'^search_keyword', search_keyword),
-    url(r'^crawl_news_site', crawl_news_site),
+    url(r'^news/crawl_news_site', crawl_news_site),
+    url(r'^news/crawl_site_by_id', crawl_site_by_id),
     url(r'^login', login),
     url(r'^index', index),
 ]

@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+from django.utils.html import format_html
+
 from WeChatModel.models import BaseModel
 
 
@@ -28,7 +30,7 @@ class Site(BaseModel):
     enable = models.BooleanField('是否启用', default=True)
     name = models.CharField('站点名', max_length=100, blank=False)
     start_urls = models.TextField('入口页面', blank=False)  # 可多行
-    crawl_deep = models.IntegerField('爬取深度', default=2, blank=True) #默认２层
+    crawl_deep = models.IntegerField('爬取深度', default=2, blank=True)  # 默认２层
     allow_domains = models.TextField('允许的域名 正则 ', default=None)  # 可多行
     not_allowed_domains = models.TextField('不允许的域名 正则 ', default=None)  # 可多行
     url_rule_reg = models.CharField('url 正则 ', default=None, max_length=255, blank=True)
@@ -65,3 +67,12 @@ class Site(BaseModel):
     class Meta:
         verbose_name = '新闻站点'
         verbose_name_plural = '新闻站点'
+
+    def op_btn(self):
+        if self.id:
+            return format_html(
+                '<input type="button" value="开始" class="btn btn-info" onclick="window.open(\'/news/crawl_site_by_id?id=%s\')">'% (self.id))
+        else:
+            return ''
+
+    op_btn.short_description = '任务操作'
