@@ -92,7 +92,11 @@ class Spider():
 
     def crawl_site_url(self, start_url, deep):
         #如果达到最大抓取深度或者该二级页面被重复抓取过就返回
-        if (deep > self.site.crawl_deep or self.duplicate.is_duplicate(start_url, is2level_page=True) == True):
+        if (deep > self.site.crawl_deep):
+            return
+        #如果不是第一层链接，并且被抓取过
+        if(deep !=1 and self.duplicate.is_duplicate(start_url, is2level_page=True) == True):
+            crawler.info('ignore crawled [' + self.site.name + '] 第' + str(deep) + '层页面 ' + start_url)
             return
         crawler.info('crawling [' + self.site.name + '] 第' + str(deep) + '层页面 ' + start_url)
         try:
@@ -137,7 +141,7 @@ class Spider():
                                     news_crawl.excute_crawl_site_2level_page_task(self.site.id, self.site.name, url, deep + 1)
 
                             else:
-                                crawler.info('ignore crawled　2level page : ' + url)
+                                crawler.info('ignore crawled [' + self.site.name + '] 第' + str(deep) + '层页面 ' + url)
                         else:
                             crawler.info('ignore too short title page : ' + url)
                     else:
