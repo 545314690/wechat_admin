@@ -8,7 +8,7 @@ import logging
 
 class DateUtil:
     default_format = '%Y-%m-%d %H:%M:%S'
-    regs = [u"\\d{4}[年|-|.|/]\\d{1,2}[月|-|.|/]\\d{1,2}([号|日|-|.|/])?(\\s*\\d{1,2}[:|时](\\d{1,2}([:|分]\\d{0,2})?秒?)?)?"]
+    regs = [u"\\d{4}[年|\-|.|/]\\d{1,2}[月|\-|.|/]\\d{1,2}([号|日|\-|.|/])?(\\s*\\d{1,2}[:|时](\\d{1,2}([:|分]\\d{0,2})?秒?)?)?"]
     formats = [
         u"%Y年%m月%d日%H时%M分%S秒",
         u"%Y年%m月%d日 %H时%M分%S秒",
@@ -23,6 +23,19 @@ class DateUtil:
         u"%Y年%m月%d日 %H:%M",
         u"%Y年%m月%d日 %H",
         u"%Y年%m月%d日%H",
+        u"%Y年%m月%d号%H时%M分%S秒",
+        u"%Y年%m月%d号 %H时%M分%S秒",
+        u"%Y年%m月%d号%H时%M分",
+        u"%Y年%m月%d号 %H时%M分",
+        u"%Y年%m月%d号 %H时",
+        u"%Y年%m月%d号%H时",
+        u"%Y年%m月%d号",
+        u"%Y年%m月%d号%H:%M:%S",
+        u"%Y年%m月%d号 %H:%M:%S",
+        u"%Y年%m月%d号%H:%M",
+        u"%Y年%m月%d号 %H:%M",
+        u"%Y年%m月%d号 %H",
+        u"%Y年%m月%d号%H",
         u"%Y-%m-%d %H时%M分%S秒",
         u"%Y-%m-%d %H时%M分",
         u"%Y-%m-%d %H时",
@@ -47,6 +60,8 @@ class DateUtil:
     @staticmethod
     def cut_date_str(str):
         date = DateUtil.cut_date(str)
+        if (date == None):
+            return None
         return time.strftime(DateUtil.default_format, date)
 
     @staticmethod
@@ -56,7 +71,8 @@ class DateUtil:
             pattern = re.compile(reg)
             match = pattern.search(str)
             if match:
-                logging.debug(match.group())
+                print(match.group())
+                # logging.debug(match.group())
                 date = DateUtil.format_date(match.group())
                 break
         return date
@@ -67,7 +83,8 @@ class DateUtil:
         for format in DateUtil.formats:
             try:
                 date = time.strptime(date_str, format)
-                logging.debug(format)
+                # print(format)
+                logging.info(format)
                 break
             except:
                 pass
@@ -117,3 +134,9 @@ class DateUtil:
             return
 
         return ts0
+
+
+if __name__ == '__main__':
+    # str = DateUtil.cut_date_str('分享1,312评论2017年08月18日11:04')
+    str = DateUtil.cut_date_str('18/08/6 11:04')
+    print(str)

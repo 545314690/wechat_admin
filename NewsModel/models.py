@@ -32,35 +32,35 @@ class Site(BaseModel):
     main_name = models.CharField('主站点名', max_length=100, default=None,blank=False)
     start_urls = models.TextField('入口页面', blank=False)  # 可多行
     crawl_deep = models.IntegerField('爬取深度', default=2, blank=True)  # 默认２层
-    allow_domains = models.TextField('允许的域名 正则 ', default=None)  # 可多行
-    not_allowed_domains = models.TextField('不允许的域名 正则 ', default=None)  # 可多行
-    url_rule_reg = models.CharField('url 正则 ', default=None, max_length=255, blank=True)
-    url_rule_css = models.CharField('url css ', default=None, max_length=255, blank=True)
-    url_rule_xpath = models.CharField('url xpath ', default=None, max_length=255, blank=True)
+    allow_domains = models.TextField('允许的域名 正则 ', default=None, blank=True)  # 可多行
+    not_allowed_domains = models.TextField('不允许的域名 正则 ', default=None, blank=True)  # 可多行
+    url_rule_reg = models.TextField('url 正则 ', default=None, max_length=255, blank=True)
+    url_rule_css = models.TextField('url css ', default=None, max_length=255, blank=True)
+    url_rule_xpath = models.TextField('url xpath ', default=None, max_length=255, blank=True)
 
-    title_rule_reg = models.CharField('title 正则 ', default=None, max_length=255, blank=True)
-    title_rule_css = models.CharField('title css ', default=None, max_length=255, blank=True)
-    title_rule_xpath = models.CharField('title xpath ', default=None, max_length=255, blank=True)
+    title_rule_reg = models.TextField('title 正则 ', default=None, max_length=255, blank=True)
+    title_rule_css = models.TextField('title css ', default=None, max_length=255, blank=True)
+    title_rule_xpath = models.TextField('title xpath ', default=None, max_length=255, blank=True)
 
-    pub_time_rule_reg = models.CharField('发布时间正则 ', default=None, max_length=255, blank=True)
-    pub_time_rule_css = models.CharField('发布时间css ', default=None, max_length=255, blank=True)
-    pub_time_rule_xpath = models.CharField('发布时间xpath ', default=None, max_length=255, blank=True)
+    pub_time_rule_reg = models.TextField('发布时间正则 ', default=None, max_length=255, blank=True)
+    pub_time_rule_css = models.TextField('发布时间css ', default=None, max_length=255, blank=True)
+    pub_time_rule_xpath = models.TextField('发布时间xpath ', default=None, max_length=255, blank=True)
 
-    source_rule_reg = models.CharField('来源 正则 ', default=None, max_length=255, blank=True)
-    source_rule_css = models.CharField('来源 css ', default=None, max_length=255, blank=True)
-    source_rule_xpath = models.CharField('来源 xpath ', default=None, max_length=255, blank=True)
+    source_rule_reg = models.TextField('来源 正则 ', default=None, max_length=255, blank=True)
+    source_rule_css = models.TextField('来源 css ', default=None, max_length=255, blank=True)
+    source_rule_xpath = models.TextField('来源 xpath ', default=None, max_length=255, blank=True)
 
-    content_rule_reg = models.CharField('内容 正则 ', default=None, max_length=255, blank=True)
-    content_rule_css = models.CharField('内容 css ', default=None, max_length=255, blank=True)
-    content_rule_xpath = models.CharField('内容 xpath ', default=None, max_length=255, blank=True)
+    content_rule_reg = models.TextField('内容 正则 ', default=None, max_length=255, blank=True)
+    content_rule_css = models.TextField('内容 css ', default=None, max_length=255, blank=True)
+    content_rule_xpath = models.TextField('内容 xpath ', default=None, max_length=255, blank=True)
 
-    comment_num_rule_reg = models.CharField('评论数 正则 ', default=None, max_length=255, blank=True)
-    comment_num_rule_css = models.CharField('评论数 css ', default=None, max_length=255, blank=True)
-    comment_num_rule_xpath = models.CharField('评论数 xpath ', default=None, max_length=255, blank=True)
+    comment_num_rule_reg = models.TextField('评论数 正则 ', default=None, max_length=255, blank=True)
+    comment_num_rule_css = models.TextField('评论数 css ', default=None, max_length=255, blank=True)
+    comment_num_rule_xpath = models.TextField('评论数 xpath ', default=None, max_length=255, blank=True)
 
-    images_rule_reg = models.CharField('图片 正则 ', default=None, max_length=255, blank=True)
-    images_rule_css = models.CharField('图片 css ', default=None, max_length=255, blank=True)
-    images_rule_xpath = models.CharField('图片 xpath ', default=None, max_length=255, blank=True)
+    images_rule_reg = models.TextField('图片 正则 ', default=None, max_length=255, blank=True)
+    images_rule_css = models.TextField('图片 css ', default=None, max_length=255, blank=True)
+    images_rule_xpath = models.TextField('图片 xpath ', default=None, max_length=255, blank=True)
 
     def __str__(self):
         return self.name

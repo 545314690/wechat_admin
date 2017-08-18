@@ -1,17 +1,6 @@
 # encoding=utf-8
-import json
-import re
-
-from django.core import serializers
-
-import wechat_admin.wsgi
-import requests
-from bs4 import BeautifulSoup
 
 from NewsModel.admin import SiteDao
-from NewsModel.models import Site
-from spider.loggers.log import crawler
-from spider.news.Spider import Spider
 from spider.task import news_crawl
 
 
@@ -35,4 +24,4 @@ class SpiderLoader():
 if __name__ == '__main__':
     loader = SpiderLoader()
     # loader.load_all()
-    loader.load_by_id('1')
+    loader.load_by_id(7)

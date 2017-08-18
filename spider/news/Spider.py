@@ -5,6 +5,7 @@ import wechat_admin.wsgi
 import requests
 from bs4 import BeautifulSoup
 
+from NewsModel.admin import SiteDao
 from NewsModel.models import Site, News
 from spider.loggers.log import crawler
 from spider.news.CrawlLog import CrawlLog
@@ -13,7 +14,6 @@ from spider.news.ModelJsonPipeline import ModelJsonPipeline
 from spider.news.MongoPipeline import MongoPipeline
 from spider.news.RedisDuplicate import RedisDuplicate
 from spider.task import news_crawl
-from spider.task.news_crawl import crawl_site_2level_page_task
 from spider.util.dateutil import DateUtil
 
 
@@ -103,7 +103,9 @@ class Spider():
             response = requests.get(start_url, timeout=self.timeout)
             soup = BeautifulSoup(response.content, 'lxml')
         except Exception as exc :#如果爬虫出错，加入重试
-            raise crawl_site_2level_page_task.retry(exc=exc)
+            raise news_crawl.crawl_site_2level_page_task.retry(exc=exc)
+        # 放入抓取过的列表中
+        self.duplicate.put(start_url, is2level_page=True)
         urls = []
         if (self.site.url_rule_css):
             url_tags = soup.select(self.site.url_rule_css)
@@ -137,8 +139,9 @@ class Spider():
                                 if (self.duplicate.is_duplicate(url, is2level_page=True) == False):
 
                                     # self.crawl_site_url(url, deep + 1)
-                                    crawler.info('sending crawl　2level page task: ' + url)
-                                    news_crawl.excute_crawl_site_2level_page_task(self.site.id, self.site.name, url, deep + 1)
+                                    # crawler.info('sending crawl　2level page task: ' + url)
+                                    # news_crawl.excute_crawl_site_2level_page_task(self.site.id, self.site.name, url, deep + 1)
+                                    pass
 
                             else:
                                 crawler.info('ignore crawled [' + self.site.name + '] 第' + str(deep) + '层页面 ' + url)
@@ -150,8 +153,6 @@ class Spider():
                     self.error_log.log(
                         {'msg': 'crawl 2level page error', 'url': start_url, 'site': self.site.name, 'main_name': self.site.main_name, 'deep': deep})
                     crawler.error(e)
-            # 放入抓取过的列表中
-            self.duplicate.put(start_url, is2level_page=True)
             self.success_log.log({'msg': 'success', 'url': start_url, 'site': self.site.name, 'main_name': self.site.main_name, 'deep': deep})
         crawler.info('crawl_success_count : ' + str(self.crawl_success_count))
 
@@ -258,7 +259,8 @@ class Spider():
                         attr_tag = soup.select_one(attr_css)
                         if (attr_tag):
                             attr = attr_tag.get_text()
-                            break
+                            if attr and attr != '':
+                                break
                     # elif self.site.title_rule_xpath:
                     #     yield
                     # elif self.site.url_rule_reg:
@@ -266,8 +268,10 @@ class Spider():
                     except Exception as e:
                         crawler.error(e)
                         crawler.error('error rule is : ' + attr_css)
-
-        return attr
+        if attr and attr != '':
+            return attr
+        else:
+            return None
 
     '''
     判定是否是不允许爬取的url
@@ -298,17 +302,20 @@ class Spider():
 
 
 if __name__ == '__main__':
-    site = Site()
-    site.name = '新浪新闻'
-    site.start_urls = 'http://news.sina.com.cn/'
-    site.allow_domains = 'http://.*.sina.com.*'
-    site.not_allowed_domains = 'http://video.*\r\nhttp://slide.*\r\nhttp://blog.*\r\nhttp://ent.*'
-    site.url_rule_css = 'a'
+    # site = Site()
+    # site.name = '新浪新闻'
+    # site.start_urls = 'http://news.sina.com.cn/'
+    # site.allow_domains = 'http://.*.sina.com.*'
+    # site.not_allowed_domains = 'http://video.*\r\nhttp://slide.*\r\nhttp://blog.*\r\nhttp://ent.*'
+    # site.url_rule_css = 'a'
+    #
+    # site.title_rule_css = '#artibodyTitle;#main_title;#j_title;div.LEFT  span > h1;body > div.transfer-warp > div.header > h1'
+    # site.pub_time_rule_css = '#navtimeSource;#pub_date;#page-tools > span > span.titer;#wrapOuter > div > div.page-info > span;span.article-a__time;div.LEFT  span > div.txtdetail'
+    # site.content_rule_css = '#artibody'
+    # site.source_rule_css = '#navtimeSource > span > span;#page-tools > span > span.source;#navtimeSource > span;#wrapOuter > div > div.page-info > span > span;#media_name;span.article-a__source;div.LEFT  span > div.txtdetail > a'
+    # site.comment_num_rule_css = '#commentCount1;a.tool-a__cmnt > em'
 
-    site.title_rule_css = '#artibodyTitle;#main_title;#j_title;div.LEFT  span > h1;body > div.transfer-warp > div.header > h1'
-    site.pub_time_rule_css = '#navtimeSource;#pub_date;#page-tools > span > span.titer;#wrapOuter > div > div.page-info > span;span.article-a__time;div.LEFT  span > div.txtdetail'
-    site.content_rule_css = '#artibody'
-    site.source_rule_css = '#navtimeSource > span > span;#page-tools > span > span.source;#navtimeSource > span;#wrapOuter > div > div.page-info > span > span;#media_name;span.article-a__source;div.LEFT  span > div.txtdetail > a'
-    site.comment_num_rule_css = '#commentCount1;a.tool-a__cmnt > em'
+
+    site = SiteDao.find_by_id(7).first()
     spider = Spider(site)
     spider.start_crawl_site()

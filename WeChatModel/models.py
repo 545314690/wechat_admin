@@ -7,8 +7,8 @@ from django.utils.html import format_html
 
 
 class BaseModel(models.Model):
-    date_created = models.DateTimeField('创建时间', auto_now_add=True)
-    date_modified = models.DateTimeField('更新时间', auto_now=True)
+    date_created = models.DateTimeField('创建时间', auto_now_add=True, blank=True)
+    date_modified = models.DateTimeField('更新时间', auto_now=True, blank=True)
 
     class Meta:
         abstract = True
