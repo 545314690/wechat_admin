@@ -12,7 +12,7 @@ class MongoUtil(object):
     DB_NAME = conf.get('db');
     COLLECTION_NAME = 'news'
     db = client[DB_NAME]
-    db.authenticate(conf.get('user'), conf.get('pwd'))
+    #db.authenticate(conf.get('user'), conf.get('pwd'))
 
     @staticmethod
     def get_db():

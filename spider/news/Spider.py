@@ -140,7 +140,7 @@ class Spider():
 
                                     # self.crawl_site_url(url, deep + 1)
                                     # crawler.info('sending crawl　2level page task: ' + url)
-                                    # news_crawl.excute_crawl_site_2level_page_task(self.site.id, self.site.name, url, deep + 1)
+                                    news_crawl.excute_crawl_site_2level_page_task(self.site.id, self.site.name, url, deep + 1)
                                     pass
 
                             else:

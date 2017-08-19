@@ -55,7 +55,7 @@ email:
 
 # mongodb配置
 mongodb:
-    host: 192.168.0.2
+    host: 192.168.0.118
     port: 27007
     db: anjian-db
     user: anjian
