@@ -32,6 +32,7 @@ class Spider():
     def __init__(self, site):
         self.site = site
         self.default_allow_domains = ['http://.*', 'https://.*']
+        self.ignore_file_type_list = ['.*.apk', '.*.exe', '.*.dmg', '.*.tar', '.*.gz', '.*.zip', '.*.psd','.*.png', '.*.jepg','.*.pdf', '.*.doc', '.*.docx', '.*.ppt', '.*.pptx', '.*.xls', '.*.xls']
         self.crawl_success_count = 0
         self.add_pipelines()
         self.add_duplicate()
@@ -276,10 +277,13 @@ class Spider():
             return None
 
     '''
-    判定是否是不允许爬取的url
+    判定是否是不允许爬取的url,和不允许下载的文件类型
     '''
 
     def is_not_allowed_url(self, url):
+        for ignore_file_type in self.ignore_file_type_list:
+            if (re.search(ignore_file_type, url)):
+                return True
         if (self.site.not_allowed_domains):
             not_allowed_domains = self.site.not_allowed_domains.split(Spider.URL_SPLITTER)
             for not_allowed_domain in not_allowed_domains:
