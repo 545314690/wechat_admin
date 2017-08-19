@@ -112,11 +112,11 @@ class Spider():
             crawler.info('parsed [' + self.site.name + '] 第' + str(deep) + '层页面 ' + start_url + ' 共有url数量-->' + str(len(url_tags)))
             for url_tag in url_tags:
                 try:
-                    text = url_tag.get_text()
-                    url = url_tag['href']
+                    text = url_tag.get_text().strip()
+                    url = url_tag['href'].strip()
                     # TODO:
                     # len　函数需要修改，因为英文单词是按字母量计算的
-                    text_len = len(text.strip())
+                    text_len = len(text)
                     if (self.is_allowed_url(url) == True):
                         '''
                         详情页
@@ -179,6 +179,7 @@ class Spider():
             self.error_log.log({'msg': 'title', 'url': detail_url, 'site': self.site.name, 'main_name': self.site.main_name})
             return
         else:
+            title = title.strip()
             crawler.info('title-->' + title)
         pub_time = self.parse_attr(soup, 'pub_time')
         if (pub_time == None):
@@ -194,6 +195,7 @@ class Spider():
             self.error_log.log({'msg': 'source', 'url': detail_url, 'site': self.site.name, 'main_name': self.site.main_name})
             # return
         else:
+            source = source.strip()
             crawler.info('source-->' + source)
         content = self.parse_attr(soup, 'content')
         if (content == None):
@@ -201,6 +203,7 @@ class Spider():
             self.error_log.log({'msg': 'content', 'url': detail_url, 'site': self.site.name, 'main_name': self.site.main_name})
             return
         else:
+            content = content.strip()
             crawler.debug('content-->' + content)
 
         comment_num = self.parse_attr(soup, 'comment_num')
@@ -216,11 +219,10 @@ class Spider():
         else:
             news.site = self.site.name
         news.title = title.strip()
-        detail_url = detail_url.strip()
         news.url = detail_url
         news.pub_time = pub_time
-        news.content = content.strip()
-        news.source = source.strip()
+        news.content = content
+        news.source = source
         news.comment_num = comment_num
         # 放入管道
         self.put_to_pipelines(news)
