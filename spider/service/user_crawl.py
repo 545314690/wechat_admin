@@ -62,7 +62,7 @@ def get_user_list(search_url):
             #TODO:
             #触发爬取该用户url的任务,根据公众号的fakeid，即为biz
             logger.info("开始爬取公众号：" + item.get('nickname'))
-            wechat_crawl.excute_wechat_user_crawl_task(item.get('fakeid'))
+#            wechat_crawl.excute_wechat_user_crawl_task(item.get('fakeid'))
         except Exception as e:
             logger.error("保存公众号失败：" + json_str)
             logger.error(e)
