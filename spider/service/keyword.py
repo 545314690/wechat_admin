@@ -5,7 +5,7 @@ from spider.loggers.log import crawler as logger
 from spider.service import user_crawl
 from spider.service.common import *
 
-page_size = 10
+page_size = USER_PAGE_LIMIT
 start = 0
 
 

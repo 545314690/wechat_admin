@@ -5,7 +5,7 @@ import time
 from spider.db.redis_db import Cookies
 from spider.loggers.log import login
 from spider.service.common import get_token_by_cookies
-
+#download form https://chromedriver.storage.googleapis.com/2.27/chromedriver_linux64.zip
 account_xpath = '//*[@id="header"]/div[2]/div/div/form/div[1]/div[1]/div/span/input'
 pwd_xpath = '//*[@id="header"]/div[2]/div/div/form/div[1]/div[2]/div/span/input'
 login_btn_xpath = '//*[@id="header"]/div[2]/div/div/form/div[4]/a'

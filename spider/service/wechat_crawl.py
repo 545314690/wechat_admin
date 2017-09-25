@@ -25,7 +25,7 @@ url_save_path = get_url_save_path()
 # 入口：获取所有相关文章
 def fetch_user_all_url(wechat_biz):
     begin = 0
-    count =50
+    count = ARTICLE_PAGE_LIMIT
     name_cookies = get_cookie()
     # 先进行一次搜索并保存
     max_num = get_total(wechat_biz, begin, 1, name_cookies)
@@ -111,7 +111,10 @@ def get_article(article_url):
         # meta_content = soup.find(id='meta_content')
         # time_str = meta_content.find(id='post-date').get_text()
         # nickname = meta_content.find_all('em')[1].get_text()
-        content_div = soup.find(id='js_content')
+        #首先提取分享的内容，如果没有再去提取正文（如果文章是分享的内容为js_share_content，js_content则为空）
+        content_div = soup.find(id='js_share_content')
+        if(content_div == None):
+            content_div = soup.find(id='js_content')
         # content = content_div.get_text()
         content = str(content_div)
         msg_title = (re.search('(var msg_title = ")(.*)"', html_str).group(2))
@@ -162,5 +165,6 @@ def get_article(article_url):
         logger.error(e)
 
 # if __name__ == '__main__':
-#     get_article(
-#         'http://mp.weixin.qq.com/s?__biz=MzA3NjcwNjgyOQ==&mid=204671295&idx=3&sn=731238aecce2c638c3c1157092650e18#rd')
+    # share_article_url  = "https://mp.weixin.qq.com/s?__biz=MzA5MzIwNDk5Ng==&mid=2649719243&idx=2&sn=175caa81361cfea8acbb5ead4211b5b6&chksm=887a46a0bf0dcfb6d4c6c4e12eea067446d7e6035e45404d9a0666ab66822e0f7027e37cbb3e#rd"
+    # article_url ='http://mp.weixin.qq.com/s?__biz=MzA3NjcwNjgyOQ==&mid=204671295&idx=3&sn=731238aecce2c638c3c1157092650e18#rd'
+    # get_article(article_url)

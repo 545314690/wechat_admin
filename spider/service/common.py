@@ -18,7 +18,8 @@ header = {
 }
 
 EMAIL_WECHAT_LOGIN = 'wechat_login'
-
+USER_PAGE_LIMIT = 10
+ARTICLE_PAGE_LIMIT = 5
 # 记录上次发送邮件时间，２小时内不再发送邮件
 last_remaind_time = 0
 def get_cookie():
@@ -66,7 +67,7 @@ def get_request_url(base_url, params):
     return request_url
 
 #得到搜索公众号的链接
-def get_search_biz_url(query='', begin=0, count=10, token=None):
+def get_search_biz_url(query='', begin=0, count=USER_PAGE_LIMIT, token=None):
     default = {
         'action': 'search_biz',
         'lang': 'zh_CN',
@@ -75,7 +76,7 @@ def get_search_biz_url(query='', begin=0, count=10, token=None):
         'random': random.random(),
         'query': '',
         'begin': '{}'.format(str(0)),
-        'count': 10
+        'count': count
     }
     default['query'] = query
     default['begin'] = '{}'.format(str(begin))
@@ -85,7 +86,7 @@ def get_search_biz_url(query='', begin=0, count=10, token=None):
     return get_request_url(base_search_biz_url, default)
 
 #得到搜索文章的链接
-def get_search_wechat_url(fakeid='', begin=0, count=50, token=None):
+def get_search_wechat_url(fakeid='', begin=0, count=ARTICLE_PAGE_LIMIT, token=None):
     default = {
         'lang': 'zh_CN',
         'f': 'json',
@@ -93,7 +94,7 @@ def get_search_wechat_url(fakeid='', begin=0, count=50, token=None):
         'random': random.random(),
         'action': 'list_ex',
         'begin': '0',
-        'count': '50',
+        'count': count,
         'fakeid': '',  # 公众号的biz
         'query': '',  # 文章关键词搜索，这里写空，代表搜索所有文章
         'type': '9'
