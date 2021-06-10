@@ -1,7 +1,7 @@
 beautifulsoup4==4.6.0
 bs4==0.0.1
 celery==4.1.0
-Django==1.11.3
+Django==2.2.24
 django-dotenv==1.4.1
 django-suit==0.2.25
 flower==0.9.1
