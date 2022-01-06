@@ -7,7 +7,7 @@ Babel==2.4.0
 beautifulsoup4==4.6.0
 billiard==3.3.0.23
 bs4==0.0.1
-celery==3.1.25
+celery==5.2.2
 cffi==1.10.0
 chardet==2.3.0
 constantly==15.1.0
