@@ -18,7 +18,7 @@ dae==0.1
 defer==1.0.6
 Django==1.8.18
 django-suit==0.2.25
-flower==0.9.1
+flower==1.2.0
 hyperlink==17.2.1
 idna==2.5
 incremental==17.5.0
